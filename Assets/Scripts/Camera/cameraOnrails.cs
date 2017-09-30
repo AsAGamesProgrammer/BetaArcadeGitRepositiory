@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class cameraOnrails : MonoBehaviour {
 
-    public GameObject[] destinations;
+    public GameObject destinationCollection;
+    private Transform[] destinations;
 
     private int nextDestination =0;
     private bool canMove = true;
 
+    private void Start()
+    {
+        int arrayLength = destinationCollection.transform.childCount;
+        destinations = new Transform[arrayLength];
+
+        int nextObject = 0;
+
+        foreach (Transform child in destinationCollection.transform)
+        {
+            destinations[nextObject] = child;
+            nextObject++;
+        }
+    }
 
     public void changeDestination()
     {
