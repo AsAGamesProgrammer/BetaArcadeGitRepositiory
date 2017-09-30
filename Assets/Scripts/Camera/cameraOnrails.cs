@@ -4,43 +4,98 @@ using UnityEngine;
 
 public class cameraOnrails : MonoBehaviour {
 
-    public GameObject[] destinations;
+    //--------VARIABLES---------
+    public GameObject destinationCollection;    //Collection of the  game objects representing destinations
+    private Transform[] destinations;           //Array of transforms, which serve as destinations
 
-    private int nextDestination =0;
-    private bool canMove = true;
+    public int nextDestination =0;             //Indicates a destination camera is moving towards
+    public int previousDestination = -1;
 
+    public float rotationSpeed = 2.0f;          //Speed of quaternion lerp used in rotation
 
-    public void changeDestination()
+    bool movingForwards = false;                //Indicates if a player is moving forward
+    bool movingBackwards = false;               //Indicates if a player is moving backwards
+
+    //-------CONSTRUCTOR--------
+    private void Start()
     {
-        if (destinations.Length > nextDestination + 1)
+        //Define size of the "destination" array
+        int arrayLength = destinationCollection.transform.childCount;
+        destinations = new Transform[arrayLength];
+
+        //Populate "destination" array
+        int nextObject = 0;
+        foreach (Transform child in destinationCollection.transform)
         {
-            nextDestination++;
-            transform.rotation = destinations[nextDestination].transform.rotation;
+            child.GetComponent<cameraDestination>().id = nextObject;
+            destinations[nextObject] = child;
+            nextObject++;
+        }
+    }
+
+    //------FUNCTIONALITY--------
+
+    //Changes destination of the camera, is called by destination prefabs
+    public void changeDestination(int id)
+    {
+        if (movingForwards)
+        {
+            nextDestination = id + 1;
+            previousDestination = id;
         }
         else
-            canMove = false;
+        {
+            nextDestination = id;
+            previousDestination = id-1;
+        }
     }
 	
-	// Update is called once per frame
+	// Update, currently handles player input
 	void Update ()
     {
-        if (Input.GetKey("space"))
+        if (Input.GetKey("up"))
         {
-            if (canMove)
-                MoveForward();
+            MoveForward();
+        }
+
+        if (Input.GetKey("down"))
+        {
+            MoveBackwards();
         }
 
 	}
 
-    //Move to the next position
-    void MoveForward()
+    //Move to any destination
+    void MoveToDestination(int destinationIdx)
     {
-        transform.position = Vector3.Lerp(transform.position, destinations[nextDestination].transform.position, Time.deltaTime);
+        //Lerp between two positions
+        transform.position = Vector3.Lerp(transform.position, destinations[destinationIdx].transform.position, Time.deltaTime);
+
+        //Lerp between two rotations
+        transform.rotation = Quaternion.Lerp(transform.rotation, destinations[destinationIdx].transform.rotation, Time.deltaTime * rotationSpeed);
     }
 
-    //Move to the previous position
+    //Move forward to the next position
+    void MoveForward()
+    {
+        //Change moving direction
+        movingBackwards = false;
+        movingForwards = true;
+
+        //Move to a direction
+        if (nextDestination<destinations.Length)
+            MoveToDestination(nextDestination);
+    }
+
+    //Move back to the previous position
     void MoveBackwards()
     {
+        //Change moving direction
+        movingBackwards = true;
+        movingForwards = false;
 
+        //Move to a direction
+        if (previousDestination >-1)
+            MoveToDestination(previousDestination);
     }
 }
