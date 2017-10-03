@@ -10,7 +10,7 @@ public abstract class Character : MonoBehaviour {
     private float MoveSpeed = 5.0f;
 
     [SerializeField]
-    [Tooltip("Use the direction of the main camera as forward when moving")]
+    [Tooltip("Use the direction of the main camera as forward when moving.")]
     private bool UseCameraDir = true;
 
     private CharacterController mCharacterController;
