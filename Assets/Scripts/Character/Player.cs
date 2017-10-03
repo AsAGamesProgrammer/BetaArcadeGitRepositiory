@@ -11,7 +11,7 @@ public class Player : Character {
     {
         var playerMovement = new Vector2(Input.GetAxis("Horizontal"),
                                          Input.GetAxis("Vertical"));
-        Move(playerMovement);
+        if(playerMovement.magnitude > 0.0f) Move(playerMovement);
         ApplyGravity();
     }
 }

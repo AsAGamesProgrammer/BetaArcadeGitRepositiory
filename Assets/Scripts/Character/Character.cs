@@ -9,6 +9,10 @@ public abstract class Character : MonoBehaviour {
     [SerializeField]
     private float MoveSpeed = 5.0f;
 
+    [Range(10.0f, 30.0f)]
+    [SerializeField]
+    private float RotateSpeed = 20.0f;
+
     [SerializeField]
     [Tooltip("Use the direction of the main camera as forward when moving.")]
     private bool UseCameraDir = true;
@@ -56,6 +60,6 @@ public abstract class Character : MonoBehaviour {
         var camForwardVector = Camera.main.transform.forward.normalized;
         var targetPos = this.transform.position + camForwardVector;
         var targetRot = Quaternion.LookRotation(new Vector3(targetPos.x, this.transform.position.y, targetPos.z) - this.transform.position);
-        this.transform.rotation = targetRot;
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRot, Time.deltaTime * RotateSpeed);
     }
 }

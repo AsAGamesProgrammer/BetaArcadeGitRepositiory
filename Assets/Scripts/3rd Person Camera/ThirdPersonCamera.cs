@@ -31,7 +31,7 @@ public class ThirdPersonCamera : MonoBehaviour {
     [Range(0.0f, 40.0f)]
     private float MinVerticalAngle = 30.0f;
 
-    [Header("Sensitivity")]
+    [Header("Input")]
 
     [SerializeField]
     [Range(1.0f, 10.0f)]
@@ -40,6 +40,9 @@ public class ThirdPersonCamera : MonoBehaviour {
     [SerializeField]
     [Range(1.0f, 10.0f)]
     private float MouseYSensitivity = 1.0f;
+
+    [SerializeField]
+    private bool InvertY = false;
 
     private Vector3 mCameraOffsetRot = Vector3.zero;    
 
@@ -89,8 +92,8 @@ public class ThirdPersonCamera : MonoBehaviour {
     private void UpdatePosition()
     {
         // Getting player input for the cameras position.
-        mCameraOffsetRot.y += Input.GetAxis("Mouse X") * MouseXSensitivity;
-        mCameraOffsetRot.x -= Input.GetAxis("Mouse Y") * MouseYSensitivity;
+        mCameraOffsetRot.y += Input.GetAxis("Alt Horizontal") * MouseXSensitivity;
+        mCameraOffsetRot.x -= Input.GetAxis("Alt Vertical") * MouseYSensitivity * (InvertY ? -1.0f : 1.0f);
         mCameraOffsetRot.x = Mathf.Clamp(mCameraOffsetRot.x, MinVerticalAngle, MaxVerticalAngle);
 
         // Updating the camera position, and following the player.
