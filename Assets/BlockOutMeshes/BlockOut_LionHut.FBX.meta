@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 857721671fb4c2c46860813bfb6effd9
-timeCreated: 1507124189
+guid: da1e998c1cb488e4e8ebb1225ff6b100
+timeCreated: 1507127318
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
@@ -10,6 +10,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Box001
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1
