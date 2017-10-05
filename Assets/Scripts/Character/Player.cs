@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 public class Player : Character {
 
     [SerializeField]
@@ -18,13 +19,17 @@ public class Player : Character {
 
     private void Update()
     {
-        // Checking for player input.
+        // Checking for user input.
         var playerMovement = new Vector2(Input.GetAxis("Horizontal"),
                                          Input.GetAxis("Vertical"));
 
         // Moving the player if an input was provided.
         if (playerMovement.magnitude > 0.0f)
             Move(playerMovement);
+
+        // Making the player jump if the jump button is pressed.
+        if (Input.GetButtonDown("Jump"))
+            Jump();
     }
 
 
@@ -32,7 +37,7 @@ public class Player : Character {
 
     protected sealed override void Move(Vector2 moveDir, float speedMultiplier = 1)
     {
-        // Aligning the character to the camera direction if required.
+        // Aligning the player to the camera direction if required.
         if (UseCameraDir) AlignToCamera();
 
         // Calling the base version of the 'Move' function.
@@ -44,7 +49,7 @@ public class Player : Character {
 
     private void AlignToCamera()
     {
-        // Rotating the character to align with the current direction of the main camera.
+        // Rotating the player to align with the current direction of the main camera.
         if (Camera.main == null) return;
         var camForwardVector = Camera.main.transform.forward.normalized;
         var targetPos = this.transform.position + camForwardVector;

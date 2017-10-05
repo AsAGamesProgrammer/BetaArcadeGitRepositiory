@@ -7,10 +7,25 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour {
 
     [SerializeField]
-    [Range(200.0f, 400.0f)]
-    private float MoveSpeed = 5.0f;
+    [Range(0.0f, 1000.0f)]
+    [Tooltip("The horizontal speed at which the character will move.")]
+    private float MoveSpeed = 400.0f;
+
+    [SerializeField]
+    [Range(0.0f, 1000.0f)]
+    [Tooltip("The vertical force applied to the character when they jump.")]
+    private float JumpForce = 400.0f;
+
+    [SerializeField]
+    [Tooltip("Allow the character to move while in mid air.")]
+    private bool HasAirControl = true;
+
+    [SerializeField]
+    [Tooltip("Allow the character to jump once while in mid air.")]
+    private bool CanDoubleJump = false;
 
     private Rigidbody mRigidbody;
+    private bool mHasDoubleJumped = false;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
@@ -31,11 +46,20 @@ public abstract class Character : MonoBehaviour {
                                  RigidbodyConstraints.FreezeRotationZ;
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        // Reseting double jump if the character is grounded.
+        if (IsGrounded()) mHasDoubleJumped = false;
+    }
+
 
     //-----------------------------------------Protected Functions-----------------------------------------
 
     protected virtual void Move(Vector2 moveDir, float speedMultiplier = 1.0f)
     {
+        // Exiting early if air control is disabled and the character is in the air.
+        if (!IsGrounded() && !HasAirControl) return;
+
         // Calculating the new velocity of the character.
         var currentVelocity = mRigidbody.velocity;
         var newVelocity = new Vector3(moveDir.x, 0.0f, moveDir.y) * MoveSpeed * Mathf.Clamp01(speedMultiplier) * Time.deltaTime;
@@ -44,5 +68,37 @@ public abstract class Character : MonoBehaviour {
 
         // Applying the new velocity to the rigidbody.
         mRigidbody.velocity = newVelocity;
+    }
+
+    protected virtual void Jump()
+    {
+        // Checking if the character is grounded.
+        if (!IsGrounded())
+        {
+            // Allowing the character to jump in mid air if double jumping is enabled.
+            if (CanDoubleJump && !mHasDoubleJumped) mHasDoubleJumped = true;
+
+            // Exiting early if double jump isn't enabled or the character has already double jumped.
+            else return;
+        }
+
+        // Removing any vertical velocity that the rigidbody has.
+        mRigidbody.velocity = new Vector3(mRigidbody.velocity.x, 0.0f, mRigidbody.velocity.z);
+
+        // Adding the jump force to the rigidbody.
+        mRigidbody.AddForce(Vector3.up * JumpForce);
+    }
+
+
+    //------------------------------------------Private Functions------------------------------------------
+
+    private bool IsGrounded()
+    {
+        // Raycasting down out the bottom of the character.
+        RaycastHit hit;
+        Physics.Raycast(this.transform.position, Vector3.down, out hit, Mathf.Abs(this.transform.lossyScale.y)+0.1f);
+
+        // Returning true if the ray hit something.
+        return (hit.collider != null);
     }
 }
