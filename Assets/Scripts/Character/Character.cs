@@ -2,64 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CapsuleCollider))]
 public abstract class Character : MonoBehaviour {
 
-    [Range(0.0f, 10.0f)]
     [SerializeField]
+    [Range(200.0f, 400.0f)]
     private float MoveSpeed = 5.0f;
 
-    [Range(10.0f, 30.0f)]
-    [SerializeField]
-    private float RotateSpeed = 20.0f;
-
-    [SerializeField]
-    [Tooltip("Use the direction of the main camera as forward when moving.")]
-    private bool UseCameraDir = true;
-
-    private CharacterController mCharacterController;
+    private Rigidbody mRigidbody;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
 
     private void Start()
     {
-        // Getting the 'Character Controller' component.
-        mCharacterController = this.GetComponent<CharacterController>();
+        // Getting the rigidbody component.
+        mRigidbody = this.GetComponent<Rigidbody>();
+
+        // Setting rigidbody constraints.
+        mRigidbody.drag = 0.0f;
+        mRigidbody.maxAngularVelocity = 0.0f;
+        mRigidbody.useGravity = true;
+        mRigidbody.isKinematic = false;
+        mRigidbody.interpolation = RigidbodyInterpolation.None;
+        mRigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
+        mRigidbody.constraints = RigidbodyConstraints.FreezeRotationX |
+                                 RigidbodyConstraints.FreezeRotationZ;
     }
 
 
     //-----------------------------------------Protected Functions-----------------------------------------
 
-    protected void Move(Vector2 moveDir, float speedMultiplier = 1.0f)
+    protected virtual void Move(Vector2 moveDir, float speedMultiplier = 1.0f)
     {
-        // Aligning to the camera direction if required.
-        if (UseCameraDir) AlignToCamera();
+        // Calculating the new velocity of the character.
+        var currentVelocity = mRigidbody.velocity;
+        var newVelocity = new Vector3(moveDir.x, 0.0f, moveDir.y) * MoveSpeed * Mathf.Clamp01(speedMultiplier) * Time.deltaTime;
+        newVelocity = this.transform.TransformDirection(newVelocity);
+        newVelocity.y = currentVelocity.y;
 
-        // Calculating the velocity of the character.
-        var moveVelocity = new Vector3(moveDir.x, 0.0f, moveDir.y) * MoveSpeed * Mathf.Clamp01(speedMultiplier);
-        moveVelocity = this.transform.TransformDirection(moveVelocity);
-
-        // Moving the character controller.
-        mCharacterController.Move(moveVelocity * Time.deltaTime);
-    }
-
-    protected void ApplyGravity()
-    {
-        // Applying gravity to the character controller.
-        mCharacterController.Move(new Vector3(0.0f, Physics.gravity.y, 0.0f) * Time.deltaTime);
-    }
-
-
-    //------------------------------------------Private Functions------------------------------------------
-
-    private void AlignToCamera()
-    {
-        // Rotating the character to align with the current direction of the main camera.
-        if (Camera.main == null) return;
-        var camForwardVector = Camera.main.transform.forward.normalized;
-        var targetPos = this.transform.position + camForwardVector;
-        var targetRot = Quaternion.LookRotation(new Vector3(targetPos.x, this.transform.position.y, targetPos.z) - this.transform.position);
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRot, Time.deltaTime * RotateSpeed);
+        // Applying the new velocity to the rigidbody.
+        mRigidbody.velocity = newVelocity;
     }
 }
