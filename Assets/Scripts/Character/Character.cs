@@ -2,64 +2,103 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CapsuleCollider))]
 public abstract class Character : MonoBehaviour {
 
-    [Range(0.0f, 10.0f)]
     [SerializeField]
-    private float MoveSpeed = 5.0f;
-
-    [Range(10.0f, 30.0f)]
-    [SerializeField]
-    private float RotateSpeed = 20.0f;
+    [Range(0.0f, 1000.0f)]
+    [Tooltip("The horizontal speed at which the character will move.")]
+    private float MoveSpeed = 400.0f;
 
     [SerializeField]
-    [Tooltip("Use the direction of the main camera as forward when moving.")]
-    private bool UseCameraDir = true;
+    [Range(0.0f, 1000.0f)]
+    [Tooltip("The vertical force applied to the character when they jump.")]
+    private float JumpForce = 400.0f;
 
-    private CharacterController mCharacterController;
+    [SerializeField]
+    [Tooltip("Allow the character to move while in mid air.")]
+    private bool HasAirControl = true;
+
+    [SerializeField]
+    [Tooltip("Allow the character to jump once while in mid air.")]
+    private bool CanDoubleJump = false;
+
+    private Rigidbody mRigidbody;
+    private bool mHasDoubleJumped = false;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
 
     private void Start()
     {
-        // Getting the 'Character Controller' component.
-        mCharacterController = this.GetComponent<CharacterController>();
+        // Getting the rigidbody component.
+        mRigidbody = this.GetComponent<Rigidbody>();
+
+        // Setting rigidbody constraints.
+        mRigidbody.drag = 0.0f;
+        mRigidbody.maxAngularVelocity = 0.0f;
+        mRigidbody.useGravity = true;
+        mRigidbody.isKinematic = false;
+        mRigidbody.interpolation = RigidbodyInterpolation.None;
+        mRigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
+        mRigidbody.constraints = RigidbodyConstraints.FreezeRotationX |
+                                 RigidbodyConstraints.FreezeRotationZ;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        // Reseting double jump if the character is grounded.
+        if (IsGrounded()) mHasDoubleJumped = false;
     }
 
 
     //-----------------------------------------Protected Functions-----------------------------------------
 
-    protected void Move(Vector2 moveDir, float speedMultiplier = 1.0f)
+    protected virtual void Move(Vector2 moveDir, float speedMultiplier = 1.0f)
     {
-        // Aligning to the camera direction if required.
-        if (UseCameraDir) AlignToCamera();
+        // Exiting early if air control is disabled and the character is in the air.
+        if (!IsGrounded() && !HasAirControl) return;
 
-        // Calculating the velocity of the character.
-        var moveVelocity = new Vector3(moveDir.x, 0.0f, moveDir.y) * MoveSpeed * Mathf.Clamp01(speedMultiplier);
-        moveVelocity = this.transform.TransformDirection(moveVelocity);
+        // Calculating the new velocity of the character.
+        var currentVelocity = mRigidbody.velocity;
+        var newVelocity = new Vector3(moveDir.x, 0.0f, moveDir.y) * MoveSpeed * Mathf.Clamp01(speedMultiplier) * Time.deltaTime;
+        newVelocity = this.transform.TransformDirection(newVelocity);
+        newVelocity.y = currentVelocity.y;
 
-        // Moving the character controller.
-        mCharacterController.Move(moveVelocity * Time.deltaTime);
+        // Applying the new velocity to the rigidbody.
+        mRigidbody.velocity = newVelocity;
     }
 
-    protected void ApplyGravity()
+    protected virtual void Jump()
     {
-        // Applying gravity to the character controller.
-        mCharacterController.Move(new Vector3(0.0f, Physics.gravity.y, 0.0f) * Time.deltaTime);
+        // Checking if the character is grounded.
+        if (!IsGrounded())
+        {
+            // Allowing the character to jump in mid air if double jumping is enabled.
+            if (CanDoubleJump && !mHasDoubleJumped) mHasDoubleJumped = true;
+
+            // Exiting early if double jump isn't enabled or the character has already double jumped.
+            else return;
+        }
+
+        // Removing any vertical velocity that the rigidbody has.
+        mRigidbody.velocity = new Vector3(mRigidbody.velocity.x, 0.0f, mRigidbody.velocity.z);
+
+        // Adding the jump force to the rigidbody.
+        mRigidbody.AddForce(Vector3.up * JumpForce);
     }
 
 
     //------------------------------------------Private Functions------------------------------------------
 
-    private void AlignToCamera()
+    private bool IsGrounded()
     {
-        // Rotating the character to align with the current direction of the main camera.
-        if (Camera.main == null) return;
-        var camForwardVector = Camera.main.transform.forward.normalized;
-        var targetPos = this.transform.position + camForwardVector;
-        var targetRot = Quaternion.LookRotation(new Vector3(targetPos.x, this.transform.position.y, targetPos.z) - this.transform.position);
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRot, Time.deltaTime * RotateSpeed);
+        // Raycasting down out the bottom of the character.
+        RaycastHit hit;
+        Physics.Raycast(this.transform.position, Vector3.down, out hit, Mathf.Abs(this.transform.lossyScale.y)+0.1f);
+
+        // Returning true if the ray hit something.
+        return (hit.collider != null);
     }
 }
