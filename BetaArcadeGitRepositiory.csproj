@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\3rd Person Camera\ThirdPersonCamera.cs" />
     <Compile Include="Assets\Scripts\Camera\cameraDestination.cs" />
     <Compile Include="Assets\Scripts\Camera\cameraOnrails.cs" />
+    <Compile Include="Assets\Scripts\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Character\Player.cs" />
   </ItemGroup>

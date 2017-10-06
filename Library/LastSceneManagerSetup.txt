@@ -1,4 +1,7 @@
 sceneSetups:
-- path: Assets/Scenes/Hub_Blockout.unity
+- path: Assets/Scenes/Asyn_Scene.unity
   isLoaded: 1
   isActive: 1
+- path: Assets/Scenes/Hub_Blockout.unity
+  isLoaded: 0
+  isActive: 0
