@@ -16,6 +16,8 @@ public class cameraOnrails : MonoBehaviour {
     bool movingForwards = false;                //Indicates if a player is moving forward
     bool movingBackwards = false;               //Indicates if a player is moving backwards
 
+    float speed = 0.5f;
+
     //-------CONSTRUCTOR--------
     private void Start()
     {
@@ -31,6 +33,12 @@ public class cameraOnrails : MonoBehaviour {
             destinations[nextObject] = child;
             nextObject++;
         }
+
+        //Find Player
+       // GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //speed = player.gameObject.GetComponent<Player>().pMoveSpeed;
+
+
     }
 
     //------FUNCTIONALITY--------
@@ -69,7 +77,7 @@ public class cameraOnrails : MonoBehaviour {
     void MoveToDestination(int destinationIdx)
     {
         //Lerp between two positions
-        transform.position = Vector3.Lerp(transform.position, destinations[destinationIdx].transform.position, Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, destinations[destinationIdx].transform.position, Time.deltaTime * speed);
 
         //Lerp between two rotations
         transform.rotation = Quaternion.Lerp(transform.rotation, destinations[destinationIdx].transform.rotation, Time.deltaTime * rotationSpeed);
