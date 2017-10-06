@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Hub_Blockout.unity
+- path: Assets/Scenes/Scn_ButtonPuzzleProto.unity
   isLoaded: 1
   isActive: 1
