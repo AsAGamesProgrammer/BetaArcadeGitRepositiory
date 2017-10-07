@@ -115,7 +115,7 @@ public class CameraCave : MonoBehaviour {
         }
 
         //Bot
-        if (closeToTop)
+        if (closeToBot)
         {
             float distanceB = player.transform.position.z - botWall.position.z;
             if (distanceB < 0)
