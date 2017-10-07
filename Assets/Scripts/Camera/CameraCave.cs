@@ -38,8 +38,6 @@ public class CameraCave : MonoBehaviour {
     {
         cameraCanMove();
 
-        Debug.Log("Close to right " + closeToRight + " close to top "+closeToTop);
-
         Vector3 newPosition = player.transform.position;
 
         if (closeToRight || closeToLeft)
