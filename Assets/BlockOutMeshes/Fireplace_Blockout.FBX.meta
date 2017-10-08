@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 090e0c0dd1d958a48acf30583e535910
-timeCreated: 1507469918
+guid: 80d5641a3e5fe214ab4f33cba40eb70e
+timeCreated: 1507467900
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Plane005
+    4300000: Cylinder010
     9500000: //RootNode
   materials:
     importMaterials: 1
