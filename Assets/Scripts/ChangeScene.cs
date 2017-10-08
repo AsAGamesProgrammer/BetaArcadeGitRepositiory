@@ -16,16 +16,16 @@ public class ChangeScene : MonoBehaviour {
   {
 
     Scene oldScene = SceneManager.GetActiveScene();
-    Scene newScene = SceneManager.GetSceneByName(sceneName);
-
+    
     Camera oldMainCamera = Camera.main;
+    
     Camera.main.tag = "Untagged";
     async = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+    Scene newScene = SceneManager.GetSceneByName(sceneName);
     while (!async.isDone)
     {
-
       float x = async.progress;
-      if (async.progress > 0.9f)
+      if (async.progress >= 0.9f)
       {
         FindObjectOfType<AudioListener>().enabled = false;
         oldMainCamera.gameObject.SetActive(false);
@@ -34,9 +34,10 @@ public class ChangeScene : MonoBehaviour {
           go.SetActive(false);
           Destroy(go);
         }
+        transitionIsDone = false;
+        SceneManager.SetActiveScene(newScene);
         yield return null;
       }
-      SceneManager.SetActiveScene(newScene);
     }
   }
 
@@ -44,8 +45,6 @@ public class ChangeScene : MonoBehaviour {
     if (transitionIsDone)
     {
       StartCoroutine(ChangeSceneHelper(nextSceneName));
-      transitionIsDone = false;
-      SceneManager.sceneCount.ToString();
     } 
   }
 }
