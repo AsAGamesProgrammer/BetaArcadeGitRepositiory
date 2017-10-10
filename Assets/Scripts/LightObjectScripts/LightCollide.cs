@@ -6,7 +6,6 @@ public class LightCollide : MonoBehaviour {
 
 
   public GameObject Player;
-  public GameObject LightObject;
   // Use this for initialization
   void Start () {
 		
@@ -17,21 +16,15 @@ public class LightCollide : MonoBehaviour {
 
   }
 
-  void OnCollisionEnter(Collider other)
+  void OnTriggerEnter(Collider other)
   {
     if (other.name == Player.name)
     {
-      
-    }
-  }
-
-  void OnCollisionExit(Collider other)
-  {
-    if (other.name == "Detection Zone")
-    {
-      Debug.Log("leavingtrigger");
-      inSight = false;
-      Debug.Log("not in sight");
+      var targetScript = GetComponent<LightObject> ();
+      if (targetScript == null)
+        return;
+      if(!targetScript.LightOn)
+        targetScript.LightOn = true;
     }
   }
 }

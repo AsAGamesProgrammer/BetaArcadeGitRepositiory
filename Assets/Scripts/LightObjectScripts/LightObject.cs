@@ -10,6 +10,7 @@ public class LightObject : MonoBehaviour
   public bool LightOn;
   public float LightRange;
   float TimeOfRun;
+  bool IsRunning = false;
 
     // Use this for initialization
   void Start ()
@@ -20,18 +21,18 @@ public class LightObject : MonoBehaviour
       objectLight.enabled = LightOn;
       objectLight.intensity = Intensity;
       objectLight.range = LightRange;
-      StartCoroutine(TimerCount(objectLight));
     }
   }
 
 
   private IEnumerator TimerCount( Light objectLight)
   {
+    IsRunning = true;
     while (TimeOfRun > 0)
     {
       if(objectLight.range > 0)
-        objectLight.range -= LightRange/TimeOfRun;
-      yield return new WaitForSeconds(1);
+        objectLight.range -= 0.1f;
+      yield return new WaitForSeconds(0.1f);
     }
     if(TimeOfRun >= 0)
     {
@@ -39,6 +40,7 @@ public class LightObject : MonoBehaviour
       objectLight.intensity = Intensity;
       TimeOfRun = TimeOfLight;
     }
+    IsRunning = false;
   }
   // Update is called once per frame
   void Update ()
@@ -53,8 +55,13 @@ public class LightObject : MonoBehaviour
       objectLight.range = LightRange;
       TimeOfRun = TimeOfLight;
       LightOn = false;
-      StartCoroutine(TimerCount(objectLight));
     }
-    
+    if (!IsRunning)
+    {
+      StartCoroutine(TimerCount(objectLight));
+
+    }
+
+
   }
 }
