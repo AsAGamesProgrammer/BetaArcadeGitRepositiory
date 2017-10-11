@@ -17,7 +17,7 @@ public class Player : Character {
 
     //-------------------------------------------Unity Functions-------------------------------------------
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Checking for user input.
         var playerMovement = new Vector2(Input.GetAxis("Horizontal"),

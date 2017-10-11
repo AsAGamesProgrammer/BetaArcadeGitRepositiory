@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider))]
 public abstract class Character : MonoBehaviour {
 
+    public float pMoveSpeed { get { return MoveSpeed; } }
+
     [SerializeField]
     [Range(0.0f, 1000.0f)]
     [Tooltip("The horizontal speed at which the character will move.")]

@@ -16,6 +16,13 @@ public class cameraOnrails : MonoBehaviour {
     bool movingForwards = false;                //Indicates if a player is moving forward
     bool movingBackwards = false;               //Indicates if a player is moving backwards
 
+    float speed = 1f;
+
+    GameObject player;
+
+    public float distance = 5.0f;
+    public float currentDistance;
+
     //-------CONSTRUCTOR--------
     private void Start()
     {
@@ -31,6 +38,12 @@ public class cameraOnrails : MonoBehaviour {
             destinations[nextObject] = child;
             nextObject++;
         }
+
+        //Find Player
+        player = GameObject.FindGameObjectWithTag("Player");
+        //speed = player.gameObject.GetComponent<Player>().pMoveSpeed/Time.deltaTime;
+
+
     }
 
     //------FUNCTIONALITY--------
@@ -51,15 +64,17 @@ public class cameraOnrails : MonoBehaviour {
     }
 	
 	// Update, currently handles player input
-	void Update ()
+	void LateUpdate ()
     {
         if (Input.GetKey("up"))
         {
+            currentDistance = Vector3.Distance(player.transform.position, transform.position);
             MoveForward();
         }
 
         if (Input.GetKey("down"))
         {
+            currentDistance = Vector3.Distance(player.transform.position, transform.position);
             MoveBackwards();
         }
 
@@ -69,7 +84,7 @@ public class cameraOnrails : MonoBehaviour {
     void MoveToDestination(int destinationIdx)
     {
         //Lerp between two positions
-        transform.position = Vector3.Lerp(transform.position, destinations[destinationIdx].transform.position, Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, destinations[destinationIdx].transform.position, Time.deltaTime * speed);
 
         //Lerp between two rotations
         transform.rotation = Quaternion.Lerp(transform.rotation, destinations[destinationIdx].transform.rotation, Time.deltaTime * rotationSpeed);
@@ -78,6 +93,9 @@ public class cameraOnrails : MonoBehaviour {
     //Move forward to the next position
     void MoveForward()
     {
+        if (currentDistance < distance)
+            return;
+
         //Change moving direction
         movingBackwards = false;
         movingForwards = true;
@@ -90,6 +108,14 @@ public class cameraOnrails : MonoBehaviour {
     //Move back to the previous position
     void MoveBackwards()
     {
+        if (currentDistance > distance)
+        {
+            return;
+        }
+
+
+        Debug.Log("Moving backwards");
+
         //Change moving direction
         movingBackwards = true;
         movingForwards = false;
