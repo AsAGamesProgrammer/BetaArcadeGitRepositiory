@@ -79,9 +79,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\3rd Person Camera\ThirdPersonCamera.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Button\Button.cs" />
     <Compile Include="Assets\Scripts\Button\ButtonDemoScript.cs" />
     <Compile Include="Assets\Scripts\Button\ButtonPuzzleManager.cs" />
+=======
+    <Compile Include="Assets\Scripts\Camera\KeepObjectOnScreen.cs" />
+>>>>>>> CameraAndCharacter
     <Compile Include="Assets\Scripts\Camera\cameraDestination.cs" />
     <Compile Include="Assets\Scripts\Camera\cameraOnrails.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
