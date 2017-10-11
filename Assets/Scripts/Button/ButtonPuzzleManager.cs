@@ -15,6 +15,10 @@ public class ButtonPuzzleManager : MonoBehaviour {
     [Tooltip("The button that will unlock all buttons in the puzzle")]
     private Button ResetButton;
 
+    [SerializeField]
+    [Tooltip("Should the puzzle buttons reset if the player presses them in the wrong order?")]
+    private bool ResetOnLoose = false;
+
     private List<int> PressOrderIndexes = new List<int>();
 
 
@@ -39,7 +43,7 @@ public class ButtonPuzzleManager : MonoBehaviour {
             if (OrderIsCorrect())
                 PuzzleComplete = true;
             // Reseting the puzzle if the buttons were pressed in the wrong order.
-            else
+            else if(ResetOnLoose)
                 ResetPuzzle();
         }
     }

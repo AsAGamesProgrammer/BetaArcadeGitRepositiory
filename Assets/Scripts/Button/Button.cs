@@ -39,6 +39,7 @@ public class Button : MonoBehaviour {
 
     private float mInitialYPos = 0.0f;
     private bool mIsPosLocked = false;
+    private bool mIgnorePlayer = false;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
@@ -77,6 +78,13 @@ public class Button : MonoBehaviour {
         Gizmos.DrawCube(maxMoveCentre, new Vector3(1.0f, 0.05f, 1.0f));
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Reseting the 'mIgnorePlayer' variable if the player has come into contact with the button again.
+        if (collision.gameObject.tag == PlayerTag)
+            mIgnorePlayer = false;
+    }
+
 
     //-------------------------------------------Public Functions------------------------------------------
 
@@ -84,6 +92,9 @@ public class Button : MonoBehaviour {
     {
         // Setting whether the button pos is locked or not.
         mIsPosLocked = lockPos;
+
+        // Ignoring the player so the button can reset without the player stopping it.
+        if (!lockPos) mIgnorePlayer = true;
     }
 
     public bool IsBottomedOutAndLocked()
@@ -117,6 +128,9 @@ public class Button : MonoBehaviour {
 
     private bool IsBeingStoodOn()
     {
+        // Exiting early if the player should be ignored.
+        if (mIgnorePlayer) return false;
+
         // Firing a box cast out the top of the button to determine if the player is stood on top of it.
         var rayhits = Physics.BoxCastAll(this.transform.position + PushZoneCentre, PushZoneSize, this.transform.TransformDirection(Vector3.up), Quaternion.identity, (PushZoneSize * 2.0f).y);
         foreach (var hit in rayhits)
