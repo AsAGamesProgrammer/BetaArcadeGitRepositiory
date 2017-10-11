@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Scn_ButtonPuzzleProto.unity
-=======
 - path: Assets/Scenes/cameraCaveTest.unity
->>>>>>> CameraAndCharacter
   isLoaded: 1
   isActive: 1
