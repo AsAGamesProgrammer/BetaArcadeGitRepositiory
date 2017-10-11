@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/cameraCaveTest.unity
+=======
+- path: Assets/Scenes/Asyn_Scene.unity
+>>>>>>> SceneAsync
   isLoaded: 1
   isActive: 1
