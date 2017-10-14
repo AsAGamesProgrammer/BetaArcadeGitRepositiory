@@ -83,9 +83,9 @@
     <Compile Include="Assets\Scripts\Button\ButtonDemoScript.cs" />
     <Compile Include="Assets\Scripts\Button\ButtonPuzzleManager.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraCave.cs" />
-    <Compile Include="Assets\Scripts\Camera\KeepObjectOnScreen.cs" />
+    <Compile Include="Assets\Scripts\Camera\Obsolete\KeepObjectOnScreen.cs" />
+    <Compile Include="Assets\Scripts\Camera\Obsolete\cameraOnrails.cs" />
     <Compile Include="Assets\Scripts\Camera\cameraDestination.cs" />
-    <Compile Include="Assets\Scripts\Camera\cameraOnrails.cs" />
     <Compile Include="Assets\Scripts\Camera\cameraSwapTopDown.cs" />
     <Compile Include="Assets\Scripts\Camera\playerSwapCamera.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />

@@ -24,6 +24,10 @@ public class CameraCave : MonoBehaviour {
     //Resetting camera
     private Vector3 initialRotation;
 
+    private Vector3 lerpPosition;
+    private bool lerpCamera = false;
+    int lerpFrames = 0;
+
 
     // Use this for initialization
     void Start ()
@@ -40,22 +44,38 @@ public class CameraCave : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate ()
     {
+        Debug.Log(player.transform.position.z - topWall.position.z);
         cameraCanMove();
 
-        Vector3 newPosition = player.transform.position;
-
-        if (closeToRight || closeToLeft)
+        if (!lerpCamera)
         {
-            newPosition.x = transform.position.x-offset.x; 
-        }
 
-        if (closeToBot || closeToTop)
+            Vector3 newPosition = player.transform.position;
+
+            if (closeToRight || closeToLeft)
+            {
+                newPosition.x = transform.position.x - offset.x;
+            }
+
+            if (closeToBot || closeToTop)
+            {
+                newPosition.z = transform.position.z - offset.z;
+            }
+            transform.position = newPosition + offset;
+        }
+        else
         {
-            newPosition.z = transform.position.z - offset.z;
+            if (Vector3.Distance(transform.position, lerpPosition)>0.6)
+            {
+                resetPosition();
+                transform.position = Vector3.Lerp(transform.position, lerpPosition, Time.deltaTime * 7);
+            }
+            else
+            {
+                lerpCamera = false;
+            }
+
         }
-
-
-        transform.position = newPosition + offset;
     }
 
     //Checks if camera is not too cloase to the wall
@@ -150,9 +170,13 @@ public class CameraCave : MonoBehaviour {
             extraTrasform.x = -differenceR;
         }
 
-        transform.position = player.transform.position + offset + extraTrasform;
+        
+        //transform.position = player.transform.position + offset + extraTrasform;
+        lerpPosition = player.transform.position + offset + extraTrasform;
+        lerpCamera = true;
+        //transform.position = Vector3.Lerp(transform.position, player.transform.position + offset + extraTrasform, Time.deltaTime * 3);
 
 
-       
+
     }
 }
