@@ -1,4 +1,7 @@
 sceneSetups:
-- path: Assets/Scenes/Asyn_Scene.unity
+- path: Assets/Scenes/Hub_Blockout.unity
   isLoaded: 1
   isActive: 1
+- path: Assets/CaveGorge.unity
+  isLoaded: 1
+  isActive: 0
