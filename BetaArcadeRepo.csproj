@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Camera\Obsolete\cameraOnrails.cs" />
     <Compile Include="Assets\Scripts\Camera\cameraDestination.cs" />
     <Compile Include="Assets\Scripts\Camera\cameraSwapTopDown.cs" />
+    <Compile Include="Assets\Scripts\Camera\mapCamera.cs" />
     <Compile Include="Assets\Scripts\Camera\playerSwapCamera.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />

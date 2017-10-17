@@ -44,7 +44,6 @@ public class CameraCave : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate ()
     {
-        Debug.Log(player.transform.position.z - topWall.position.z);
         cameraCanMove();
 
         if (!lerpCamera)
