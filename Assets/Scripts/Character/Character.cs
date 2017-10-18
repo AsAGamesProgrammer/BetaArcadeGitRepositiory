@@ -8,6 +8,8 @@ public abstract class Character : MonoBehaviour {
 
     public float pMoveSpeed { get { return MoveSpeed; } }
 
+    protected Vector3 pVelocity { get { return mRigidbody.velocity; } }
+
     [SerializeField]
     [Range(0.0f, 1000.0f)]
     [Tooltip("The horizontal speed at which the character will move.")]
@@ -57,15 +59,15 @@ public abstract class Character : MonoBehaviour {
 
     //-----------------------------------------Protected Functions-----------------------------------------
 
-    protected virtual void Move(Vector2 moveDir, float speedMultiplier = 1.0f)
+    protected virtual void Move(Vector2 moveDir, Transform movementSpaceTrans)
     {
         // Exiting early if air control is disabled and the character is in the air.
         if (!IsGrounded() && !HasAirControl) return;
 
         // Calculating the new velocity of the character.
         var currentVelocity = mRigidbody.velocity;
-        var newVelocity = new Vector3(moveDir.x, 0.0f, moveDir.y) * MoveSpeed * Mathf.Clamp01(speedMultiplier) * Time.deltaTime;
-        newVelocity = this.transform.TransformDirection(newVelocity);
+        var newVelocity = (new Vector3(moveDir.x, 0.0f, moveDir.y)).normalized * MoveSpeed * Time.deltaTime;
+        newVelocity = movementSpaceTrans.TransformDirection(newVelocity);
         newVelocity.y = currentVelocity.y;
 
         // Applying the new velocity to the rigidbody.
