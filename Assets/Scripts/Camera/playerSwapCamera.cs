@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerSwapCamera : MonoBehaviour {
 
     public GameObject cameraLocaion;
-    public Camera mainCamera;
+    private Camera mainCamera;
     private bool useRelocatedCamera = false;
 
     public float rotationSpeed;
@@ -14,12 +14,14 @@ public class playerSwapCamera : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-
+        //Find main camera by tag
+        mainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
     }
 	
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+        //If camera has to be moved 
         if (useRelocatedCamera)
         {
             //Lerp between two positions
@@ -33,8 +35,7 @@ public class playerSwapCamera : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
-        if (!useRelocatedCamera)
+        if (!useRelocatedCamera && other.gameObject.tag=="Player")
         {
             useRelocatedCamera = true;
             mainCamera.GetComponent<CameraCave>().enabled = false;
@@ -42,17 +43,6 @@ public class playerSwapCamera : MonoBehaviour {
         else
         {
             useRelocatedCamera = false;
-            mainCamera.GetComponent<CameraCave>().enabled = true;
-
-            mainCamera.GetComponent<CameraCave>().resetPosition();
-
-            //Lerp between two positions
-            //mainCamera.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
-
-            //Lerp between two rotations
-           // mainCamera.transform.rotation = initialTransform.rotation;
-           // Debug.Log(initialTransform.rotation);
-
         }
     }
 }
