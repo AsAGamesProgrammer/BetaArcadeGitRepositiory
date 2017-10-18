@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaArcadeRepo.Plugins", "BetaArcadeRepo.Plugins.csproj", "{F4F210FD-2604-67B7-67FF-E14231AD3BAD}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaArcadeRepo", "BetaArcadeRepo.csproj", "{9155F5B4-C108-595D-4CA6-57CC6F6A73C8}"
 EndProject
 Global
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4F210FD-2604-67B7-67FF-E14231AD3BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4F210FD-2604-67B7-67FF-E14231AD3BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4F210FD-2604-67B7-67FF-E14231AD3BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4F210FD-2604-67B7-67FF-E14231AD3BAD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9155F5B4-C108-595D-4CA6-57CC6F6A73C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9155F5B4-C108-595D-4CA6-57CC6F6A73C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9155F5B4-C108-595D-4CA6-57CC6F6A73C8}.Release|Any CPU.ActiveCfg = Release|Any CPU

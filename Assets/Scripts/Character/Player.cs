@@ -24,7 +24,7 @@ public class Player : Character {
                                          Input.GetAxis("Vertical"));
 
         // Moving the player if an input was provided.
-        if (playerMovement.magnitude > 0.0f)
+        //if (playerMovement.magnitude > 0.2f)
             Move(playerMovement);
 
         // Making the player jump if the jump button is pressed.
@@ -69,8 +69,10 @@ public class Player : Character {
     private void AlignToVelocity()
     {
         // Rotating the player to align with its current velocity.
-        var targetPos = this.transform.position + pVelocity;
-        var targetRot = Quaternion.LookRotation(new Vector3(targetPos.x, this.transform.position.y, targetPos.z) - this.transform.position);
+        var targetPos = transform.position + pVelocity.normalized;
+        var targetVector = new Vector3(targetPos.x, this.transform.position.y, targetPos.z) - this.transform.position;
+        if (targetVector.magnitude <= 0.1f) return;
+        var targetRot = Quaternion.LookRotation(targetVector);
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRot, Time.deltaTime * RotateSpeed);
     }
 }
