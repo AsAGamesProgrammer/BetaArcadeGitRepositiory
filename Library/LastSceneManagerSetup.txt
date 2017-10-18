@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/cameraCaveTest.unity
+=======
+- path: Assets/Scenes/Scn_3rdPersonCharacter&Camera.unity
+>>>>>>> CharacterControllerUpdates
   isLoaded: 1
   isActive: 1

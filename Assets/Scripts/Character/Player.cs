@@ -35,13 +35,22 @@ public class Player : Character {
 
     //-----------------------------------------Protected Functions-----------------------------------------
 
-    protected sealed override void Move(Vector2 moveDir, float speedMultiplier = 1)
+    protected sealed override void Move(Vector2 moveDir, Transform movementSpaceTrans = null)
     {
-        // Aligning the player to the camera direction if required.
-        if (UseCameraDir) AlignToCamera();
+        // Aligning the player to the desired direction.
+        if (UseCameraDir)
+        {
+            AlignToCamera();
+            movementSpaceTrans = this.transform;
+        }
+        else
+        {
+            AlignToVelocity();
+            movementSpaceTrans = Camera.main.transform;
+        }
 
         // Calling the base version of the 'Move' function.
-        base.Move(moveDir, speedMultiplier);
+        base.Move(moveDir, movementSpaceTrans);
     }
 
 
@@ -53,6 +62,14 @@ public class Player : Character {
         if (Camera.main == null) return;
         var camForwardVector = Camera.main.transform.forward.normalized;
         var targetPos = this.transform.position + camForwardVector;
+        var targetRot = Quaternion.LookRotation(new Vector3(targetPos.x, this.transform.position.y, targetPos.z) - this.transform.position);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRot, Time.deltaTime * RotateSpeed);
+    }
+
+    private void AlignToVelocity()
+    {
+        // Rotating the player to align with its current velocity.
+        var targetPos = this.transform.position + pVelocity;
         var targetRot = Quaternion.LookRotation(new Vector3(targetPos.x, this.transform.position.y, targetPos.z) - this.transform.position);
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRot, Time.deltaTime * RotateSpeed);
     }
