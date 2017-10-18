@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/cameraCaveTest.unity
+=======
+- path: Assets/Scenes/caveLVL3.unity
+>>>>>>> CaveBranch
   isLoaded: 1
   isActive: 1

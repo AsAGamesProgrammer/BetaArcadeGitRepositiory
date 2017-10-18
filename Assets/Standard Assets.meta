@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 2a8305c1f249804418dd193e06f31e61
 folderAsset: yes
 timeCreated: 1508314936
+=======
+guid: e84aea773e174474ca9e660bcf2f48b2
+folderAsset: yes
+timeCreated: 1508070775
+>>>>>>> CaveBranch
 licenseType: Pro
 DefaultImporter:
   userData: 
