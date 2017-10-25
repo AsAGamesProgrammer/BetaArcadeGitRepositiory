@@ -27,7 +27,7 @@ public class ButtonPuzzleManager : MonoBehaviour {
     private void Update()
     {
         // Reseting the level if the reset button is pressed.
-        if (ResetButton.IsBottomedOut())
+        if (ResetButton != null && ResetButton.IsBottomedOut())
             ResetPuzzle();
 
         // Exiting early if the puzzle is already complete.
@@ -74,7 +74,7 @@ public class ButtonPuzzleManager : MonoBehaviour {
         {
             // Recording the button as pressed if it has not already been done.
             var button = ButtonsInPuzzle[i];
-            if (button.IsBottomedOut() && !PressOrderIndexes.Contains(i))
+            if (button != null && button.IsBottomedOut() && !PressOrderIndexes.Contains(i))
                 PressOrderIndexes.Add(i);
         }
     }
@@ -83,7 +83,7 @@ public class ButtonPuzzleManager : MonoBehaviour {
     {
         // Looping through the buttons in the puzzle checking for any that are not bottomed out and locked.
         foreach (var button in ButtonsInPuzzle)
-            if (!button.IsBottomedOutAndLocked())
+            if (button != null && !button.IsBottomedOutAndLocked())
                 return false;
         return true;
     }
