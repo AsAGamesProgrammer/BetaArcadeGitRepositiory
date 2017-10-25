@@ -58,20 +58,19 @@ public class Player : Character {
 
     protected sealed override void Move(Vector2 moveDir, Transform movementSpaceTrans = null)
     {
-        // Aligning the player to the desired direction.
+        // Aligning the player to the camera direction if necessary.
         if (UseCameraDir)
-        {
             AlignToCamera();
-            movementSpaceTrans = this.transform;
-        }
-        else
-        {
-            AlignToVelocity();
-            movementSpaceTrans = Camera.main.transform;
-        }
+
+        // Setting the move direction.
+        movementSpaceTrans = (UseCameraDir) ? this.transform : Camera.main.transform;
 
         // Calling the base version of the 'Move' function.
         base.Move(moveDir, movementSpaceTrans);
+
+        // Aligning the player to its velocity if necessary.
+        if(!UseCameraDir)
+            AlignToVelocity();
     }
 
 

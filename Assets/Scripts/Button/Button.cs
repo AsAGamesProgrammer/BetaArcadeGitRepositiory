@@ -37,9 +37,19 @@ public class Button : MonoBehaviour {
     [Tooltip("Should the button stay bottomed out once the player stops standing on it")]
     private bool LockPositionOnBottomOut = true;
 
+    [SerializeField]
+    [Range(0.0f, 10.0f)]
+    [Tooltip("The radius within which the button will asist the player to the centre")]
+    private float GravityRadius = 2.0f;
+
+    [SerializeField]
+    [Tooltip("The magnitude of the force applied to the player when they are in the gravity radius")]
+    private float GravityMultiplier = 2.0f;
+
     private float mInitialYPos = 0.0f;
     private bool mIsPosLocked = false;
-    private bool mIgnorePlayer = false;
+    private bool mIgnorePlayerWhenExtending = false;
+    private bool mApplyGravity = true;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
@@ -57,12 +67,30 @@ public class Button : MonoBehaviour {
             Move(Dir.Down, PushSpeed);
 
         // Extending the button up if it is not being stood on.
-        else
-            Move(Dir.Up, ExtendSpeed);
+        else Move(Dir.Up, ExtendSpeed);
 
         // Locking the button in posiiton if it is bottomed out.
         if (IsBottomedOut() && LockPositionOnBottomOut)
             LockButtonPosition(true);
+
+        // Applying a force to the player if they are within gravity range.
+        if (PlayerIsInGravityRange() && mApplyGravity)
+        {
+            // Checking for edge cases before applying the force.
+            if (!IsBeingStoodOn() || (Mathf.Abs(Input.GetAxis("Horizontal")) < 0.01f && Mathf.Abs(Input.GetAxis("Vertical")) < 0.01f))
+            {
+                // Calculating and applying the gravity force.
+                var playerRB = FindObjectOfType<Player>().GetComponent<Rigidbody>();
+                var movementVector = this.transform.position - playerRB.transform.position;
+                var forceVector = movementVector.normalized * 1.0f / Mathf.Max(0.01f, movementVector.magnitude);
+                forceVector.y = 0.0f;
+                playerRB.AddForce(forceVector * Time.deltaTime * GravityMultiplier);
+            }
+        }
+
+        // No longer applying the player pull force if the button has been bottomed out.
+        if (IsBottomedOut())
+            mApplyGravity = false;
     }
 
     private void OnDrawGizmos()
@@ -76,13 +104,20 @@ public class Button : MonoBehaviour {
         if (Application.isPlaying) initPos.y = mInitialYPos;
         var maxMoveCentre = initPos - new Vector3(0.0f, MaxMoveDistance, 0.0f);
         Gizmos.DrawCube(maxMoveCentre, new Vector3(1.0f, 0.05f, 1.0f));
+
+        // Drawing a magenta wire sphere to show the gravity area.
+        Gizmos.DrawWireSphere(this.transform.position + PushZoneCentre, GravityRadius);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Reseting the 'mIgnorePlayer' variable if the player has come into contact with the button again.
+        // Reseting the 'mIgnorePlayerWhenExtending' and 'mPullPlayerToCentre' variables if the player 
+        // has come into contact with the button again.
         if (collision.gameObject.tag == PlayerTag)
-            mIgnorePlayer = false;
+        {
+            mIgnorePlayerWhenExtending = false;
+            mApplyGravity = true;
+        }
     }
 
 
@@ -94,7 +129,7 @@ public class Button : MonoBehaviour {
         mIsPosLocked = lockPos;
 
         // Ignoring the player so the button can reset without the player stopping it.
-        if (!lockPos) mIgnorePlayer = true;
+        if (!lockPos) mIgnorePlayerWhenExtending = true;
     }
 
     public bool IsBottomedOutAndLocked()
@@ -129,7 +164,7 @@ public class Button : MonoBehaviour {
     private bool IsBeingStoodOn()
     {
         // Exiting early if the player should be ignored.
-        if (mIgnorePlayer) return false;
+        if (mIgnorePlayerWhenExtending) return false;
 
         // Firing a box cast out the top of the button to determine if the player is stood on top of it.
         var rayhits = Physics.BoxCastAll(this.transform.position + PushZoneCentre, PushZoneSize, this.transform.TransformDirection(Vector3.up), Quaternion.identity, (PushZoneSize * 2.0f).y);
@@ -137,5 +172,13 @@ public class Button : MonoBehaviour {
             if (hit.collider.tag == "Player")
                 return true;
         return false;
+    }
+
+    private bool PlayerIsInGravityRange()
+    {
+        // Returning true if the player is within the gravity radius.
+        var playerTrans = FindObjectOfType<Player>().transform;
+        if (playerTrans == null) return false;
+        return (Vector3.Distance(playerTrans.position, this.transform.position + PushZoneCentre) < GravityRadius);
     }
 }
