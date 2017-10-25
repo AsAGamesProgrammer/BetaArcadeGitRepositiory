@@ -39,7 +39,8 @@ public class Button : MonoBehaviour {
 
     private float mInitialYPos = 0.0f;
     private bool mIsPosLocked = false;
-    private bool mIgnorePlayer = false;
+    private bool mIgnorePlayerWhenExtending = false;
+    private bool mPullPlayerToCentre = true;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
@@ -57,12 +58,30 @@ public class Button : MonoBehaviour {
             Move(Dir.Down, PushSpeed);
 
         // Extending the button up if it is not being stood on.
-        else
-            Move(Dir.Up, ExtendSpeed);
+        else Move(Dir.Up, ExtendSpeed);
 
         // Locking the button in posiiton if it is bottomed out.
         if (IsBottomedOut() && LockPositionOnBottomOut)
             LockButtonPosition(true);
+
+        
+
+
+        // ---TESTING---
+        if (IsBeingStoodOn() && mPullPlayerToCentre)
+        {
+            var playerTrans = FindObjectOfType<Player>().transform;
+            var playerRB = playerTrans.GetComponent<Rigidbody>();
+            var playerVel = playerRB.velocity;
+            playerVel.x = 0.0f;
+            playerVel.z = 0.0f;
+            playerRB.velocity = playerVel;
+            playerTrans.Translate((this.transform.position - playerTrans.position).normalized * 10 * Time.deltaTime);
+        }
+
+        // No longer pulling the player to the centre of the button if it has been bottomed out.
+        if (IsBottomedOut())
+            mPullPlayerToCentre = false;
     }
 
     private void OnDrawGizmos()
@@ -80,9 +99,13 @@ public class Button : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Reseting the 'mIgnorePlayer' variable if the player has come into contact with the button again.
+        // Reseting the 'mIgnorePlayerWhenExtending' and 'mPullPlayerToCentre' variables if the player 
+        // has come into contact with the button again.
         if (collision.gameObject.tag == PlayerTag)
-            mIgnorePlayer = false;
+        {
+            mIgnorePlayerWhenExtending = false;
+            mPullPlayerToCentre = true;
+        }
     }
 
 
@@ -94,7 +117,7 @@ public class Button : MonoBehaviour {
         mIsPosLocked = lockPos;
 
         // Ignoring the player so the button can reset without the player stopping it.
-        if (!lockPos) mIgnorePlayer = true;
+        if (!lockPos) mIgnorePlayerWhenExtending = true;
     }
 
     public bool IsBottomedOutAndLocked()
@@ -129,7 +152,7 @@ public class Button : MonoBehaviour {
     private bool IsBeingStoodOn()
     {
         // Exiting early if the player should be ignored.
-        if (mIgnorePlayer) return false;
+        if (mIgnorePlayerWhenExtending) return false;
 
         // Firing a box cast out the top of the button to determine if the player is stood on top of it.
         var rayhits = Physics.BoxCastAll(this.transform.position + PushZoneCentre, PushZoneSize, this.transform.TransformDirection(Vector3.up), Quaternion.identity, (PushZoneSize * 2.0f).y);
