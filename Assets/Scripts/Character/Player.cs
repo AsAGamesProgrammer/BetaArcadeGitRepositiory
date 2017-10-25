@@ -14,11 +14,17 @@ public class Player : Character {
     [Tooltip("The speed at which the player will rotate to align with the camera.")]
     private float RotateSpeed = 20.0f;
 
+    [SerializeField]
+    private bool IgnoreInput = false;
+
 
     //-------------------------------------------Unity Functions-------------------------------------------
 
     private void FixedUpdate()
     {
+        // Checking whether to bother getting player input.
+        if (IgnoreInput) return;
+
         // Checking for user input.
         var playerMovement = new Vector2(Input.GetAxis("Horizontal"),
                                          Input.GetAxis("Vertical"));
@@ -30,6 +36,21 @@ public class Player : Character {
         // Making the player jump if the jump button is pressed.
         if (Input.GetButtonDown("Jump"))
             Jump();
+    }
+
+
+    //-------------------------------------------Public Functions------------------------------------------
+
+    public void ToggleIgnoreInput()
+    {
+        // Toggling the value of 'IgnoreInput'.
+        SetIgnoreInput(!IgnoreInput);
+    }
+
+    public void SetIgnoreInput(bool value)
+    {
+        // Setting the value of 'IgnoreInput'.
+        IgnoreInput = value;
     }
 
 
