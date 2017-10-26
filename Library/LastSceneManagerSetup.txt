@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/GameScenes/Hub.unity
-=======
-- path: Assets/Scenes/cameraCaveTest.unity
->>>>>>> ButtonImprovements
   isLoaded: 1
   isActive: 1
