@@ -145,6 +145,8 @@
     <Compile Include="Assets\Scripts\Character\Player.cs" />
     <Compile Include="Assets\Scripts\LightObjectScripts\LightCollide.cs" />
     <Compile Include="Assets\Scripts\LightObjectScripts\LightObject.cs" />
+    <Compile Include="Assets\Scripts\Temple\BlockPushing\detectPushSide.cs" />
+    <Compile Include="Assets\Scripts\Temple\BlockPushing\pushableBlock.cs" />
     <Compile Include="Assets\collision.cs" />
   </ItemGroup>
   <ItemGroup>
