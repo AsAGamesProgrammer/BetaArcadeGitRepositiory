@@ -366,10 +366,10 @@ MonoBehaviour:
     width: 203
     height: 759
   m_TreeViewState:
-    scrollPos: {x: 0, y: 608}
-    m_SelectedIDs: dcf6ffff
-    m_LastClickedID: -2340
-    m_ExpandedIDs: 5cf6ffff34f7ffff0ef9ffff34f9ffffdaf9ffffcafaffff0000000062470000
+    scrollPos: {x: 0, y: 144}
+    m_SelectedIDs: aaa7fcff
+    m_LastClickedID: -219222
+    m_ExpandedIDs: 32f7ffff04f8ffff000000005e480000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -424,9 +424,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 12.422894, y: -13.065718, z: 1.0181789}
+    m_Target: {x: -10.78088, y: -1.0824375, z: 2.7983294}
     speed: 2
-    m_Value: {x: 12.422894, y: -13.065718, z: 1.0181789}
+    m_Value: {x: -10.78088, y: -1.0824375, z: 2.7983294}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -449,13 +449,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.21742405, y: -0.58648217, z: 0.16739781, w: -0.76208454}
+    m_Target: {x: 0.35248256, y: -0.45130265, z: 0.20037876, w: 0.794985}
     speed: 2
-    m_Value: {x: -0.21742086, y: -0.5864736, z: 0.16739535, w: -0.7620734}
+    m_Value: {x: 0.35247007, y: -0.45128667, z: 0.20037167, w: 0.79495686}
   m_Size:
-    m_Target: 55.137676
+    m_Target: 38.204502
     speed: 2
-    m_Value: 55.137676
+    m_Value: 38.204502
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -529,19 +529,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/EnvAssets/Meduim Rocks
+    - Assets/EnvAssets/Big Rocks
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/EnvAssets/Meduim Rocks
+  - Assets/EnvAssets/Big Rocks
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Q5066934\Desktop\BetaArcadeGitRepositiory
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 759}
-    m_SelectedIDs: f2550000
-    m_LastClickedID: 22002
-    m_ExpandedIDs: 000000001432000046320000be32000070330000a4330000fc3300006a34000082350000be350000e63500008e380000263a00007c3a0000b03b0000d03b00007a3c0000ce3d0000603e0000e83f00000c4100008c41000016420000a442000086430000d044000048450000704500008245000090450000a4450000e04500002e490000304900003249000034490000364900004649000074490000d853000010540000f255000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 663}
+    m_SelectedIDs: ae380000
+    m_LastClickedID: 14510
+    m_ExpandedIDs: 000000000633000038330000b43300006e340000a4340000003500007235000096360000d4360000fe360000ae38000050390000b0390000ce3a00005a3b0000b03b0000e43c0000083d0000b83d0000f83e00001e3f0000b03f00003c4100006c420000f04200007a4300000a44000098440000f844000050460000d4460000fc4600000e4700001c470000324700006e470000624b0000644b0000664b0000684b00006a4b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -569,7 +569,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001432000046320000be32000070330000a4330000fc3300006a34000082350000be350000e63500008e380000263a00007c3a0000b03b0000d03b00007a3c0000ce3d0000603e0000e83f00000c4100008c41000016420000a442000086430000d044000048450000704500008245000090450000a4450000e04500002e49000030490000324900003449000036490000
+    m_ExpandedIDs: 000000000633000038330000b43300006e340000a4340000003500007235000096360000d4360000fe360000ae38000050390000b0390000ce3a00005a3b0000b03b0000e43c0000083d0000b83d0000f83e00001e3f0000b03f00003c4100006c420000f04200007a4300000a44000098440000f844000050460000d4460000fc4600000e4700001c470000324700006e470000624b0000644b0000664b0000684b00006a4b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -705,10 +705,10 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 3423
-    y: 92
-    width: 417
-    height: 1046
+    x: 3410
+    y: 100
+    width: 412
+    height: 1030
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
