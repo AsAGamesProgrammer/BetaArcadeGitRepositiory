@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RestartLevel : MonoBehaviour {
-
+  public Transform playertransform;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,6 +13,10 @@ public class RestartLevel : MonoBehaviour {
   // Update is called once per frame
   private void OnCollisionEnter(Collision collision)
   {
-    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    if (collision.collider.CompareTag("Player"))
+    {
+      collision.gameObject.transform.position = playertransform.position;
+    }
+      //collision.transform.position = ;
   }
 }
