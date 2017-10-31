@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/TempleIdea.unity
+- path: Assets/Scenes/cameraCaveTest.unity
   isLoaded: 1
   isActive: 1
