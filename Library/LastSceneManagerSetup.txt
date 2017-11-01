@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/CaveLVL1.unity
+=======
+- path: Assets/Scenes/cameraCaveTest.unity
+>>>>>>> TempleBasics
   isLoaded: 1
   isActive: 1
