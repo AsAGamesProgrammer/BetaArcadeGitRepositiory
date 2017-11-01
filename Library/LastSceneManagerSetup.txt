@@ -1,8 +1,12 @@
 sceneSetups:
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Scenes/CaveLVL1.unity
 =======
 - path: Assets/Scenes/cameraCaveTest.unity
+>>>>>>> TempleBasics
+=======
+- path: Assets/Scenes/caveLVL3.unity
 >>>>>>> TempleBasics
   isLoaded: 1
   isActive: 1
