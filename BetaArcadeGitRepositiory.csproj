@@ -146,6 +146,7 @@
     <Compile Include="Assets\Scripts\LightObjectScripts\LightCollide.cs" />
     <Compile Include="Assets\Scripts\LightObjectScripts\LightObject.cs" />
     <Compile Include="Assets\Scripts\Platforms\BreakablePlatform.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\StreamLauncher.cs" />
     <Compile Include="Assets\collision.cs" />
   </ItemGroup>
   <ItemGroup>

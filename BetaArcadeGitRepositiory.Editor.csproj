@@ -118,10 +118,6 @@
       <Project>{A88E0172-EA22-09AE-7654-2A2CCCAF2562}</Project>
       <Name>BetaArcadeGitRepositiory.Plugins</Name>
     </ProjectReference>
-    <ProjectReference Include="BetaArcadeGitRepositiory.csproj">
-      <Project>{8EF4A1B2-4798-579A-D57E-B1B5FF95B505}</Project>
-      <Name>BetaArcadeGitRepositiory</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\PostProcessing\Editor\Attributes\PostProcessingModelEditorAttribute.cs" />
