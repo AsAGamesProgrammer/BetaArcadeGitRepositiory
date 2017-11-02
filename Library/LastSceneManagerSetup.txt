@@ -1,5 +1,6 @@
 sceneSetups:
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Scenes/OLD_caveLVL3.unity
 =======
 <<<<<<< HEAD
@@ -12,5 +13,8 @@ sceneSetups:
 - path: Assets/Scenes/caveLVL3.unity
 >>>>>>> TempleBasics
 >>>>>>> master
+=======
+- path: Assets/Scenes/caveLVL3.unity
+>>>>>>> Pitfall
   isLoaded: 1
   isActive: 1

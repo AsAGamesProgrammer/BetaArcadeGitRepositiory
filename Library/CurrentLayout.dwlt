@@ -32,11 +32,15 @@ MonoBehaviour:
     y: 43
     width: 1920
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 997
 >>>>>>> TempleBasics
 =======
     height: 1117
 >>>>>>> TempleBasics
+=======
+    height: 1117
+>>>>>>> Pitfall
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
@@ -77,8 +81,12 @@ MonoBehaviour:
 =======
     width: 1920
     height: 1117
+<<<<<<< HEAD
   m_MinSize: {x: 950, y: 300}
 >>>>>>> TempleBasics
+=======
+  m_MinSize: {x: 950, y: 545}
+>>>>>>> Pitfall
   m_MaxSize: {x: 10000, y: 10000}
 >>>>>>> master
 --- !u!114 &3
@@ -122,6 +130,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 0
     width: 379
     height: 645
@@ -142,6 +151,9 @@ MonoBehaviour:
 =======
     y: 1097
 >>>>>>> TempleBasics
+=======
+    y: 1097
+>>>>>>> Pitfall
     width: 1920
 >>>>>>> TempleBasics
     height: 20
@@ -183,6 +195,7 @@ MonoBehaviour:
     x: 0
     y: 30
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1894
     height: 1051
   m_MinSize: {x: 683, y: 492}
@@ -202,6 +215,14 @@ MonoBehaviour:
   controlID: 3767
 >>>>>>> TempleBasics
 >>>>>>> master
+=======
+    width: 1920
+    height: 1067
+  m_MinSize: {x: 713, y: 495}
+  m_MaxSize: {x: 18008, y: 14045}
+  vertical: 0
+  controlID: 2197
+>>>>>>> Pitfall
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,6 +247,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
     width: 1920
     height: 1117
@@ -293,14 +315,22 @@ MonoBehaviour:
 >>>>>>> TempleBasics
 =======
     width: 1181
+=======
+    width: 1101
+>>>>>>> Pitfall
     height: 1067
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 3769
 >>>>>>> TempleBasics
 >>>>>>> master
 --- !u!114 &8
+=======
+  controlID: 2198
+--- !u!114 &7
+>>>>>>> Pitfall
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -325,6 +355,7 @@ MonoBehaviour:
     y: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 205
     height: 780
 =======
@@ -338,6 +369,13 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
+=======
+    width: 1101
+    height: 495
+  m_MinSize: {x: 202, y: 224}
+  m_MaxSize: {x: 4002, y: 4024}
+  m_ActualView: {fileID: 14}
+>>>>>>> Pitfall
   m_Panes:
   - {fileID: 15}
   m_Selected: 0
@@ -361,6 +399,7 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
     x: 0
+<<<<<<< HEAD
     y: 0
     width: 1531
     height: 1067
@@ -389,6 +428,11 @@ MonoBehaviour:
     y: 586
     width: 1181
     height: 481
+=======
+    y: 495
+    width: 1101
+    height: 572
+>>>>>>> Pitfall
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
 >>>>>>> TempleBasics
@@ -418,6 +462,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1181
     y: 0
+<<<<<<< HEAD
     width: 462
     height: 1067
   m_MinSize: {x: 234, y: 492}
@@ -425,6 +470,15 @@ MonoBehaviour:
   vertical: 1
   controlID: 3875
 --- !u!114 &11
+=======
+    width: 448
+    height: 1067
+  m_MinSize: {x: 234, y: 495}
+  m_MaxSize: {x: 10004, y: 14045}
+  vertical: 1
+  controlID: 2000
+--- !u!114 &10
+>>>>>>> Pitfall
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -444,6 +498,7 @@ MonoBehaviour:
     x: 0
 <<<<<<< HEAD
     y: 0
+<<<<<<< HEAD
     width: 1531
     height: 645
   m_MinSize: {x: 406, y: 221}
@@ -475,6 +530,13 @@ MonoBehaviour:
   m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 16}
 >>>>>>> TempleBasics
+=======
+    width: 448
+    height: 437
+  m_MinSize: {x: 202, y: 224}
+  m_MaxSize: {x: 4002, y: 4024}
+  m_ActualView: {fileID: 15}
+>>>>>>> Pitfall
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
@@ -517,18 +579,32 @@ MonoBehaviour:
   m_MaxSize: {x: 4002, y: 4021}
 =======
     x: 0
+<<<<<<< HEAD
     y: 548
     width: 462
     height: 519
+=======
+    y: 437
+    width: 448
+    height: 630
+>>>>>>> Pitfall
   m_MinSize: {x: 234, y: 271}
   m_MaxSize: {x: 10004, y: 10021}
 >>>>>>> TempleBasics
   m_ActualView: {fileID: 18}
   m_Panes:
+<<<<<<< HEAD
   - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &13
+=======
+  - {fileID: 17}
+  - {fileID: 18}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &12
+>>>>>>> Pitfall
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_PrefabParentObject: {fileID: 0}
@@ -544,6 +620,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1643
     y: 0
+<<<<<<< HEAD
     width: 277
     height: 1067
   m_MinSize: {x: 277, y: 71}
@@ -552,6 +629,15 @@ MonoBehaviour:
   m_Panes:
   - {fileID: 19}
 >>>>>>> master
+=======
+    width: 371
+    height: 1067
+  m_MinSize: {x: 277, y: 74}
+  m_MaxSize: {x: 4002, y: 4024}
+  m_ActualView: {fileID: 19}
+  m_Panes:
+  - {fileID: 19}
+>>>>>>> Pitfall
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &14
@@ -587,6 +673,7 @@ MonoBehaviour:
 =======
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 579
     width: 1080
     height: 439
@@ -597,6 +684,12 @@ MonoBehaviour:
     height: 460
 >>>>>>> TempleBasics
   m_MaximizeOnPlay: 0
+=======
+    y: 587
+    width: 1099
+    height: 551
+  m_MaximizeOnPlay: 1
+>>>>>>> Pitfall
   m_Gizmos: 0
   m_Stats: 0
   m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -604,6 +697,7 @@ MonoBehaviour:
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     m_HBaseRangeMin: -633.5
@@ -622,6 +716,12 @@ MonoBehaviour:
     m_VBaseRangeMin: -221.5
     m_VBaseRangeMax: 221.5
 >>>>>>> TempleBasics
+=======
+    m_HBaseRangeMin: -549.5
+    m_HBaseRangeMax: 549.5
+    m_VBaseRangeMin: -267
+    m_VBaseRangeMax: 267
+>>>>>>> Pitfall
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -640,6 +740,7 @@ MonoBehaviour:
       y: 17
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       width: 1267
       height: 742
     m_Scale: {x: 1, y: 1}
@@ -656,12 +757,19 @@ MonoBehaviour:
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 589.5, y: 221.5}
 >>>>>>> TempleBasics
+=======
+      width: 1099
+      height: 534
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 549.5, y: 267}
+>>>>>>> Pitfall
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       x: -633.5
@@ -680,13 +788,23 @@ MonoBehaviour:
       width: 1179
       height: 443
 >>>>>>> TempleBasics
+=======
+      x: -549.5
+      y: -267
+      width: 1099
+      height: 534
+>>>>>>> Pitfall
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 1267, y: 759}
+=======
+  m_LastWindowPixelSize: {x: 1099, y: 551}
+>>>>>>> Pitfall
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -785,15 +903,23 @@ MonoBehaviour:
 =======
     x: 0
     y: 92
+<<<<<<< HEAD
     width: 1179
     height: 565
   m_SceneLighting: 1
   lastFramingTime: 2287.7292256954265
 >>>>>>> TempleBasics
+=======
+    width: 1099
+    height: 474
+  m_SceneLighting: 1
+  lastFramingTime: 1889.6883059994714
+>>>>>>> Pitfall
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     m_Target: {x: -10.78088, y: -1.0824375, z: 2.7983294}
@@ -809,6 +935,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 156.09175, y: -127.54289, z: 7.23201}
 >>>>>>> TempleBasics
+=======
+    m_Target: {x: 23.7092, y: -1.8313103, z: -7.7782955}
+    speed: 2
+    m_Value: {x: 23.7092, y: -1.8313103, z: -7.7782955}
+>>>>>>> Pitfall
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -831,6 +962,7 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     m_Target: {x: 0.35248256, y: -0.45130265, z: 0.20037876, w: 0.794985}
@@ -856,6 +988,15 @@ MonoBehaviour:
 =======
     m_Value: 240.38135
 >>>>>>> TempleBasics
+=======
+    m_Target: {x: 0.060498916, y: 0.9111902, z: -0.38096303, w: 0.14470501}
+    speed: 2
+    m_Value: {x: 0.060498916, y: 0.9111902, z: -0.38096303, w: 0.14470501}
+  m_Size:
+    m_Target: 48.08511
+    speed: 2
+    m_Value: 48.08511
+>>>>>>> Pitfall
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -898,6 +1039,7 @@ MonoBehaviour:
 =======
     x: 1183
     y: 92
+<<<<<<< HEAD
     width: 458
     height: 527
   m_TreeViewState:
@@ -905,6 +1047,15 @@ MonoBehaviour:
     m_SelectedIDs: d8470000
     m_LastClickedID: 0
     m_ExpandedIDs: 42c2fcfff81cfdff4420fdff6863fdff44cafdff9e24feff7a51feff0854feff7c94feffa6d1feff5e18ffff4a1effff906cffff3af5ffff000000004448000072480000d0bf0200febf0200761c0700a41c0700d2240800425b0800
+=======
+    width: 444
+    height: 416
+  m_TreeViewState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 98e4ffff
+    m_LastClickedID: -7016
+    m_ExpandedIDs: 52fbffff000000001e440000f6440000
+>>>>>>> Pitfall
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -977,6 +1128,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1920
     y: 737
     width: 1529
@@ -1001,6 +1153,12 @@ MonoBehaviour:
     height: 498
 >>>>>>> TempleBasics
 >>>>>>> master
+=======
+    x: 1103
+    y: 529
+    width: 444
+    height: 609
+>>>>>>> Pitfall
   m_SearchFilter:
     m_NameFilter: 
     m_ClassNames: []
@@ -1012,6 +1170,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
+<<<<<<< HEAD
 <<<<<<< HEAD
     - Assets/Scenes/TestScenes
 =======
@@ -1025,10 +1184,20 @@ MonoBehaviour:
   - Assets/Scenes/TestScenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\s6180077\Desktop\BetaArcadeGitRepositiory
+=======
+    - Assets/Scripts
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/Scripts
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: C:\Users\p4053032\Desktop\BetaArcadeGitRepositiory
+>>>>>>> Pitfall
   m_IsLocked: 0
   m_FolderTreeState:
 <<<<<<< HEAD
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 32be0000
     m_LastClickedID: 48690
     m_ExpandedIDs: 00000000e0250000122600008e2600004a27000080270000dc27000070290000ae290000d8290000922c0000b42d0000c82f0000ec2f00009c3000000a3200009c3200002a340000e43500006e3600008e370000ee37000046390000ca390000f2390000043a0000123a0000283a0000643a0000ac3a0000083c00000a3c00000c3c00000e3c0000103c0000ffffff7f
@@ -1063,6 +1232,11 @@ MonoBehaviour:
     m_ExpandedIDs: 0000000060340000883400009034000006350000b6350000ee35000044360000a0370000ba370000f43700001c380000843a0000b63a0000423c0000ca3d0000ea3d0000943e0000e43f0000744000008c410000f4410000884300000c4400007a450000bc4600002e470000564700006847000088470000c2470000c0490000c2490000c4490000c6490000c849000000ca9a3bffffff7f
 >>>>>>> TempleBasics
 >>>>>>> master
+=======
+    m_SelectedIDs: 54300000
+    m_LastClickedID: 12372
+    m_ExpandedIDs: 00000000822d000098300000243600007e3b0000843d0000863d0000963d000000ca9a3bffffff7f
+>>>>>>> Pitfall
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1091,6 +1265,7 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000e0250000122600008e2600004a27000080270000dc2700004e28000070290000ae290000d8290000902b0000322c0000922c0000b42d00003e2e0000942e0000c82f0000ec2f00009c300000e43100000a3200009c3200002a34000062350000e43500006e360000fe3600008e370000ee37000046390000ca390000f2390000043a0000123a0000283a0000643a0000083c00000a3c00000c3c00000e3c0000103c0000ffffff7f
 =======
 <<<<<<< HEAD
@@ -1103,6 +1278,9 @@ MonoBehaviour:
     m_ExpandedIDs: 0000000060340000883400009034000006350000b6350000ee35000044360000a0370000ba370000f43700001c380000843a0000b63a0000423c0000ca3d0000ea3d0000943e0000e43f0000744000008c410000f4410000884300000c4400007a450000bc4600002e470000564700006847000088470000c2470000c0490000c2490000c4490000c6490000c849000000ca9a3bffffff7f
 >>>>>>> TempleBasics
 >>>>>>> master
+=======
+    m_ExpandedIDs: 00000000822d000098300000243600007e3b0000843d0000863d0000963d000000ca9a3bffffff7f
+>>>>>>> Pitfall
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1131,11 +1309,15 @@ MonoBehaviour:
     m_LastClickedInstanceID: 0
 <<<<<<< HEAD
     m_HadKeyboardFocusLastEvent: 0
+<<<<<<< HEAD
     m_ExpandedInstanceIDs: c6230000
 =======
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
 >>>>>>> master
+=======
+    m_ExpandedInstanceIDs: 504dfeff
+>>>>>>> Pitfall
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1152,10 +1334,14 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_ClientGUIView: {fileID: 5}
 =======
       m_ClientGUIView: {fileID: 12}
 >>>>>>> master
+=======
+      m_ClientGUIView: {fileID: 11}
+>>>>>>> Pitfall
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1175,6 +1361,124 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
+  m_Script: {fileID: 12373, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AutoRepaintOnSceneChange: 0
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Audio Mixer
+    m_Image: {fileID: 2344599766593239149, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_DepthBufferBits: 0
+  m_Pos:
+    serializedVersion: 2
+    x: 1103
+    y: 529
+    width: 444
+    height: 609
+  m_MixersTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: -111280
+    m_ExpandedIDs: 12eb343c
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 0
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_LayoutStripsOnTop:
+    m_VerticalSplitter:
+      ID: 0
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes: 4100000023000000
+      relativeSizes:
+      - 0.65
+      - 0.35000002
+      minSizes: 5500000069000000
+      maxSizes: 0000000000000000
+      lastTotalSize: 0
+      splitSize: 6
+      xOffset: 0
+    m_HorizontalSplitter:
+      ID: 0
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes: 3c0000003c0000003c0000003c000000
+      relativeSizes:
+      - 0.25
+      - 0.25
+      - 0.25
+      - 0.25
+      minSizes: 55000000550000005500000055000000
+      maxSizes: 00000000000000000000000000000000
+      lastTotalSize: 0
+      splitSize: 6
+      xOffset: 0
+  m_LayoutStripsOnRight:
+    m_VerticalSplitter:
+      ID: 0
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes: 3c0000003c0000003c0000003c000000
+      relativeSizes:
+      - 0.25
+      - 0.25
+      - 0.25
+      - 0.25
+      minSizes: 64000000550000005500000055000000
+      maxSizes: 00000000000000000000000000000000
+      lastTotalSize: 0
+      splitSize: 6
+      xOffset: 0
+    m_HorizontalSplitter:
+      ID: 7402
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes: a00000001d010000
+      relativeSizes:
+      - 0.3
+      - 0.7
+      minSizes: a0000000a0000000
+      maxSizes: 0000000000000000
+      lastTotalSize: 445
+      splitSize: 6
+      xOffset: -1
+  m_SectionOrder: 00000000030000000100000002000000
+  m_LayoutMode: 1
+  m_SortGroupsAlphabetically: 0
+  m_ShowReferencedBuses: 1
+  m_ShowBusConnections: 0
+  m_ShowBusConnectionsOfSelection: 0
+--- !u!114 &19
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
   m_Script: {fileID: 12019, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1184,6 +1488,7 @@ MonoBehaviour:
   m_TitleContent:
     m_Text: Inspector
     m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000,
+<<<<<<< HEAD
       type: 0}
     m_Tooltip: 
   m_DepthBufferBits: 0
@@ -1221,6 +1526,8 @@ MonoBehaviour:
   m_TitleContent:
     m_Text: Hierarchy
     m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000,
+=======
+>>>>>>> Pitfall
       type: 0}
     m_Tooltip: 
   m_DepthBufferBits: 0
@@ -1269,6 +1576,7 @@ MonoBehaviour:
 =======
     x: 1560
     y: 92
+<<<<<<< HEAD
     width: 360
     height: 926
 >>>>>>> TempleBasics
@@ -1278,6 +1586,10 @@ MonoBehaviour:
     width: 275
     height: 1046
 >>>>>>> TempleBasics
+=======
+    width: 369
+    height: 1046
+>>>>>>> Pitfall
   m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
