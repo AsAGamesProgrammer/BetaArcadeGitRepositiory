@@ -1,20 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-<<<<<<< HEAD
-- path: Assets/Scenes/OLD_caveLVL3.unity
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-- path: Assets/Scenes/CaveLVL1.unity
-=======
-- path: Assets/Scenes/cameraCaveTest.unity
->>>>>>> TempleBasics
-=======
 - path: Assets/Scenes/caveLVL3.unity
->>>>>>> TempleBasics
->>>>>>> master
-=======
-- path: Assets/Scenes/caveLVL3.unity
->>>>>>> Pitfall
   isLoaded: 1
   isActive: 1
