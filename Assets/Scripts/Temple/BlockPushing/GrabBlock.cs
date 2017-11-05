@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class GrabBlock : MonoBehaviour {
 
-    public GameObject player;
+    private GameObject player;
 
     public float distance = 5.0f;
 
@@ -32,8 +32,13 @@ public class GrabBlock : MonoBehaviour {
 
     private side pushedSide = side.none;
 
-	// Update is called once per frame
-	void Update ()
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         if (Input.GetButtonDown("Interact"))
         {
