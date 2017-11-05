@@ -145,7 +145,6 @@
     <Compile Include="Assets\Scripts\LightObjectScripts\LightCollide.cs" />
     <Compile Include="Assets\Scripts\LightObjectScripts\LightObject.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\GrabBlock.cs" />
-    <Compile Include="Assets\Scripts\Temple\BlockPushing\detectPushSide.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushableBlock.cs" />
     <Compile Include="Assets\Scripts\Utility\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\Utility\MusicZoneControl.cs" />

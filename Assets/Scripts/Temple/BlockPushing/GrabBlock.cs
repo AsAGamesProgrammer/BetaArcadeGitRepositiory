@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Attach script to a block
+/// </summary>
+
 public class GrabBlock : MonoBehaviour {
 
     public GameObject player;
@@ -13,6 +17,11 @@ public class GrabBlock : MonoBehaviour {
     public Transform right;
     public Transform left;
 
+    private bool isAttached = false;
+
+    public int pushingSpeed = 3;
+    Vector3 pushDestination;
+
     public enum side
     {
         top,
@@ -21,7 +30,7 @@ public class GrabBlock : MonoBehaviour {
         left, none
     }
 
-    private side pushedSide;
+    private side pushedSide = side.none;
 
 	// Update is called once per frame
 	void Update ()
@@ -31,10 +40,38 @@ public class GrabBlock : MonoBehaviour {
             ///grab block
             checkBlockSides();
             if (pushedSide != side.none)
-                Debug.Log(pushedSide);
-            else
-                Debug.Log("NONE");
+            {
+                if(isAttached)  //Remove Tia from parent
+                {
+                    isAttached = false;
+                    player.transform.parent = null;
+                }
+                else           //Attach Tia to a parent
+                {
+                    isAttached = true;
+                    player.transform.parent = transform;
+                }
+            }
 
+        }
+
+        Debug.Log(pushedSide);
+
+        if (isAttached)
+        {
+
+
+            //TEMPORARY***************
+            //Push
+            if (Input.GetKey(KeyCode.N))
+            {
+                transform.position = Vector3.Lerp(transform.position, pushDestination + transform.position, Time.deltaTime * pushingSpeed);
+            }
+
+            if(Input.GetKey(KeyCode.M))
+            {
+                transform.position = Vector3.Lerp(transform.position, -pushDestination + transform.position, Time.deltaTime * pushingSpeed);
+            }
         }
     }
 
@@ -53,24 +90,28 @@ public class GrabBlock : MonoBehaviour {
             if (closestWallDistance == topD)
             {
                 pushedSide = side.top;
+                pushDestination = Vector3.left;
                 return;
             }
 
             if (closestWallDistance == botD)
             {
                 pushedSide = side.bot;
+                pushDestination = Vector3.right;
                 return;
             }
 
             if (closestWallDistance == leftD)
             {
                 pushedSide = side.left;
+                pushDestination = Vector3.back;
                 return;
             }
 
             if (closestWallDistance == rightD)
             {
                 pushedSide = side.right;
+                pushDestination = Vector3.forward;
                 return;
             }
         }
