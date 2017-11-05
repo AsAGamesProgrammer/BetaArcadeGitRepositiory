@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Attach to the pushable block object
+/// </summary>
+
 public class pushableBlock : MonoBehaviour {
 
     private bool westPushed = false;
