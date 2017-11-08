@@ -1,11 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaArcadeGitRepositiory", "Assembly-CSharp-firstpass.csproj", "{12398D98-D36C-3385-4EAA-C9518AA070F8}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaArcadeGitRepositiory.Plugins", "BetaArcadeGitRepositiory.Plugins.csproj", "{A88E0172-EA22-09AE-7654-2A2CCCAF2562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaArcadeGitRepositiory", "Assembly-CSharp.csproj", "{6486CF88-5961-8095-3819-9D3D30C8F582}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaArcadeGitRepositiory", "BetaArcadeGitRepositiory.csproj", "{8EF4A1B2-4798-579A-D57E-B1B5FF95B505}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaArcadeGitRepositiory", "Assembly-CSharp-Editor.csproj", "{A71B0C65-7A15-DDC9-67D1-6DA2701FAD5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaArcadeGitRepositiory.Editor", "BetaArcadeGitRepositiory.Editor.csproj", "{4B12A53E-A38E-3785-55AC-94306E9C65C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,23 +13,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{12398D98-D36C-3385-4EAA-C9518AA070F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12398D98-D36C-3385-4EAA-C9518AA070F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12398D98-D36C-3385-4EAA-C9518AA070F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12398D98-D36C-3385-4EAA-C9518AA070F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6486CF88-5961-8095-3819-9D3D30C8F582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6486CF88-5961-8095-3819-9D3D30C8F582}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6486CF88-5961-8095-3819-9D3D30C8F582}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6486CF88-5961-8095-3819-9D3D30C8F582}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A71B0C65-7A15-DDC9-67D1-6DA2701FAD5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A71B0C65-7A15-DDC9-67D1-6DA2701FAD5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A71B0C65-7A15-DDC9-67D1-6DA2701FAD5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A71B0C65-7A15-DDC9-67D1-6DA2701FAD5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88E0172-EA22-09AE-7654-2A2CCCAF2562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88E0172-EA22-09AE-7654-2A2CCCAF2562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88E0172-EA22-09AE-7654-2A2CCCAF2562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88E0172-EA22-09AE-7654-2A2CCCAF2562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EF4A1B2-4798-579A-D57E-B1B5FF95B505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EF4A1B2-4798-579A-D57E-B1B5FF95B505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EF4A1B2-4798-579A-D57E-B1B5FF95B505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EF4A1B2-4798-579A-D57E-B1B5FF95B505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B12A53E-A38E-3785-55AC-94306E9C65C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B12A53E-A38E-3785-55AC-94306E9C65C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B12A53E-A38E-3785-55AC-94306E9C65C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B12A53E-A38E-3785-55AC-94306E9C65C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
