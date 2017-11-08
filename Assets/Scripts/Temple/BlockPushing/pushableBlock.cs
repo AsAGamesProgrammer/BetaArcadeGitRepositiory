@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Attach to the pushable block object
+/// </summary>
+
 public class pushableBlock : MonoBehaviour {
 
     private bool westPushed = false;
@@ -51,45 +55,4 @@ public class pushableBlock : MonoBehaviour {
         transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime * pushingSpeed);
     }
 
-    //Detects which side the contact comes from
-    public void contactFrom(string side, bool isContact)
-    {
-        if (!isContact)
-        {
-            resetAll();
-            return;
-        }
-
-        switch (side)
-        {
-            case "West":
-                resetAll();
-                westPushed = true;
-                break;
-
-            case "East":
-                resetAll();
-                eastPushed = true;
-                break;
-
-            case "North":
-                resetAll();
-                northPushed = true;
-                break;
-
-            case "South":
-                resetAll();
-                southPushed = true;
-                break;
-        }
-
-    }
-
-    private void resetAll()
-    {
-        westPushed = false;
-        eastPushed = false;
-        northPushed = false;
-        southPushed = false;
-    }
 }
