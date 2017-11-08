@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/caveLVL3.unity
+=======
+- path: Assets/Scenes/Scn_3rdPersonCharacter&Camera.unity
+>>>>>>> HenryTempleBasics
   isLoaded: 1
   isActive: 1

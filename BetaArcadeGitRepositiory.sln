@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaArcadeGitRepositiory.Plugins", "BetaArcadeGitRepositiory.Plugins.csproj", "{A88E0172-EA22-09AE-7654-2A2CCCAF2562}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaArcadeGitRepositiory", "BetaArcadeGitRepositiory.csproj", "{8EF4A1B2-4798-579A-D57E-B1B5FF95B505}"
