@@ -50,11 +50,13 @@ public class GrabBlock : MonoBehaviour {
                 {
                     isAttached = false;
                     player.transform.parent = null;
+					FindObjectOfType<Player> ().SetIgnoreInput (false);
                 }
                 else           //Attach Tia to a parent
                 {
                     isAttached = true;
                     player.transform.parent = transform;
+					FindObjectOfType<Player> ().SetIgnoreInput (true);
                 }
             }
 
@@ -64,20 +66,21 @@ public class GrabBlock : MonoBehaviour {
 
         if (isAttached)
         {
-
-
             //TEMPORARY***************
             //Push
-            if (Input.GetKey(KeyCode.N))
+			var inputAxis = Input.GetAxis("Vertical");
+			//FORWARD
+			if (inputAxis > 0.1f)
             {
                 transform.position = Vector3.Lerp(transform.position, pushDestination + transform.position, Time.deltaTime * pushingSpeed);
             }
 
-            if(Input.GetKey(KeyCode.M))
+			//BACKWARDS
+			if(inputAxis < -0.1f)
             {
                 transform.position = Vector3.Lerp(transform.position, -pushDestination + transform.position, Time.deltaTime * pushingSpeed);
             }
-        }
+        }			
     }
 
     void checkBlockSides()

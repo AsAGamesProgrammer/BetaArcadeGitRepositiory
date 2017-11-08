@@ -1,8 +1,11 @@
-﻿<Properties StartupItem="BetaArcadeGitRepositiory.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LightObjectScripts\LightCollide.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Temple\BlockPushing\GrabBlock.cs">
     <Files>
       <File FileName="Assets\Scripts\LightObjectScripts\LightCollide.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Temple\BlockPushing\GrabBlock.cs" Line="66" Column="3" />
+      <File FileName="Assets\Scripts\Character\Character.cs" Line="22" Column="2" />
+      <File FileName="Assets\Scripts\Character\Player.cs" Line="18" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
