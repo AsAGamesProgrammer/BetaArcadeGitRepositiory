@@ -68,7 +68,20 @@ public class GrabBlock : MonoBehaviour {
         {
             //TEMPORARY***************
             //Push
-			var inputAxis = Input.GetAxis("Vertical");
+			float inputAxis = 0.0f;
+
+			if(pushedSide == side.left) 
+				inputAxis = Input.GetAxis("Horizontal");
+
+			if(pushedSide == side.right) 
+				inputAxis = - Input.GetAxis("Horizontal");
+			
+			if(pushedSide == side.top) 
+				inputAxis = -Input.GetAxis("Vertical");
+			
+			if(pushedSide == side.bot) 
+				inputAxis = Input.GetAxis("Vertical");
+
 			//FORWARD
 			if (inputAxis > 0.1f)
             {
