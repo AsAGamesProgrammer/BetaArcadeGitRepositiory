@@ -33,3 +33,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Library/metadata/
+
+Assets/ArtAssets/EnvAssets/ImportedLevels\.meta
