@@ -135,6 +135,7 @@
     <Compile Include="Assets\Scripts\Button\ButtonPuzzleManager.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraCave.cs" />
     <Compile Include="Assets\Scripts\Camera\Obsolete\KeepObjectOnScreen.cs" />
+    <Compile Include="Assets\Scripts\Camera\Obsolete\Projectile.cs" />
     <Compile Include="Assets\Scripts\Camera\Obsolete\cameraOnrails.cs" />
     <Compile Include="Assets\Scripts\Camera\cameraDestination.cs" />
     <Compile Include="Assets\Scripts\Camera\cameraSwapTopDown.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Assets\Scripts\LightObjectScripts\LightCollide.cs" />
     <Compile Include="Assets\Scripts\LightObjectScripts\LightObject.cs" />
     <Compile Include="Assets\Scripts\Platforms\BreakablePlatform.cs" />
+    <Compile Include="Assets\Scripts\Projectiles\ProjectileLauncher.cs" />
     <Compile Include="Assets\Scripts\Projectiles\StreamLauncher.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\GrabBlock.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushableBlock.cs" />
