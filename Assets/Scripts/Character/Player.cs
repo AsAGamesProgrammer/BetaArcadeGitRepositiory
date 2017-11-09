@@ -15,6 +15,9 @@ public class Player : Character {
     private float RotateSpeed = 20.0f;
 
     [SerializeField]
+    private Animator PlayerAnimator;
+
+    [SerializeField]
     private bool IgnoreInput = false;
 
 
@@ -30,12 +33,25 @@ public class Player : Character {
                                          Input.GetAxis("Vertical"));
 
         // Moving the player if an input was provided.
-        //if (playerMovement.magnitude > 0.2f)
-            Move(playerMovement);
+        Move(playerMovement);
 
         // Making the player jump if the jump button is pressed.
         if (Input.GetButtonDown("Jump"))
             Jump();
+
+        // Updating the animator 'DidJump' parameter.
+        PlayerAnimator.SetBool("DidJump", Input.GetButtonDown("Jump"));
+
+        // Updating the animator 'IsGrounded' parameter.
+        PlayerAnimator.SetBool("IsGrounded", IsGrounded());
+    }
+
+    private void LateUpdate()
+    {
+        // Updating the animator 'Speed' parameter.
+        var finalVelocity = this.GetComponent<Rigidbody>().velocity;
+        finalVelocity.y = 0.0f;
+        PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude);
     }
 
 
@@ -59,7 +75,7 @@ public class Player : Character {
     protected sealed override void Move(Vector2 moveDir, Transform movementSpaceTrans = null)
     {
         // Aligning the player to the camera direction if necessary.
-        if (UseCameraDir)
+        if (UseCameraDir && moveDir.magnitude > Mathf.Epsilon)
             AlignToCamera();
 
         // Setting the move direction.

@@ -93,14 +93,11 @@ public abstract class Character : MonoBehaviour {
         mRigidbody.AddForce(Vector3.up * JumpForce);
     }
 
-
-    //------------------------------------------Private Functions------------------------------------------
-
-    private bool IsGrounded()
+    protected bool IsGrounded()
     {
         // Raycasting down out the bottom of the character.
         RaycastHit hit;
-        Physics.Raycast(this.transform.position, Vector3.down, out hit, Mathf.Abs(this.transform.lossyScale.y)+0.1f);
+        Physics.Raycast(this.transform.position, Vector3.down, out hit, Mathf.Abs(this.transform.lossyScale.y) + 0.01f);
 
         // Returning true if the ray hit something.
         return (hit.collider != null);
