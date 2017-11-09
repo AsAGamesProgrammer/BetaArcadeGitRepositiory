@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +26,9 @@ public class Player : Character {
 
     private void FixedUpdate()
     {
+        // Updating the animator 'IsGrounded' parameter.
+        PlayerAnimator.SetBool("IsGrounded", IsGrounded());
+
         // Checking whether to bother getting player input.
         if (IgnoreInput) return;
 
@@ -41,9 +45,6 @@ public class Player : Character {
 
         // Updating the animator 'DidJump' parameter.
         PlayerAnimator.SetBool("DidJump", Input.GetButtonDown("Jump"));
-
-        // Updating the animator 'IsGrounded' parameter.
-        PlayerAnimator.SetBool("IsGrounded", IsGrounded());
     }
 
     private void LateUpdate()
@@ -67,6 +68,13 @@ public class Player : Character {
     {
         // Setting the value of 'IgnoreInput'.
         IgnoreInput = value;
+    }
+
+    public void AddKnockForce(Vector3 force)
+    {
+        this.GetComponent<Rigidbody>().AddForce(force);
+        IgnoreInput = true;
+        StartCoroutine(DelayPlayerInput());
     }
 
 
@@ -110,5 +118,13 @@ public class Player : Character {
         if (targetVector.magnitude <= 0.1f) return;
         var targetRot = Quaternion.LookRotation(targetVector);
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRot, Time.deltaTime * RotateSpeed);
+    }
+
+    private IEnumerator DelayPlayerInput()
+    {
+        yield return new WaitForSeconds(0.5f);
+        while (!IsGrounded())
+            yield return new WaitForSeconds(0.1f);
+        IgnoreInput = false;
     }
 }
