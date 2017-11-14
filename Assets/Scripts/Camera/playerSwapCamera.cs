@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// TARGET: Next camera transform
+/// </summary>
+
 public class playerSwapCamera : MonoBehaviour {
 
     public GameObject cameraLocaion;

@@ -126,49 +126,49 @@ public class CameraCave : MonoBehaviour {
         //Top
         if (closeToTop)
         {
-            float distanceT = player.transform.position.z - topWall.position.z;
+            float distanceT = player.transform.position.x - topWall.position.x;
             if (distanceT < 0)
                 distanceT *= -1;
 
             float difference = cameraToTopWall - distanceT;
 
-            extraTrasform.z = -difference;
+            extraTrasform.x = -difference;
         }
 
         //Bot
         if (closeToBot)
         {
-            float distanceB = player.transform.position.z - botWall.position.z;
+            float distanceB = player.transform.position.x - botWall.position.x;
             if (distanceB < 0)
                 distanceB *= -1;
 
             float differenceB = cameraToTopWall - distanceB;
 
-            extraTrasform.z = differenceB;
+            extraTrasform.x = differenceB;
         }
 
         //Left
         if (closeToLeft)
         {
-            float distanceL = player.transform.position.x - leftWall.position.x;
+            float distanceL = player.transform.position.z - leftWall.position.z;
             if (distanceL < 0)
                 distanceL *= -1;
 
             float differenceL = cameraToSideWall - distanceL;
 
-            extraTrasform.x = differenceL;
+            extraTrasform.z = differenceL;
         }
 
         //Right
         if (closeToRight)
         {
-            float distanceR = player.transform.position.x - rightWall.position.x;
+            float distanceR = player.transform.position.z - rightWall.position.z;
             if (distanceR < 0)
                 distanceR *= -1;
 
             float differenceR = cameraToSideWall - distanceR;
 
-            extraTrasform.x = -differenceR;
+            extraTrasform.z = -differenceR;
         }
 
         
