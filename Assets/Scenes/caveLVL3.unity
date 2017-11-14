@@ -14851,7 +14851,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 811997495}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -18489,8 +18489,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1039704402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.24, y: 4.46, z: -14.8}
-  m_LocalScale: {x: 1, y: 15.912498, z: 100.22362}
+  m_LocalPosition: {x: -9.24, y: 4.46, z: -18.8}
+  m_LocalScale: {x: 1, y: 15.912498, z: 86.78797}
   m_Children: []
   m_Father: {fileID: 1223478361}
   m_RootOrder: 0
@@ -18501,7 +18501,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1039704402}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -27906,7 +27906,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1576744353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -31811,7 +31811,7 @@ MonoBehaviour:
   leftWall: {fileID: 1576744354}
   topWall: {fileID: 2123759443}
   botWall: {fileID: 1039704403}
-  cameraToSideWall: 10
+  cameraToSideWall: 15
   cameraToTopWall: 10
 --- !u!1 &1779805202
 GameObject:
@@ -38987,8 +38987,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2123759442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 110, y: 4.46, z: -14.799999}
-  m_LocalScale: {x: 1, y: 15.912499, z: 100.22362}
+  m_LocalPosition: {x: 110, y: 4.46, z: -19.6}
+  m_LocalScale: {x: 1, y: 15.912499, z: 83.97119}
   m_Children: []
   m_Father: {fileID: 1223478361}
   m_RootOrder: 1
@@ -38999,7 +38999,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2123759442}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1

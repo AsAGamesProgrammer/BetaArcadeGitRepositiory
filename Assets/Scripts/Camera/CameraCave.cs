@@ -53,12 +53,12 @@ public class CameraCave : MonoBehaviour {
 
             if (closeToRight || closeToLeft)
             {
-                newPosition.x = transform.position.x - offset.x;
+                newPosition.z = transform.position.z - offset.z;
             }
 
             if (closeToBot || closeToTop)
             {
-                newPosition.z = transform.position.z - offset.z;
+                newPosition.x = transform.position.x - offset.x;
             }
             transform.position = newPosition + offset;
         }
@@ -87,28 +87,29 @@ public class CameraCave : MonoBehaviour {
 
         //Right
         //float distanceR = Vector3.Distance(player.transform.position, rightWall.position);
-        float distanceR = player.transform.position.x - rightWall.position.x;
+        float distanceR = player.transform.position.z - rightWall.position.z;
         if (distanceR < 0)
             distanceR *= -1;
         if (distanceR < cameraToSideWall)
             closeToRight = true;
 
         //Left
-        float distanceL = player.transform.position.x - leftWall.position.x;
+        float distanceL = player.transform.position.z - leftWall.position.z;
         if (distanceL < 0)
             distanceL *= -1;
         if (distanceL < cameraToSideWall)
             closeToLeft = true;
+        Debug.Log(distanceL + " is distanceL");
 
         //Top
-        float distanceT = player.transform.position.z - topWall.position.z;
+        float distanceT = player.transform.position.x - topWall.position.x;
         if (distanceT < 0)
             distanceT *= -1;
         if (distanceT < cameraToTopWall)
             closeToTop = true;
 
         //Bot
-        float distanceB = player.transform.position.z - botWall.position.z;
+        float distanceB = player.transform.position.x - botWall.position.x;
         if (distanceB < 0)
             distanceB *= -1;
         if (distanceB < cameraToTopWall)
@@ -117,6 +118,8 @@ public class CameraCave : MonoBehaviour {
 
     public void resetPosition()
     {
+        Debug.Log("Reset position called");
+
         transform.localEulerAngles = initialRotation;
 
         Vector3 extraTrasform = new Vector3();
