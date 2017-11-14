@@ -66,6 +66,7 @@ public class CameraCave : MonoBehaviour {
         {
             if (Vector3.Distance(transform.position, lerpPosition)>0.6)
             {
+                Debug.Log("I called reset position, CameraCave");
                 resetPosition();
                 transform.position = Vector3.Lerp(transform.position, lerpPosition, Time.deltaTime * 7);
             }
@@ -115,10 +116,18 @@ public class CameraCave : MonoBehaviour {
             closeToBot = true;
     }
 
+    public void shiftCamera()
+    {
+        Debug.Log(initialRotation);
+        transform.localEulerAngles = initialRotation;
+        Debug.Log(transform.localEulerAngles);
+        Debug.Log(tag);
+        //resetPosition();
+        //transform.position = lerpPosition;
+    }
+
     public void resetPosition()
     {
-        Debug.Log("Reset position called");
-
         transform.localEulerAngles = initialRotation;
 
         Vector3 extraTrasform = new Vector3();
