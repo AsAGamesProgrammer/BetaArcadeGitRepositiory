@@ -99,7 +99,6 @@ public class CameraCave : MonoBehaviour {
             distanceL *= -1;
         if (distanceL < cameraToSideWall)
             closeToLeft = true;
-        Debug.Log(distanceL + " is distanceL");
 
         //Top
         float distanceT = player.transform.position.x - topWall.position.x;
