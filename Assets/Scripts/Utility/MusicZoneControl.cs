@@ -16,7 +16,7 @@ public class MusicZoneControl : MonoBehaviour {
   void Start () {
     m_QuarterNote = 60 / bpm;
     m_TransitionIn = m_QuarterNote;
-    m_TransitionOut = m_QuarterNote * 32;
+    m_TransitionOut = m_QuarterNote;
   }
 
 
