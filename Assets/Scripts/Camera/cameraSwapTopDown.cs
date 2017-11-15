@@ -18,7 +18,8 @@ public class cameraSwapTopDown : MonoBehaviour {
         {
             mainCamera.GetComponent<CameraCave>().enabled = true;
 
-            mainCamera.GetComponent<CameraCave>().resetPosition();
+            Debug.Log("I called reset position, cameraSwapTopDown");
+            mainCamera.GetComponent<CameraCave>().shiftCamera();
         }
     }
 }

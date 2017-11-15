@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/ProgrammerTestScenes/Scn_3rdPersonCharacter&Camera.unity
+=======
+- path: Assets/Scenes/caveLVL3.unity
+>>>>>>> Cave3Scripts
   isLoaded: 1
   isActive: 1
