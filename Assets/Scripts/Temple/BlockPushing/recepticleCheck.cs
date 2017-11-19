@@ -21,7 +21,6 @@ public class recepticleCheck : MonoBehaviour {
         {
             if (hit.collider.gameObject.tag == tag)
             {
-                Debug.Log(tag + "correct");
                 isCorrect = true;
             }
         }
