@@ -150,11 +150,13 @@
     <Compile Include="Assets\Scripts\Projectiles\StreamCollider.cs" />
     <Compile Include="Assets\Scripts\Projectiles\StreamLauncher.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\GrabBlock.cs" />
+    <Compile Include="Assets\Scripts\Temple\BlockPushing\blockPuzzleWin.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushEast.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushNorth.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushSouth.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushWest.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushableBlock.cs" />
+    <Compile Include="Assets\Scripts\Temple\BlockPushing\recepticleCheck.cs" />
     <Compile Include="Assets\Scripts\Utility\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\Utility\MusicZoneControl.cs" />
     <Compile Include="Assets\Scripts\Utility\RestartLevel.cs" />

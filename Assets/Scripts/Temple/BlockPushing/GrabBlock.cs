@@ -64,8 +64,6 @@ public class GrabBlock : MonoBehaviour {
 
         }
 
-        Debug.Log(pushedSide);
-
         if (isAttached)
         {
             //TEMPORARY***************
