@@ -12,21 +12,35 @@ public class recepticleCheck : MonoBehaviour {
     private bool isCorrect = false;
 
     public bool getIsCorrect() { return isCorrect; }
-	
-    private void OnCollisionEnter(Collision collision)
-    { 
-        if (collision.gameObject.tag == tag)
+
+    private void FixedUpdate()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, Vector3.up, out hit))
         {
-            Debug.Log(tag + "correct");
-            isCorrect = true;
+            if (hit.collider.gameObject.tag == tag)
+            {
+                Debug.Log(tag + "correct");
+                isCorrect = true;
+            }
         }
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == tag)
-        {
-            isCorrect = false;
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{ 
+    //    if (collision.gameObject.tag == tag)
+    //    {
+    //        Debug.Log(tag + "correct");
+    //        isCorrect = true;
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == tag)
+    //    {
+    //        isCorrect = false;
+    //    }
+    //}
 }

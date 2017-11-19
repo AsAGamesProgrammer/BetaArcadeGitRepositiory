@@ -28,13 +28,14 @@ public class blockPuzzleWin : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        bool flagPuzzleSolved = true;
         foreach (var panel in panelScripts)
         {
             if (!panel.getIsCorrect())
-                return;
+                flagPuzzleSolved = false; 
         }
 
-        puzzleSolved = true;
-        Debug.Log("Puzzle solved");
+        puzzleSolved = flagPuzzleSolved;
+        Debug.Log("Puzzle solved "+puzzleSolved);
     }
 }

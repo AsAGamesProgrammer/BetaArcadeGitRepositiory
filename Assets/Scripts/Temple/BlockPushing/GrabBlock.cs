@@ -42,6 +42,8 @@ public class GrabBlock : MonoBehaviour {
     {
         if (Input.GetButtonDown("Interact"))
         {
+            Debug.Log("E pressed, side " + pushedSide);
+
             ///grab block
             //checkBlockSides();
             if (pushedSide != side.none)
@@ -66,7 +68,6 @@ public class GrabBlock : MonoBehaviour {
 
         if (isAttached)
         {
-            //TEMPORARY***************
             //Push
 			float inputAxis = 0.0f;
 
