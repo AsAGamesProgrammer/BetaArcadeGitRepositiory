@@ -36,6 +36,7 @@ public class blockPuzzleWin : MonoBehaviour {
         }
 
         puzzleSolved = flagPuzzleSolved;
-        Debug.Log("Puzzle solved "+puzzleSolved);
+        if(puzzleSolved)
+            Debug.Log("Puzzle solved "+puzzleSolved);
     }
 }

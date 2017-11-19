@@ -12,11 +12,6 @@ public class GrabBlock : MonoBehaviour {
 
     public float distance = 5.0f;
 
-    //public Transform top;
-    //public Transform bot;
-    //public Transform right;
-    //public Transform left;
-
     private bool isAttached = false;
 
     public int pushingSpeed = 3;
@@ -42,28 +37,24 @@ public class GrabBlock : MonoBehaviour {
     {
         if (Input.GetButtonDown("Interact"))
         {
-            Debug.Log("E pressed, side " + pushedSide);
 
-            ///grab block
-            //checkBlockSides();
-            if (pushedSide != side.none)
+            if (isAttached)
             {
-                checkPushedDirection();
+                isAttached = false;
+                player.transform.parent = null;
+                FindObjectOfType<Player>().SetIgnoreInput(false);
+            }
+            else
+            {
+                if (pushedSide != side.none)
+                {
+                    checkPushedDirection();
 
-                if (isAttached)  //Remove Tia from parent
-                {
-                    isAttached = false;
-                    player.transform.parent = null;
-					FindObjectOfType<Player> ().SetIgnoreInput (false);
-                }
-                else           //Attach Tia to a parent
-                {
                     isAttached = true;
                     player.transform.parent = transform;
-					FindObjectOfType<Player> ().SetIgnoreInput (true);
+                    FindObjectOfType<Player>().SetIgnoreInput(true);
                 }
             }
-
         }
 
         if (isAttached)

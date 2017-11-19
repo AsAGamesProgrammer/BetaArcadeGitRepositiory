@@ -26,21 +26,4 @@ public class recepticleCheck : MonoBehaviour {
             }
         }
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{ 
-    //    if (collision.gameObject.tag == tag)
-    //    {
-    //        Debug.Log(tag + "correct");
-    //        isCorrect = true;
-    //    }
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == tag)
-    //    {
-    //        isCorrect = false;
-    //    }
-    //}
 }
