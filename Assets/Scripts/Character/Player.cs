@@ -6,6 +6,9 @@ using UnityEngine;
 [SelectionBase]
 public class Player : Character {
 
+    [HideInInspector]
+    public bool IsDoneDying = false;
+
     [SerializeField]
     [Tooltip("Use the direction of the main camera as forward when moving.")]
     private bool UseCameraDir = true;
@@ -21,10 +24,13 @@ public class Player : Character {
     [SerializeField]
     private bool IgnoreInput = false;
 
+    [SerializeField]
+    private Animation DeathAnimation;
+
 
     //-------------------------------------------Unity Functions-------------------------------------------
 
-    private void FixedUpdate()
+    private void Update()
     {
         // Updating the animator 'IsGrounded' parameter.
         PlayerAnimator.SetBool("IsGrounded", IsGrounded());
@@ -76,6 +82,12 @@ public class Player : Character {
         IgnoreInput = true;
         StartCoroutine(DelayPlayerInput());
     }
+
+    public void Die()
+    {
+        PlayerAnimator.SetBool("IsDead", true);
+        IgnoreInput = true;
+    }   
 
 
     //-----------------------------------------Protected Functions-----------------------------------------
