@@ -81,6 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4881232196263964}
   - component: {fileID: 95170174519985396}
+  - component: {fileID: 114857993993706446}
   m_Layer: 9
   m_Name: Tia-character-rig
   m_TagString: Untagged
@@ -2839,14 +2840,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc793bd7dcca6484ba9abf03a01a4248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 400
+  MoveSpeed: 300
   JumpForce: 720
   HasAirControl: 1
   CanDoubleJump: 1
-  UseCameraDir: 0
+  IsDoneDying: 0
+  UseCameraDir: 1
   RotateSpeed: 18
   PlayerAnimator: {fileID: 95170174519985396}
   IgnoreInput: 0
+  DeathAnimation: {fileID: 0}
+--- !u!114 &114857993993706446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1037616696355084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376d95096e74dc94a831c8c1da768a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136688282596937176
 CapsuleCollider:
   m_ObjectHideFlags: 1

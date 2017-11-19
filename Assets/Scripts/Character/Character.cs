@@ -28,7 +28,8 @@ public abstract class Character : MonoBehaviour {
     [Tooltip("Allow the character to jump once while in mid air.")]
     private bool CanDoubleJump = false;
 
-    private Rigidbody mRigidbody;
+    protected Rigidbody mRigidbody;
+
     private bool mHasDoubleJumped = false;
 
 

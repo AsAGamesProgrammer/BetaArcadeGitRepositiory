@@ -56,9 +56,10 @@ public class Player : Character {
     private void LateUpdate()
     {
         // Updating the animator 'Speed' parameter.
-        var finalVelocity = this.GetComponent<Rigidbody>().velocity;
+        var finalVelocity = pVelocity;
         finalVelocity.y = 0.0f;
-        PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude);
+        PlayerAnimator.SetFloat("AbsSpeed", finalVelocity.magnitude);
+        PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude * Mathf.Sign(Input.GetAxis("Vertical")));
     }
 
 
@@ -86,6 +87,8 @@ public class Player : Character {
     public void Die()
     {
         PlayerAnimator.SetBool("IsDead", true);
+        this.GetComponent<Collider>().enabled = false;
+        mRigidbody.isKinematic = true;
         IgnoreInput = true;
     }   
 
