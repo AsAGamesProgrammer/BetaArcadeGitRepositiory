@@ -29,22 +29,6 @@ public class Player : Character {
 
     private void Update()
     {
-        // TESTING - REMOVE ME!
-        //+++++++++++++++++++++++++++++++++++++++++++++++
-        if(Input.GetKey(KeyCode.LeftShift))
-        {
-            IgnoreInput = true;
-            SetPushPullSpeed(Input.GetAxis("Vertical"));
-        }
-        else
-        {
-            IgnoreInput = false;
-        }
-        //+++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
-
         // Updating the animator 'IsGrounded' parameter.
         PlayerAnimator.SetBool("IsGrounded", IsGrounded());
 
@@ -107,6 +91,14 @@ public class Player : Character {
         mRigidbody.isKinematic = true;
         IgnoreInput = true;
     }   
+
+    public void Respawn()
+    {
+        IgnoreInput = false;
+        PlayerAnimator.SetBool("IsDead", false);
+        this.GetComponent<Collider>().enabled = true;
+        mRigidbody.isKinematic = false;
+    }
 
     public void SetPushPullSpeed(float speed)
     {

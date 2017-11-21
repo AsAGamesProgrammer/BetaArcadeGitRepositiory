@@ -85,6 +85,8 @@ public class GrabBlock : MonoBehaviour {
             {
                 transform.position = Vector3.Lerp(transform.position, -pushDestination + transform.position, Time.deltaTime * pushingSpeed);
             }
+
+            FindObjectOfType<Player>().SetPushPullSpeed((pushedSide == side.top || pushedSide == side.bot) ? inputAxis : -inputAxis);
         }			
     }
 
