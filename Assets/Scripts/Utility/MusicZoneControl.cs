@@ -16,25 +16,25 @@ public class MusicZoneControl : MonoBehaviour {
   void Start () {
     m_QuarterNote = 60 / bpm;
     m_TransitionIn = m_QuarterNote;
-    m_TransitionOut = m_QuarterNote * 32;
+    m_TransitionOut = m_QuarterNote;
   }
 
 
   void OnTriggerEnter(Collider other)
   {
-    if (other.CompareTag("Zone"))
+    if (other.CompareTag("Player"))
     {
-      zone2.TransitionTo(m_TransitionIn);
+      zone1.TransitionTo(m_TransitionIn);
     }
   }
 
-  void OnTriggerExit(Collider other)
-  {
-    if (other.CompareTag("Zone"))
-    {
-      zone1.TransitionTo(m_TransitionOut);
-    }
-  }
+  //void OnTriggerExit(Collider other)
+  //{
+  //  if (other.CompareTag("Player"))
+  //  {
+  //    zone1.TransitionTo(m_TransitionOut);
+  //  }
+  //}
 
   // Update is called once per frame
   void Update () {
