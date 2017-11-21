@@ -24,14 +24,27 @@ public class Player : Character {
     [SerializeField]
     private bool IgnoreInput = false;
 
-    [SerializeField]
-    private Animation DeathAnimation;
-
 
     //-------------------------------------------Unity Functions-------------------------------------------
 
     private void Update()
     {
+        // TESTING - REMOVE ME!
+        //+++++++++++++++++++++++++++++++++++++++++++++++
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            IgnoreInput = true;
+            SetPushPullSpeed(Input.GetAxis("Vertical"));
+        }
+        else
+        {
+            IgnoreInput = false;
+        }
+        //+++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
         // Updating the animator 'IsGrounded' parameter.
         PlayerAnimator.SetBool("IsGrounded", IsGrounded());
 
@@ -49,8 +62,11 @@ public class Player : Character {
         if (Input.GetButtonDown("Jump"))
             Jump();
 
+        // Reseting the push pull animation bool.
+        PlayerAnimator.SetBool("PushPullActive", false);
+
         // Updating the animator 'DidJump' parameter.
-        PlayerAnimator.SetBool("DidJump", Input.GetButtonDown("Jump"));
+        PlayerAnimator.SetBool("DidJump", Input.GetButtonDown("Jump"));        
     }
 
     private void LateUpdate()
@@ -91,6 +107,12 @@ public class Player : Character {
         mRigidbody.isKinematic = true;
         IgnoreInput = true;
     }   
+
+    public void SetPushPullSpeed(float speed)
+    {
+        PlayerAnimator.SetBool("PushPullActive", true);
+        PlayerAnimator.SetFloat("PushPullSpeed", speed);
+    }
 
 
     //-----------------------------------------Protected Functions-----------------------------------------
