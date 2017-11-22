@@ -617,7 +617,7 @@ Prefab:
     - target: {fileID: 114114883222814738, guid: 97d58f4512c0e23428e2353107dc7e29,
         type: 2}
       propertyPath: UseCameraDir
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97d58f4512c0e23428e2353107dc7e29, type: 2}

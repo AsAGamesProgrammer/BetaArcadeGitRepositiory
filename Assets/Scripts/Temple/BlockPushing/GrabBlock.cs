@@ -12,15 +12,10 @@ public class GrabBlock : MonoBehaviour {
 
     public float distance = 5.0f;
 
-    //public Transform top;
-    //public Transform bot;
-    //public Transform right;
-    //public Transform left;
-
     private bool isAttached = false;
 
     public int pushingSpeed = 3;
-    Vector3 pushDestination;
+    public Vector3 pushDestination;
 
     public enum side
     {
@@ -42,33 +37,28 @@ public class GrabBlock : MonoBehaviour {
     {
         if (Input.GetButtonDown("Interact"))
         {
-            ///grab block
-            //checkBlockSides();
-            if (pushedSide != side.none)
-            {
-                checkPushedDirection();
 
-                if (isAttached)  //Remove Tia from parent
+            if (isAttached)
+            {
+                isAttached = false;
+                player.transform.parent = null;
+                FindObjectOfType<Player>().SetIgnoreInput(false);
+            }
+            else
+            {
+                if (pushedSide != side.none)
                 {
-                    isAttached = false;
-                    player.transform.parent = null;
-					FindObjectOfType<Player> ().SetIgnoreInput (false);
-                }
-                else           //Attach Tia to a parent
-                {
+                    checkPushedDirection();
+
                     isAttached = true;
                     player.transform.parent = transform;
-					FindObjectOfType<Player> ().SetIgnoreInput (true);
+                    FindObjectOfType<Player>().SetIgnoreInput(true);
                 }
             }
-
         }
-
-        Debug.Log(pushedSide);
 
         if (isAttached)
         {
-            //TEMPORARY***************
             //Push
 			float inputAxis = 0.0f;
 
@@ -95,6 +85,8 @@ public class GrabBlock : MonoBehaviour {
             {
                 transform.position = Vector3.Lerp(transform.position, -pushDestination + transform.position, Time.deltaTime * pushingSpeed);
             }
+
+            FindObjectOfType<Player>().SetPushPullSpeed((pushedSide == side.top || pushedSide == side.bot) ? inputAxis : -inputAxis);
         }			
     }
 
