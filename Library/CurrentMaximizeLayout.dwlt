@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 942
+  controlID: 6545
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 943
+  controlID: 6546
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 944
+  controlID: 6547
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -201,9 +201,9 @@ MonoBehaviour:
     height: 624
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 80010000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: e4fbffff00000000
+    m_ExpandedIDs: ac94feff1ed6feff2ce9fefff832ffff8c43ffff9ceaffffe4fbffff00000000a4510000c25200001c57000092570000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -276,18 +276,18 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 381
-    y: 92
+    y: 17
     width: 1148
     height: 624
   m_SceneLighting: 1
-  lastFramingTime: 0
+  lastFramingTime: 800.0244493371401
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 73.9709, y: 18.209042, z: 0.0332103}
+    m_Target: {x: 65.81463, y: 2.4012043, z: -4.3089347}
     speed: 2
-    m_Value: {x: 73.9709, y: 18.209042, z: 0.0332103}
+    m_Value: {x: 65.81463, y: 2.4012043, z: -4.3089347}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -310,13 +310,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.47412747, y: 0.52479196, z: -0.4761204, w: 0.52259535}
+    m_Target: {x: -0.15625736, y: -0.6837038, z: 0.1534714, w: -0.6961173}
     speed: 2
-    m_Value: {x: 0.47412747, y: 0.52479196, z: -0.47612044, w: 0.52259535}
+    m_Value: {x: 0.15625735, y: 0.6837038, z: -0.15347138, w: 0.6961172}
   m_Size:
-    m_Target: 10
+    m_Target: 4.776642
     speed: 2
-    m_Value: 10
+    m_Value: 4.776642
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -416,18 +416,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/Character
+    - Assets/Scenes/ProgrammerTestScenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Character
+  - Assets/Scenes/ProgrammerTestScenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\p4014518\Desktop\BetaArcadeGitRepositiory
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 836}
-    m_SelectedIDs: 463a0000
-    m_LastClickedID: 14918
+    m_SelectedIDs: 9e330000
+    m_LastClickedID: 13214
     m_ExpandedIDs: 00000000ee250000162600003226000094260000d6260000d826000002270000122700000428000048280000b4280000ba280000042900008a2a0000b22a0000f62a0000fc2a0000362b0000482b0000a02b00004e2c0000722d00007a2e0000ca2e0000da2e0000ea2e0000ec2e00001a3000003230000064300000ca300000323100003e310000523100007c3100008a3200001e3300004e3300004e340000b0340000183500006e350000d8350000f2350000fa3500001c3600004e360000ec360000e03700004c380000503800006c38000038390000ba3900008a3a0000de3a00007a3b0000243c0000d23c0000dc3c0000ec3c0000283d0000783d0000b43d00001e3e0000503e0000763e00009c3e00007c3f0000084000006a400000c0400000ea400000004100000e41000046410000904100001445000016450000184500001a4500001c4500001e45000020450000224500002445000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -481,9 +481,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 80010000
-    m_LastClickedInstanceID: 384
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -510,7 +510,7 @@ MonoBehaviour:
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
-  m_DirectoriesAreaWidth: 115
+  m_DirectoriesAreaWidth: 333
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52

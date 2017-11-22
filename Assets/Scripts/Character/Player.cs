@@ -9,9 +9,8 @@ public class Player : Character {
     [HideInInspector]
     public bool IsDoneDying = false;
 
-    [SerializeField]
     [Tooltip("Use the direction of the main camera as forward when moving.")]
-    private bool UseCameraDir = true;
+    private bool UseCameraDir = false;
 
     [SerializeField]
     [Range(10.0f, 30.0f)]
@@ -59,7 +58,7 @@ public class Player : Character {
         var finalVelocity = pVelocity;
         finalVelocity.y = 0.0f;
         PlayerAnimator.SetFloat("AbsSpeed", finalVelocity.magnitude);
-        PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude * Mathf.Sign(Input.GetAxis("Vertical")));
+        PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude);
     }
 
 
