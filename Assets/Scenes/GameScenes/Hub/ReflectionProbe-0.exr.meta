@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 130088b0db5c9f447ab829c0743aecf5
-timeCreated: 1509214856
-licenseType: Pro
+timeCreated: 1511366979
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     8900000: generatedCubemap
@@ -54,7 +54,7 @@ TextureImporter:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
