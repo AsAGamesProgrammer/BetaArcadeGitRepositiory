@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ProgrammerTestScenes/Scn_3rdPersonCharacter&Camera.unity
+- path: Assets/Scenes/ProgrammerTestScenes/Scn_TempleMechanics.unity
   isLoaded: 1
   isActive: 1
