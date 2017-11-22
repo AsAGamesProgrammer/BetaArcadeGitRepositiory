@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// TARGET: Next camera transform
-/// </summary>
-
 public class playerSwapCamera : MonoBehaviour {
 
     public GameObject cameraLocaion;
     private Camera mainCamera;
-    public bool useRelocatedCamera = false;
+    private bool useRelocatedCamera = false;
 
     public float rotationSpeed;
     public float speed;

@@ -53,12 +53,12 @@ public class CameraCave : MonoBehaviour {
 
             if (closeToRight || closeToLeft)
             {
-                newPosition.z = transform.position.z - offset.z;
+                newPosition.x = transform.position.x - offset.x;
             }
 
             if (closeToBot || closeToTop)
             {
-                newPosition.x = transform.position.x - offset.x;
+                newPosition.z = transform.position.z - offset.z;
             }
             transform.position = newPosition + offset;
         }
@@ -66,7 +66,6 @@ public class CameraCave : MonoBehaviour {
         {
             if (Vector3.Distance(transform.position, lerpPosition)>0.6)
             {
-                Debug.Log("I called reset position, CameraCave");
                 resetPosition();
                 transform.position = Vector3.Lerp(transform.position, lerpPosition, Time.deltaTime * 7);
             }
@@ -88,42 +87,32 @@ public class CameraCave : MonoBehaviour {
 
         //Right
         //float distanceR = Vector3.Distance(player.transform.position, rightWall.position);
-        float distanceR = player.transform.position.z - rightWall.position.z;
+        float distanceR = player.transform.position.x - rightWall.position.x;
         if (distanceR < 0)
             distanceR *= -1;
         if (distanceR < cameraToSideWall)
             closeToRight = true;
 
         //Left
-        float distanceL = player.transform.position.z - leftWall.position.z;
+        float distanceL = player.transform.position.x - leftWall.position.x;
         if (distanceL < 0)
             distanceL *= -1;
         if (distanceL < cameraToSideWall)
             closeToLeft = true;
 
         //Top
-        float distanceT = player.transform.position.x - topWall.position.x;
+        float distanceT = player.transform.position.z - topWall.position.z;
         if (distanceT < 0)
             distanceT *= -1;
         if (distanceT < cameraToTopWall)
             closeToTop = true;
 
         //Bot
-        float distanceB = player.transform.position.x - botWall.position.x;
+        float distanceB = player.transform.position.z - botWall.position.z;
         if (distanceB < 0)
             distanceB *= -1;
         if (distanceB < cameraToTopWall)
             closeToBot = true;
-    }
-
-    public void shiftCamera()
-    {
-        Debug.Log(initialRotation);
-        transform.localEulerAngles = initialRotation;
-        Debug.Log(transform.localEulerAngles);
-        Debug.Log(tag);
-        //resetPosition();
-        //transform.position = lerpPosition;
     }
 
     public void resetPosition()
@@ -135,49 +124,49 @@ public class CameraCave : MonoBehaviour {
         //Top
         if (closeToTop)
         {
-            float distanceT = player.transform.position.x - topWall.position.x;
+            float distanceT = player.transform.position.z - topWall.position.z;
             if (distanceT < 0)
                 distanceT *= -1;
 
             float difference = cameraToTopWall - distanceT;
 
-            extraTrasform.x = -difference;
+            extraTrasform.z = -difference;
         }
 
         //Bot
         if (closeToBot)
         {
-            float distanceB = player.transform.position.x - botWall.position.x;
+            float distanceB = player.transform.position.z - botWall.position.z;
             if (distanceB < 0)
                 distanceB *= -1;
 
             float differenceB = cameraToTopWall - distanceB;
 
-            extraTrasform.x = differenceB;
+            extraTrasform.z = differenceB;
         }
 
         //Left
         if (closeToLeft)
         {
-            float distanceL = player.transform.position.z - leftWall.position.z;
+            float distanceL = player.transform.position.x - leftWall.position.x;
             if (distanceL < 0)
                 distanceL *= -1;
 
             float differenceL = cameraToSideWall - distanceL;
 
-            extraTrasform.z = differenceL;
+            extraTrasform.x = differenceL;
         }
 
         //Right
         if (closeToRight)
         {
-            float distanceR = player.transform.position.z - rightWall.position.z;
+            float distanceR = player.transform.position.x - rightWall.position.x;
             if (distanceR < 0)
                 distanceR *= -1;
 
             float differenceR = cameraToSideWall - distanceR;
 
-            extraTrasform.z = -differenceR;
+            extraTrasform.x = -differenceR;
         }
 
         

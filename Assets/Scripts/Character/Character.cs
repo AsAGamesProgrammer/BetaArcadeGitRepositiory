@@ -28,8 +28,7 @@ public abstract class Character : MonoBehaviour {
     [Tooltip("Allow the character to jump once while in mid air.")]
     private bool CanDoubleJump = false;
 
-    protected Rigidbody mRigidbody;
-
+    private Rigidbody mRigidbody;
     private bool mHasDoubleJumped = false;
 
 
@@ -60,7 +59,7 @@ public abstract class Character : MonoBehaviour {
 
     //-----------------------------------------Protected Functions-----------------------------------------
 
-    protected virtual void Move(Vector2 moveDir, float velocityYAngle = 0f)
+    protected virtual void Move(Vector2 moveDir, Transform movementSpaceTrans)
     {
         // Exiting early if air control is disabled and the character is in the air.
         if (!IsGrounded() && !HasAirControl) return;
@@ -68,7 +67,7 @@ public abstract class Character : MonoBehaviour {
         // Calculating the new velocity of the character.
         var currentVelocity = mRigidbody.velocity;
         var newVelocity = (new Vector3(moveDir.x, 0.0f, moveDir.y)).normalized * MoveSpeed * Time.deltaTime;
-        newVelocity = Quaternion.AngleAxis(velocityYAngle, Vector3.up) * newVelocity;
+        newVelocity = movementSpaceTrans.TransformDirection(newVelocity);
         newVelocity.y = currentVelocity.y;
 
         // Applying the new velocity to the rigidbody.

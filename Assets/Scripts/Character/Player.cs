@@ -6,11 +6,9 @@ using UnityEngine;
 [SelectionBase]
 public class Player : Character {
 
-    [HideInInspector]
-    public bool IsDoneDying = false;
-
+    [SerializeField]
     [Tooltip("Use the direction of the main camera as forward when moving.")]
-    private bool UseCameraDir = false;
+    private bool UseCameraDir = true;
 
     [SerializeField]
     [Range(10.0f, 30.0f)]
@@ -26,7 +24,7 @@ public class Player : Character {
 
     //-------------------------------------------Unity Functions-------------------------------------------
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Updating the animator 'IsGrounded' parameter.
         PlayerAnimator.SetBool("IsGrounded", IsGrounded());
@@ -45,19 +43,15 @@ public class Player : Character {
         if (Input.GetButtonDown("Jump"))
             Jump();
 
-        // Reseting the push pull animation bool.
-        PlayerAnimator.SetBool("PushPullActive", false);
-
         // Updating the animator 'DidJump' parameter.
-        PlayerAnimator.SetBool("DidJump", Input.GetButtonDown("Jump"));        
+        PlayerAnimator.SetBool("DidJump", Input.GetButtonDown("Jump"));
     }
 
     private void LateUpdate()
     {
         // Updating the animator 'Speed' parameter.
-        var finalVelocity = pVelocity;
+        var finalVelocity = this.GetComponent<Rigidbody>().velocity;
         finalVelocity.y = 0.0f;
-        PlayerAnimator.SetFloat("AbsSpeed", finalVelocity.magnitude);
         PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude);
     }
 
@@ -83,42 +77,20 @@ public class Player : Character {
         StartCoroutine(DelayPlayerInput());
     }
 
-    public void Die()
-    {
-        PlayerAnimator.SetBool("IsDead", true);
-        this.GetComponent<Collider>().enabled = false;
-        mRigidbody.isKinematic = true;
-        IgnoreInput = true;
-    }   
-
-    public void Respawn()
-    {
-        IgnoreInput = false;
-        PlayerAnimator.SetBool("IsDead", false);
-        this.GetComponent<Collider>().enabled = true;
-        mRigidbody.isKinematic = false;
-    }
-
-    public void SetPushPullSpeed(float speed)
-    {
-        PlayerAnimator.SetBool("PushPullActive", true);
-        PlayerAnimator.SetFloat("PushPullSpeed", speed);
-    }
-
 
     //-----------------------------------------Protected Functions-----------------------------------------
 
-    protected sealed override void Move(Vector2 moveDir, float velocityYAngle = 0f)
+    protected sealed override void Move(Vector2 moveDir, Transform movementSpaceTrans = null)
     {
         // Aligning the player to the camera direction if necessary.
         if (UseCameraDir && moveDir.magnitude > Mathf.Epsilon)
             AlignToCamera();
 
         // Setting the move direction.
-        velocityYAngle = (UseCameraDir) ? this.transform.eulerAngles.y : Camera.main.transform.eulerAngles.y;
+        movementSpaceTrans = (UseCameraDir) ? this.transform : Camera.main.transform;
 
         // Calling the base version of the 'Move' function.
-        base.Move(moveDir, velocityYAngle);
+        base.Move(moveDir, movementSpaceTrans);
 
         // Aligning the player to its velocity if necessary.
         if(!UseCameraDir)

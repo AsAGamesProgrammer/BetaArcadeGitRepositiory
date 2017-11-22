@@ -12,10 +12,15 @@ public class GrabBlock : MonoBehaviour {
 
     public float distance = 5.0f;
 
+    public Transform top;
+    public Transform bot;
+    public Transform right;
+    public Transform left;
+
     private bool isAttached = false;
 
     public int pushingSpeed = 3;
-    public Vector3 pushDestination;
+    Vector3 pushDestination;
 
     public enum side
     {
@@ -37,28 +42,31 @@ public class GrabBlock : MonoBehaviour {
     {
         if (Input.GetButtonDown("Interact"))
         {
-
-            if (isAttached)
+            ///grab block
+            checkBlockSides();
+            if (pushedSide != side.none)
             {
-                isAttached = false;
-                player.transform.parent = null;
-                FindObjectOfType<Player>().SetIgnoreInput(false);
-            }
-            else
-            {
-                if (pushedSide != side.none)
+                if(isAttached)  //Remove Tia from parent
                 {
-                    checkPushedDirection();
-
+                    isAttached = false;
+                    player.transform.parent = null;
+					FindObjectOfType<Player> ().SetIgnoreInput (false);
+                }
+                else           //Attach Tia to a parent
+                {
                     isAttached = true;
                     player.transform.parent = transform;
-                    FindObjectOfType<Player>().SetIgnoreInput(true);
+					FindObjectOfType<Player> ().SetIgnoreInput (true);
                 }
             }
+
         }
+
+        Debug.Log(pushedSide);
 
         if (isAttached)
         {
+            //TEMPORARY***************
             //Push
 			float inputAxis = 0.0f;
 
@@ -85,40 +93,50 @@ public class GrabBlock : MonoBehaviour {
             {
                 transform.position = Vector3.Lerp(transform.position, -pushDestination + transform.position, Time.deltaTime * pushingSpeed);
             }
-
-            FindObjectOfType<Player>().SetPushPullSpeed((pushedSide == side.top || pushedSide == side.bot) ? inputAxis : -inputAxis);
         }			
     }
 
-    public void setPushedSide(side newSide)
+    void checkBlockSides()
     {
-        pushedSide = newSide;
-    }
+        float topD = Vector3.Distance(player.transform.position, top.position);
+        float botD = Vector3.Distance(player.transform.position, bot.position);
+        float leftD = Vector3.Distance(player.transform.position, left.position);
+        float rightD = Vector3.Distance(player.transform.position, right.position);
 
-    void checkPushedDirection()
-    {
-            if (pushedSide == side.top)
+        float closestWallDistance = Mathf.Min(topD, botD, leftD, rightD);
+
+        if (closestWallDistance < distance)
+        {
+
+            if (closestWallDistance == topD)
             {
+                pushedSide = side.top;
                 pushDestination = Vector3.left;
                 return;
             }
 
-            if (pushedSide == side.bot)
+            if (closestWallDistance == botD)
             {
+                pushedSide = side.bot;
                 pushDestination = Vector3.right;
                 return;
             }
 
-            if (pushedSide == side.left)
+            if (closestWallDistance == leftD)
             {
+                pushedSide = side.left;
                 pushDestination = Vector3.back;
                 return;
             }
 
-            if (pushedSide == side.right)
+            if (closestWallDistance == rightD)
             {
+                pushedSide = side.right;
                 pushDestination = Vector3.forward;
                 return;
             }
+        }
+
+        pushedSide = side.none;
     }
 }
