@@ -160,6 +160,7 @@
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushableBlock.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\recepticleCheck.cs" />
     <Compile Include="Assets\Scripts\UI\LoadLevel.cs" />
+    <Compile Include="Assets\Scripts\UI\SelectChapter.cs" />
     <Compile Include="Assets\Scripts\Utility\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\Utility\MusicZoneControl.cs" />
     <Compile Include="Assets\Scripts\Utility\RestartLevel.cs" />
