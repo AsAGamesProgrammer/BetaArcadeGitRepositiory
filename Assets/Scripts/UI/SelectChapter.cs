@@ -46,6 +46,8 @@ public class SelectChapter : MonoBehaviour {
 
     private void moveTiaOnUpdate()
     {
+        Debug.Log("Input is "+ Input.GetAxis("Horizontal"));
+
         //Check timer to see if the next input can be taken
         if (inputTimer <= 0)
         {
@@ -56,7 +58,7 @@ public class SelectChapter : MonoBehaviour {
             float inputAxis = Input.GetAxis("Horizontal");
 
             //Input "RIGHT"
-            if (inputAxis > 0.5f)
+            if (inputAxis > 0.2f)
             {
                 //Check against max and min possible index
                 if (currentLocation < 3)
@@ -69,7 +71,7 @@ public class SelectChapter : MonoBehaviour {
             }
 
             //Input "LEFT"
-            if (inputAxis < -0.5f)
+            if (inputAxis < -0.2f)
             {
                 //Check against max and min possible index
                 if (currentLocation > 1)
