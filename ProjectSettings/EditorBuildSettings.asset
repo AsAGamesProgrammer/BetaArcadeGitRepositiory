@@ -19,4 +19,7 @@ EditorBuildSettings:
     guid: cbf11e1ae10dbfb4f9b64b7260034590
   - enabled: 1
     path: Assets/Scenes/UIScenes/chapterSelect.unity
-    guid: 00000000000000000000000000000000
+    guid: 9134534ec5c068f438e7d0a28e714030
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/credits.unity
+    guid: d1902a582e5bd8742be91fd191541caa
