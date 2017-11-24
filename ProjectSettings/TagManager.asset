@@ -23,8 +23,8 @@ TagManager:
   - 
   - Only Collide With Player
   - Player
-  - 
-  - 
+  - Minimap
+  - MainCameraOnly
   - 
   - 
   - 

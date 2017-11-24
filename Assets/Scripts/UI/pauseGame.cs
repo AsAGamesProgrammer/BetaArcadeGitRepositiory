@@ -14,9 +14,8 @@ public class pauseGame : MonoBehaviour {
     public Player playerScript;
     private GameObject pauseMenu;
 
-    public UnityEngine.UI.Button initialBtn;
-
     public bool isPaused = false;
+    private bool menuIsVisible = false;
 
     //Initial menu transform
     // A reason for this peculiar way of disabling a menu is a unity bug
@@ -28,7 +27,7 @@ public class pauseGame : MonoBehaviour {
     {
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         pauseMenuInitialPos = pauseMenu.transform.position;
-        pauseMenuUnseenPos.y = pauseMenuInitialPos.y + 400;
+        pauseMenuUnseenPos.y = pauseMenuInitialPos.y + 1000;
     }
 
     // Update is called once per frame
@@ -72,10 +71,12 @@ public class pauseGame : MonoBehaviour {
         if (toShow)
         {
             pauseMenu.transform.position = pauseMenuInitialPos;
+            menuIsVisible = true;
         }
         else
         {
             pauseMenu.transform.position = pauseMenuUnseenPos;
+            menuIsVisible = false;
         }
 
     }
@@ -83,14 +84,18 @@ public class pauseGame : MonoBehaviour {
     //------------BUTTON CLICKS---------------
     public void onResumeClick()
     {
-        isPaused = false;
+        if(menuIsVisible)
+            isPaused = false;
     }
 
     public void onMenuClick()
     {
-        isPaused = false;
-        PauseGame();
-        EditorSceneManager.LoadScene(0);
+        if (menuIsVisible)
+        {
+            isPaused = false;
+            PauseGame();
+            EditorSceneManager.LoadScene(0);
+        }
     }
 
 

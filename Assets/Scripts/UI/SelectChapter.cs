@@ -46,7 +46,6 @@ public class SelectChapter : MonoBehaviour {
 
     private void moveTiaOnUpdate()
     {
-        Debug.Log("Input is "+ Input.GetAxis("Horizontal"));
 
         //Check timer to see if the next input can be taken
         if (inputTimer <= 0)
