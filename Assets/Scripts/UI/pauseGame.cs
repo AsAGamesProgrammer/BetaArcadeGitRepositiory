@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor.SceneManagement;
 
 /// <summary>
 /// TARGET: any empty game object
@@ -9,10 +11,18 @@ using UnityEngine;
 
 public class pauseGame : MonoBehaviour {
 
+    public Player playerScript;
+
     private bool isPaused = false;
-	
-	// Update is called once per frame
-	void Update ()
+    private GameObject pauseMenu;
+
+    private void Start()
+    {
+        pauseMenu = transform.GetChild(0).gameObject;
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         //Get input for a pause
         if (Input.GetButtonDown("Pause"))
@@ -22,9 +32,32 @@ public class pauseGame : MonoBehaviour {
         }
 
         //Handle a pause
+        PauseGame();
+	}
+
+    private void PauseGame()
+    {
+        pauseMenu.SetActive(isPaused);
+        playerScript.SetIgnoreInput(isPaused);
+
         if (isPaused)
             Time.timeScale = 0f;
         else
             Time.timeScale = 1f;
-	}
+    }
+
+    //Button clicks
+    public void onResumeClick()
+    {
+        isPaused = false;
+    }
+
+    public void onMenuClick()
+    {
+        isPaused = false;
+        PauseGame();
+        EditorSceneManager.LoadScene(0);
+    }
+
+    
 }
