@@ -29,6 +29,7 @@ public abstract class Character : MonoBehaviour {
     private bool CanDoubleJump = false;
 
     protected Rigidbody mRigidbody;
+    protected Vector3 mAccurateVelocity = Vector3.zero;
 
     private bool mHasDoubleJumped = false;
 
@@ -49,6 +50,11 @@ public abstract class Character : MonoBehaviour {
         mRigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
         mRigidbody.constraints = RigidbodyConstraints.FreezeRotationX |
                                  RigidbodyConstraints.FreezeRotationZ;
+    }
+
+    protected virtual void Update()
+    {
+        mAccurateVelocity = pVelocity;
     }
 
     private void OnCollisionStay(Collision collision)

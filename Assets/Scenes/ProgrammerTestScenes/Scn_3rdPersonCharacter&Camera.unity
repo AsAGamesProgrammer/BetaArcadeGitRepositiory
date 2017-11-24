@@ -575,7 +575,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 853253308}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &994904875
+--- !u!1001 &1074332844
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -613,11 +613,6 @@ Prefab:
     - target: {fileID: 4031451239184712, guid: 97d58f4512c0e23428e2353107dc7e29, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114883222814738, guid: 97d58f4512c0e23428e2353107dc7e29,
-        type: 2}
-      propertyPath: UseCameraDir
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97d58f4512c0e23428e2353107dc7e29, type: 2}
@@ -906,7 +901,7 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 4031451239184712, guid: 97d58f4512c0e23428e2353107dc7e29,
     type: 2}
-  m_PrefabInternal: {fileID: 994904875}
+  m_PrefabInternal: {fileID: 1074332844}
 --- !u!1 &1834101430
 GameObject:
   m_ObjectHideFlags: 0

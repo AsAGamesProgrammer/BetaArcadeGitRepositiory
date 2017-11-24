@@ -21,42 +21,63 @@ public class Player : Character {
     private Animator PlayerAnimator;
 
     [SerializeField]
+    private Transform VelocityTiltTransform;
+
+    [SerializeField]
+    private float MaxVelocityTiltAngle = 20f;
+
+    [SerializeField]
+    private float VelocityTiltSpeed = 2f;
+
+    [SerializeField]
     private bool IgnoreInput = false;
+
+    private float mRotationThisFrame = 0f;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
+        // Reseting the 'mRotationThisFrame' variable.
+        mRotationThisFrame = 0f;
+
+        // Checking whether to bother getting player input.
+        if (!IgnoreInput)
+        {
+            // Checking for user input.
+            var playerMovement = new Vector2(Input.GetAxis("Horizontal"),
+                                             Input.GetAxis("Vertical"));
+
+            // Moving the player if an input was provided.
+            Move(playerMovement);
+
+            // Making the player jump if the jump button is pressed.
+            if (Input.GetButtonDown("Jump"))
+                Jump();
+
+            // Reseting the push pull animation bool.
+            PlayerAnimator.SetBool("PushPullActive", false);
+
+            // Updating the animator 'DidJump' parameter.
+            PlayerAnimator.SetBool("DidJump", Input.GetButtonDown("Jump"));
+        }
+
         // Updating the animator 'IsGrounded' parameter.
         PlayerAnimator.SetBool("IsGrounded", IsGrounded());
 
-        // Checking whether to bother getting player input.
-        if (IgnoreInput) return;
-
-        // Checking for user input.
-        var playerMovement = new Vector2(Input.GetAxis("Horizontal"),
-                                         Input.GetAxis("Vertical"));
-
-        // Moving the player if an input was provided.
-        Move(playerMovement);
-
-        // Making the player jump if the jump button is pressed.
-        if (Input.GetButtonDown("Jump"))
-            Jump();
-
-        // Reseting the push pull animation bool.
-        PlayerAnimator.SetBool("PushPullActive", false);
-
-        // Updating the animator 'DidJump' parameter.
-        PlayerAnimator.SetBool("DidJump", Input.GetButtonDown("Jump"));        
+        // Applying/reseting the players velocity tilt.
+        ApplyVelocityTilt();
     }
 
     private void LateUpdate()
     {
         // Updating the animator 'Speed' parameter.
-        var finalVelocity = pVelocity;
+        var finalVelocity = mAccurateVelocity;
         finalVelocity.y = 0.0f;
+        print(finalVelocity.magnitude);
         PlayerAnimator.SetFloat("AbsSpeed", finalVelocity.magnitude);
         PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude);
     }
@@ -140,12 +161,18 @@ public class Player : Character {
 
     private void AlignToVelocity()
     {
-        // Rotating the player to align with its current velocity.
+        // Calculating the new rotation of the player.
         var targetPos = transform.position + pVelocity.normalized;
         var targetVector = new Vector3(targetPos.x, this.transform.position.y, targetPos.z) - this.transform.position;
         if (targetVector.magnitude <= 0.1f) return;
         var targetRot = Quaternion.LookRotation(targetVector);
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, targetRot, Time.deltaTime * RotateSpeed);
+        var newRot = Quaternion.Slerp(this.transform.rotation, targetRot, Time.deltaTime * RotateSpeed);
+
+        // Tilting the player.
+        mRotationThisFrame = newRot.eulerAngles.y - this.transform.eulerAngles.y;
+
+        // Applying the new rotation.
+        this.transform.rotation = newRot;
     }
 
     private IEnumerator DelayPlayerInput()
@@ -154,5 +181,14 @@ public class Player : Character {
         while (!IsGrounded())
             yield return new WaitForSeconds(0.1f);
         IgnoreInput = false;
+    }
+
+    private void ApplyVelocityTilt()
+    {
+        var currentRot = VelocityTiltTransform.eulerAngles;
+        float targetAngle = Mathf.Clamp(-mRotationThisFrame * mAccurateVelocity.magnitude, -MaxVelocityTiltAngle, MaxVelocityTiltAngle);
+        var targetRot = new Vector3(currentRot.x, currentRot.y, targetAngle);
+        var newRot = Quaternion.Slerp(Quaternion.Euler(currentRot), Quaternion.Euler(targetRot), Time.deltaTime * VelocityTiltSpeed);
+        VelocityTiltTransform.rotation = newRot;
     }
 }

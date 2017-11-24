@@ -74,7 +74,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1037616696355084
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -610,6 +610,21 @@ GameObject:
   - component: {fileID: 4171385775921962}
   m_Layer: 9
   m_Name: Reference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1464046958737982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4945059927560358}
+  m_Layer: 9
+  m_Name: Velocity Tilt Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1494,11 +1509,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1574087213433960}
-  m_LocalRotation: {x: -0, y: -0.7287196, z: -0, w: 0.68481225}
-  m_LocalPosition: {x: 7.56, y: -1.09, z: 0.6}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4881232196263964}
+  - {fileID: 4945059927560358}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -93.55801, z: 0}
@@ -2584,8 +2599,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1037616696355084}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4568939452155714}
@@ -2598,7 +2613,7 @@ Transform:
   - {fileID: 4786312668042580}
   - {fileID: 4995214589486900}
   - {fileID: 4252780727503696}
-  m_Father: {fileID: 4031451239184712}
+  m_Father: {fileID: 4945059927560358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4910081117385144
@@ -2652,6 +2667,20 @@ Transform:
   m_Children:
   - {fileID: 4160146423428628}
   m_Father: {fileID: 4497267830292662}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4945059927560358
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464046958737982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4881232196263964}
+  m_Father: {fileID: 4031451239184712}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4946457504766638
@@ -2845,9 +2874,11 @@ MonoBehaviour:
   HasAirControl: 1
   CanDoubleJump: 1
   IsDoneDying: 0
-  UseCameraDir: 0
   RotateSpeed: 18
   PlayerAnimator: {fileID: 95170174519985396}
+  VelocityTiltTransform: {fileID: 4945059927560358}
+  MaxVelocityTiltAngle: 20
+  VelocityTiltSpeed: 2
   IgnoreInput: 0
 --- !u!114 &114857993993706446
 MonoBehaviour:
