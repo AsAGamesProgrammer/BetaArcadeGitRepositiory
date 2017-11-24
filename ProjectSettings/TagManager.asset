@@ -11,6 +11,7 @@ TagManager:
   - T
   - C
   - PauseMenu
+  - UIManager
   layers:
   - Default
   - TransparentFX
