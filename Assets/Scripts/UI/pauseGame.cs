@@ -12,14 +12,9 @@ using UnityEditor.SceneManagement;
 public class pauseGame : MonoBehaviour {
 
     public Player playerScript;
+    public GameObject pauseMenu;
 
     private bool isPaused = false;
-    private GameObject pauseMenu;
-
-    private void Start()
-    {
-        pauseMenu = transform.GetChild(0).gameObject;
-    }
 
     // Update is called once per frame
     void Update ()
@@ -38,10 +33,14 @@ public class pauseGame : MonoBehaviour {
     private void PauseGame()
     {
         pauseMenu.SetActive(isPaused);
+
         playerScript.SetIgnoreInput(isPaused);
 
         if (isPaused)
+        {
             Time.timeScale = 0f;
+            //SET GUI BUTTON HIGHLIGHTED
+        }
         else
             Time.timeScale = 1f;
     }

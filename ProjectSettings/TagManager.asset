@@ -10,6 +10,7 @@ TagManager:
   - X
   - T
   - C
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
