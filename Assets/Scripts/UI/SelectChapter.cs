@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SelectChapter : MonoBehaviour {
 
+    //Transforms of Tia
     public Transform hubTransform;
     public Transform caveTransform;
     public Transform templeTransform;
@@ -16,6 +17,12 @@ public class SelectChapter : MonoBehaviour {
     private const float constTime = 0.13f;
     private float inputTimer;
 
+    //Audio clips for each scene
+    public AudioSource hubMusic;
+    public AudioSource caveMusic;
+    public AudioSource templeMusic;
+    private AudioSource[] audioSources;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -26,6 +33,12 @@ public class SelectChapter : MonoBehaviour {
         destinations[0] = hubTransform;
         destinations[1] = caveTransform;
         destinations[2] = templeTransform;
+
+        //Array of audio clis
+        audioSources = new AudioSource[3];
+        audioSources[0] = hubMusic;
+        audioSources[1] = caveMusic;
+        audioSources[2] = templeMusic;
 
         //Timer
         inputTimer = constTime;
@@ -59,6 +72,9 @@ public class SelectChapter : MonoBehaviour {
             //Input "RIGHT"
             if (inputAxis > 0.2f)
             {
+                //Stop music
+                audioSources[currentLocation-1].Stop();
+
                 //Check against max and min possible index
                 if (currentLocation < 3)
                     currentLocation++;
@@ -67,11 +83,18 @@ public class SelectChapter : MonoBehaviour {
 
                 //Move character
                 setTia(destinations[currentLocation - 1]);
+
+                //Pla music music
+                audioSources[currentLocation - 1].Play();
+
             }
 
             //Input "LEFT"
             if (inputAxis < -0.2f)
             {
+                //Stop music
+                audioSources[currentLocation - 1].Stop();
+
                 //Check against max and min possible index
                 if (currentLocation > 1)
                     currentLocation--;
@@ -80,6 +103,9 @@ public class SelectChapter : MonoBehaviour {
 
                 //Move character
                 setTia(destinations[currentLocation - 1]);
+
+                //Play music
+                audioSources[currentLocation - 1].Play();
             }
         }
         else
