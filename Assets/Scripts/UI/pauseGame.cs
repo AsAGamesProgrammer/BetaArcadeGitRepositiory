@@ -11,6 +11,8 @@ using UnityEditor.SceneManagement;
 
 public class pauseGame : MonoBehaviour {
 
+    public bool canBePaused = true;
+
     public Player playerScript;
     private GameObject pauseMenu;
 
@@ -33,15 +35,19 @@ public class pauseGame : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        //Get input for a pause
-        if (Input.GetButtonDown("Pause"))
+        //If there is an option to pause the game
+        if (canBePaused)
         {
-            isPaused = !isPaused;
-            Debug.Log("Game paused " + isPaused);
-        }
+            //Get input for a pause
+            if (Input.GetButtonDown("Pause"))
+            {
+                isPaused = !isPaused;
+                Debug.Log("Game paused " + isPaused);
+            }
 
-        //Handle a pause
-        PauseGame();
+            //Handle a pause
+            PauseGame();
+        }
     }
 
     private void PauseGame()
