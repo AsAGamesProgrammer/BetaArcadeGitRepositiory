@@ -30,12 +30,15 @@ public class DialogManager : MonoBehaviour {
 
     private int currentLine = 0;
 
+    //Dialogues
+    public DialogueArray[] dialogueLeo;
     public DialogueArray[] dialogueCat;
-        //if button pressed
-        //Initiate a dialogue
-        //For the number of elements, show name/phrase 
+    public DialogueArray[] dialoguePanda;
+    //if button pressed
+    //Initiate a dialogue
+    //For the number of elements, show name/phrase 
 
-	void Start ()
+    void Start ()
     {
         Tia = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 	}
@@ -43,20 +46,54 @@ public class DialogManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (catButton.IsBottomedOutAndLocked())
+        //Check for a dialogue
+        checkButtons();
+
+        //Check if player talked to everyone
+        if (leoDialogueCompleted && catDialogueCompleted && pandaDialogueCompleted)
+            Debug.Log("All the dialogues completed");
+
+    }
+
+    //Check if a dialogue has to be played and play if required
+    void checkButtons()
+    {
+        //CAT
+        //If button is pressed and associated dialogue is not completed
+        if (catButton.IsBottomedOutAndLocked() && !catDialogueCompleted)
         {
-            Debug.Log("Button pressed");
-            if (!catDialogueCompleted)
+            //Play a dialogue
+            if (!playDialogue(dialogueCat))
             {
-                //Prepare for a dialogue
-                dialogueIsPlaying(true);
-                //Play a dialogue
-                playDialogue(dialogueCat);
-                //Finish dialogue
-                //dialogueIsPlaying(false);
+                dialogueIsPlaying(false);
+                catDialogueCompleted = true;
             }
         }
-	}
+
+        //PANDA
+        //If button is pressed and associated dialogue is not completed
+        if (pandaButton.IsBottomedOutAndLocked() && !pandaDialogueCompleted)
+        {
+            //Play a dialogue
+            if (!playDialogue(dialoguePanda))
+            {
+                dialogueIsPlaying(false);
+                pandaDialogueCompleted = true;
+            }
+        }
+
+        //LEO
+        //If button is pressed and associated dialogue is not completed
+        if (leoButton.IsBottomedOutAndLocked() && !leoDialogueCompleted)
+        {
+            //Play a dialogue
+            if (!playDialogue(dialogueLeo))
+            {
+                dialogueIsPlaying(false);
+                leoDialogueCompleted = true;
+            }
+        }
+    }
 
     void dialogueIsPlaying(bool isPlaying)
     {
@@ -68,51 +105,35 @@ public class DialogManager : MonoBehaviour {
 
         //Ignore/Enable Tia's input
         Tia.SetIgnoreInput(isPlaying);
+
+        if(!isPlaying)
+            currentLine = 0;
     }
 
-    //void startDialogue(DialogueArray[] playedDialogue)
-    //{
-    //    //Show dialogue UI
-    //    dialogueCanvas.SetActive(true);
-
-    //    //Don't allow a pause
-    //    pauseScript.canBePaused = false;
-
-    //    //Ignore Tia's input
-    //    Tia.SetIgnoreInput(true);
-
-    //    playDialogue(playedDialogue);
-    //}
-
-    void playDialogue(DialogueArray[] playedDialogue)
+    //Play a certain dialogue passed as a parameter
+    bool playDialogue(DialogueArray[] playedDialogue)
     {
+        //Prepare for a dialogue
+        dialogueIsPlaying(true);
+
         //Click enabled
         if (Input.GetButtonDown("Jump"))
         {
             nextClick();
         }
 
+        //Check if the dialogue is at the end
         if (currentLine < playedDialogue.Length)
         {
             characterName.text = playedDialogue[currentLine].dialogueLine[0];
             characterLine.text = playedDialogue[currentLine].dialogueLine[1];
+            return true;
         }
         else
-            dialogueIsPlaying(false);
+            return false;
+            
 
     }
-
-    //void finishDialogue()
-    //{
-    //    //Hide dialogue UI
-    //    dialogueCanvas.SetActive(false);
-
-    //    //Don't allow a pause
-    //    pauseScript.canBePaused = true;
-
-    //    //Enable Tia's input
-    //    Tia.SetIgnoreInput(false);
-    //}
 
     //Btn NEXT click
     public void nextClick()

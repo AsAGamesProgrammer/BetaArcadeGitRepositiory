@@ -2983,7 +2983,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4418259543563916, guid: 158104c2c3fd438428777ead1248f94f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.07
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4418259543563916, guid: 158104c2c3fd438428777ead1248f94f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10722,6 +10722,16 @@ MonoBehaviour:
   characterName: {fileID: 574569138}
   characterLine: {fileID: 1790128123}
   pauseScript: {fileID: 368746411}
+  dialogueLeo:
+  - dialogueLine:
+    - Leo Smith
+    - RAAARH
+  - dialogueLine:
+    - Tiare
+    - Pardon me?
+  - dialogueLine:
+    - Leo Smith
+    - RAARH RAA RAAR
   dialogueCat:
   - dialogueLine:
     - Tiare
@@ -10735,6 +10745,19 @@ MonoBehaviour:
   - dialogueLine:
     - Tiare
     - 'What? '
+  dialoguePanda:
+  - dialogueLine:
+    - Panda
+    - '*Yawn*'
+  - dialogueLine:
+    - Tiare
+    - Mm, excuse me...
+  - dialogueLine:
+    - Panda
+    - Negribu, nedaru, nesaprotu
+  - dialogueLine:
+    - Tiare
+    - Never mind...
 --- !u!4 &1573732252
 Transform:
   m_ObjectHideFlags: 0
