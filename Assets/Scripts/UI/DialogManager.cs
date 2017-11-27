@@ -48,25 +48,41 @@ public class DialogManager : MonoBehaviour {
             Debug.Log("Button pressed");
             if (!catDialogueCompleted)
             {
-                //start cat dialogue
-                startDialogue(dialogueCat);
+                //Prepare for a dialogue
+                dialogueIsPlaying(true);
+                //Play a dialogue
+                playDialogue(dialogueCat);
+                //Finish dialogue
+                //dialogueIsPlaying(false);
             }
         }
 	}
 
-    void startDialogue(DialogueArray[] playedDialogue)
+    void dialogueIsPlaying(bool isPlaying)
     {
-        //Show dialogue UI
-        dialogueCanvas.SetActive(true);
+        //Show/Hide dialogue UI
+        dialogueCanvas.SetActive(isPlaying);
 
-        //Don't allow a pause
-        pauseScript.canBePaused = false;
+        //Don't allow/Allow a pause
+        pauseScript.canBePaused = !isPlaying;
 
-        //Ignore Tia's input
-        Tia.SetIgnoreInput(true);
-
-        playDialogue(playedDialogue);
+        //Ignore/Enable Tia's input
+        Tia.SetIgnoreInput(isPlaying);
     }
+
+    //void startDialogue(DialogueArray[] playedDialogue)
+    //{
+    //    //Show dialogue UI
+    //    dialogueCanvas.SetActive(true);
+
+    //    //Don't allow a pause
+    //    pauseScript.canBePaused = false;
+
+    //    //Ignore Tia's input
+    //    Tia.SetIgnoreInput(true);
+
+    //    playDialogue(playedDialogue);
+    //}
 
     void playDialogue(DialogueArray[] playedDialogue)
     {
@@ -76,23 +92,33 @@ public class DialogManager : MonoBehaviour {
             nextClick();
         }
 
-
+        if (currentLine < playedDialogue.Length)
+        {
+            characterName.text = playedDialogue[currentLine].dialogueLine[0];
+            characterLine.text = playedDialogue[currentLine].dialogueLine[1];
+        }
+        else
+            dialogueIsPlaying(false);
 
     }
 
-    void finishDialogue()
-    {
-        //Hide dialogue UI
-        dialogueCanvas.SetActive(false);
+    //void finishDialogue()
+    //{
+    //    //Hide dialogue UI
+    //    dialogueCanvas.SetActive(false);
 
-        //Enable Tia's input
-        Tia.SetIgnoreInput(false);
-    }
+    //    //Don't allow a pause
+    //    pauseScript.canBePaused = true;
+
+    //    //Enable Tia's input
+    //    Tia.SetIgnoreInput(false);
+    //}
 
     //Btn NEXT click
     public void nextClick()
     {
         Debug.Log("Click");
+        currentLine++;
     }
 }
 
