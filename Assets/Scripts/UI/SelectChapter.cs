@@ -83,7 +83,9 @@ public class SelectChapter : MonoBehaviour {
 
                 //Move character
                 setTia(destinations[currentLocation - 1]);
-
+                var gObject = GameObject.FindGameObjectWithTag("Click");
+                var audio = gObject.GetComponent<AudioSource>();
+                audio.Play();
                 //Pla music music
                 audioSources[currentLocation - 1].Play();
 
@@ -103,7 +105,9 @@ public class SelectChapter : MonoBehaviour {
 
                 //Move character
                 setTia(destinations[currentLocation - 1]);
-
+                var gObject = GameObject.FindGameObjectWithTag("Click");
+                var audio = gObject.GetComponent<AudioSource>();
+                audio.Play();
                 //Play music
                 audioSources[currentLocation - 1].Play();
             }
