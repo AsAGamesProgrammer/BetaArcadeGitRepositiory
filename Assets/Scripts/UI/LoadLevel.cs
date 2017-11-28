@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour {
 
-    public int nextScene = 1;
+  public int nextScene = 1;
 
   public void loadNext()
   {
@@ -18,4 +18,5 @@ public class LoadLevel : MonoBehaviour {
     var audio = gObject.GetComponent<AudioSource>();
     audio.Play();
   }
+
 }
