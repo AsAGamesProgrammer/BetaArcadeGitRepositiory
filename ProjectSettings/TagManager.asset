@@ -10,6 +10,9 @@ TagManager:
   - X
   - T
   - C
+  - PauseMenu
+  - UIManager
+  - Click
   layers:
   - Default
   - TransparentFX
@@ -21,8 +24,8 @@ TagManager:
   - 
   - Only Collide With Player
   - Player
-  - 
-  - 
+  - Minimap
+  - MainCameraOnly
   - 
   - 
   - 

@@ -4,4 +4,22 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/mainMenu.unity
+    guid: 4c15d3bec8c392946a519cdc6bf75422
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Hub.unity
+    guid: cbf12c63d726bc84e852e51cf750c67f
+  - enabled: 1
+    path: Assets/Scenes/caveLVL3.unity
+    guid: 5d9db7cfaea1815489827f59db08a0aa
+  - enabled: 1
+    path: Assets/Scenes/WIP_TempleIdea.unity
+    guid: cbf11e1ae10dbfb4f9b64b7260034590
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/chapterSelect.unity
+    guid: 9134534ec5c068f438e7d0a28e714030
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/credits.unity
+    guid: d1902a582e5bd8742be91fd191541caa
