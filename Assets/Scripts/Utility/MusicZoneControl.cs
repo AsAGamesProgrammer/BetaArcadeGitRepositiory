@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class MusicZoneControl : MonoBehaviour {
+public class MusicZoneControl : MonoBehaviour
+{
 
   public AudioMixerSnapshot zone1;
   public AudioMixerSnapshot zone2;
@@ -12,32 +13,29 @@ public class MusicZoneControl : MonoBehaviour {
   private float m_TransitionIn;
   private float m_TransitionOut;
   private float m_QuarterNote;
+  public AudioClip[] SFX;
+  public AudioSource SFXSource;
   // Use this for initialization
   void Start () {
     m_QuarterNote = 60 / bpm;
-    m_TransitionIn = m_QuarterNote;
-    m_TransitionOut = m_QuarterNote;
+    m_TransitionIn = m_QuarterNote * 10;
+    m_TransitionOut = m_QuarterNote * 10;
   }
 
 
   void OnTriggerEnter(Collider other)
   {
-    if (other.CompareTag("Zone"))
+    if (other.CompareTag("Player"))
     {
-      zone2.TransitionTo(m_TransitionIn);
+      zone1.TransitionTo(m_TransitionIn);
+      PlaySFX();
     }
   }
 
-  void OnTriggerExit(Collider other)
+  void PlaySFX()
   {
-    if (other.CompareTag("Zone"))
-    {
-      zone1.TransitionTo(m_TransitionOut);
-    }
+    int randClip = Random.Range(0, SFX.Length);
+    SFXSource.clip = SFX[randClip];
+    SFXSource.Play();
   }
-
-  // Update is called once per frame
-  void Update () {
-		
-	}
 }
