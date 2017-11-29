@@ -150,10 +150,10 @@
     <Compile Include="Assets\Scripts\Projectiles\StreamCollider.cs" />
     <Compile Include="Assets\Scripts\Projectiles\StreamLauncher.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\GrabBlock.cs" />
+    <Compile Include="Assets\Scripts\Temple\BlockPushing\blockPushback.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushableBlock.cs" />
     <Compile Include="Assets\Scripts\Utility\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\Utility\MusicZoneControl.cs" />
-    <Compile Include="Assets\Scripts\Utility\RestartLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ArtAssets\Temple Assets\LowWalls\NoRails\Note.txt" />
