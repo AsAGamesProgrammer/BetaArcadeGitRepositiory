@@ -77,7 +77,7 @@ public class Button : MonoBehaviour {
         if (PlayerIsInGravityRange() && mApplyGravity)
         {
             // Checking for edge cases before applying the force.
-            if (!IsBeingStoodOn() || (Mathf.Abs(Input.GetAxis("Horizontal")) < 0.01f && Mathf.Abs(Input.GetAxis("Vertical")) < 0.01f))
+            if (!IsBeingStoodOn() || ((Mathf.Abs(Input.GetAxis("Horizontal")) < 0.01f && Mathf.Abs(Input.GetAxis("Vertical")) < 0.01f)))
             {
                 // Calculating and applying the gravity force.
                 var playerRB = FindObjectOfType<Player>().GetComponent<Rigidbody>();
@@ -141,7 +141,7 @@ public class Button : MonoBehaviour {
     public bool IsBottomedOut()
     {
         // Determing if the button is at or below its minimum vertical pos.
-        return this.transform.position.y <= mInitialYPos - MaxMoveDistance;
+        return Mathf.Abs(this.transform.position.y - (mInitialYPos - MaxMoveDistance)) <= 0.01f;
     }
 
 
@@ -157,7 +157,7 @@ public class Button : MonoBehaviour {
 
         // Moving the button and clamping it between its min and max vertical positions.
         var pos = this.transform.position;
-        pos.y = Mathf.Clamp(pos.y + speed * Time.deltaTime, mInitialYPos - MaxMoveDistance, mInitialYPos);
+        pos.y = Mathf.Clamp(pos.y + speed * Time.deltaTime, mInitialYPos - MaxMoveDistance - float.Epsilon, mInitialYPos);
         this.transform.position = pos;
     }
 

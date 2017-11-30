@@ -54,14 +54,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1413142001010734}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.565, z: 4}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -12.393, y: -1.233, z: -9.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4543160231887354}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4543160231887354
 Transform:
   m_ObjectHideFlags: 1
@@ -88,7 +88,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e5b68607806d1ce47a7099ec219c2bcd, type: 2}
+  - {fileID: 2100000, guid: e580cfe938b863e4da9fb2e3ba551314, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -195,5 +195,5 @@ MonoBehaviour:
   PushZoneCentre: {x: 0, y: 1, z: 0}
   PushZoneSize: {x: 0.6, y: 0.2, z: 0.6}
   LockPositionOnBottomOut: 1
-  GravityRadius: 1.5
+  GravityRadius: 1
   GravityMultiplier: 50000
