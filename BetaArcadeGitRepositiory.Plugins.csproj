@@ -131,6 +131,9 @@
     <None Include="Assets\PostProcess\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcess\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcess\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Shaders\Tia Edge Highlight\Normal-Diffuse-Stencil-Write.shader" />
+    <None Include="Assets\Shaders\Tia Edge Highlight\Normal-Diffuse-XRay-Replaceable.shader" />
+    <None Include="Assets\Shaders\Tia Edge Highlight\XRay-ColoredOutline.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
     <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
