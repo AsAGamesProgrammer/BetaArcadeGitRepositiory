@@ -60,7 +60,7 @@ public class Button : MonoBehaviour {
         mInitialYPos = this.transform.position.y;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         // Moving the button down if it is being stood on.
         if (IsBeingStoodOn())

@@ -6,9 +6,11 @@ using UnityEngine;
 [SelectionBase]
 public class Player : Character {
 
-    [SerializeField]
+    [HideInInspector]
+    public bool IsDoneDying = false;
+
     [Tooltip("Use the direction of the main camera as forward when moving.")]
-    private bool UseCameraDir = true;
+    private bool UseCameraDir = false;
 
     [SerializeField]
     [Range(10.0f, 30.0f)]
@@ -75,6 +77,7 @@ public class Player : Character {
         // Updating the animator 'Speed' parameter.
         var finalVelocity = mAccurateVelocity;
         finalVelocity.y = 0.0f;
+        PlayerAnimator.SetFloat("AbsSpeed", finalVelocity.magnitude);
         PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude);
     }
 
@@ -100,20 +103,42 @@ public class Player : Character {
         StartCoroutine(DelayPlayerInput());
     }
 
+    public void Die()
+    {
+        PlayerAnimator.SetBool("IsDead", true);
+        this.GetComponent<Collider>().enabled = false;
+        mRigidbody.isKinematic = true;
+        IgnoreInput = true;
+    }   
+
+    public void Respawn()
+    {
+        IgnoreInput = false;
+        PlayerAnimator.SetBool("IsDead", false);
+        this.GetComponent<Collider>().enabled = true;
+        mRigidbody.isKinematic = false;
+    }
+
+    public void SetPushPullSpeed(float speed)
+    {
+        PlayerAnimator.SetBool("PushPullActive", true);
+        PlayerAnimator.SetFloat("PushPullSpeed", speed);
+    }
+
 
     //-----------------------------------------Protected Functions-----------------------------------------
 
-    protected sealed override void Move(Vector2 moveDir, Transform movementSpaceTrans = null)
+    protected sealed override void Move(Vector2 moveDir, float velocityYAngle = 0f)
     {
         // Aligning the player to the camera direction if necessary.
         if (UseCameraDir && moveDir.magnitude > Mathf.Epsilon)
             AlignToCamera();
 
         // Setting the move direction.
-        movementSpaceTrans = (UseCameraDir) ? this.transform : Camera.main.transform;
+        velocityYAngle = (UseCameraDir) ? this.transform.eulerAngles.y : Camera.main.transform.eulerAngles.y;
 
         // Calling the base version of the 'Move' function.
-        base.Move(moveDir, movementSpaceTrans);
+        base.Move(moveDir, velocityYAngle);
 
         // Aligning the player to its velocity if necessary.
         if(!UseCameraDir)

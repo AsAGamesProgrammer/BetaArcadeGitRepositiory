@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/WIP_TempleIdea.unity
-=======
-- path: Assets/Scenes/GameScenes/Cave.unity
->>>>>>> CaveBranch
+- path: Assets/Scenes/ProgrammerTestScenes/Scn_3rdPersonCharacter&Camera.unity
   isLoaded: 1
   isActive: 1
