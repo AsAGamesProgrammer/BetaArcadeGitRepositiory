@@ -77,7 +77,6 @@ public class Player : Character {
         // Updating the animator 'Speed' parameter.
         var finalVelocity = mAccurateVelocity;
         finalVelocity.y = 0.0f;
-        print(finalVelocity.magnitude);
         PlayerAnimator.SetFloat("AbsSpeed", finalVelocity.magnitude);
         PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude);
     }
