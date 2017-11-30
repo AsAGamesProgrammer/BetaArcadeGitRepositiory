@@ -20,7 +20,7 @@ public class GrabBlock : MonoBehaviour {
     private bool isAttached = false;
 
     public int pushingSpeed = 3;
-    Vector3 pushDestination;
+    public Vector3 pushDestination;
 
     public enum side
     {
