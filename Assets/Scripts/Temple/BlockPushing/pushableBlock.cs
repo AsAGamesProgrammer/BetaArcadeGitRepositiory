@@ -10,7 +10,7 @@ public class pushableBlock : MonoBehaviour {
 
     private bool westPushed = false;
     private bool eastPushed = false;
-    public bool southPushed = false;
+    private bool southPushed = false;
     private bool northPushed = false;
 
     public const int distanceModifier = 1;

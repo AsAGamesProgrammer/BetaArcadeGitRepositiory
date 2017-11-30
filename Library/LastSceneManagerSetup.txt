@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/WIP_TempleIdea.unity
+=======
+- path: Assets/Scenes/GameScenes/Cave.unity
+>>>>>>> CaveBranch
   isLoaded: 1
   isActive: 1
