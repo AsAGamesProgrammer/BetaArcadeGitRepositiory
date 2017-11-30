@@ -34,9 +34,12 @@ public class DialogManager : MonoBehaviour {
     public DialogueArray[] dialogueLeo;
     public DialogueArray[] dialogueCat;
     public DialogueArray[] dialoguePanda;
-    //if button pressed
-    //Initiate a dialogue
-    //For the number of elements, show name/phrase 
+    public DialogueArray[] dialogueMinimap;
+
+    //Minimap
+    public bool playMinimapDialogue = false;
+    public DisableMinimap minimapScript;
+    private bool minimapFound = false;
 
     void Start ()
     {
@@ -50,8 +53,8 @@ public class DialogManager : MonoBehaviour {
         checkButtons();
 
         //Check if player talked to everyone
-        if (leoDialogueCompleted && catDialogueCompleted && pandaDialogueCompleted)
-            Debug.Log("All the dialogues completed");
+        if (!minimapFound)
+            playMapDialogue();
 
     }
 
@@ -131,8 +134,35 @@ public class DialogManager : MonoBehaviour {
         }
         else
             return false;
-            
+    }
 
+    //Play a minimapDialogue
+    void playMapDialogue()
+    {
+        if (leoDialogueCompleted && catDialogueCompleted && pandaDialogueCompleted)
+        {
+            if (playMinimapDialogue)
+            {
+                minimapScript.enabled = true;
+                //Play a dialogue
+                if (currentLine + 1 >= dialogueMinimap.Length)
+                {
+                    //Make a player press B
+                    if (Input.GetButtonDown("Minimap"))
+                    {
+                        dialogueIsPlaying(false);
+                        playMinimapDialogue = false;
+                        minimapFound = true;
+                    }
+                }
+                else
+                    playDialogue(dialogueMinimap);
+            }
+        }
+        else
+        {
+            playMinimapDialogue = false;
+        }
     }
 
     //Btn NEXT click
