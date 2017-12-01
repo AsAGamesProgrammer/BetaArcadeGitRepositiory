@@ -23,11 +23,24 @@ public class MusicZoneControl : MonoBehaviour
   }
 
 
-  void OnTriggerEnter(Collider other)
+  //void OnTriggerEnter(Collider other)
+  //{
+  //  if (other.CompareTag("Player"))
+  //  {
+  //    //zone1.TransitionTo(m_TransitionIn);
+  //    //PlaySFX();
+  //  }
+  //}
+
+  void OnTriggerExit(Collider other)
   {
     if (other.CompareTag("Player"))
     {
-      zone1.TransitionTo(m_TransitionIn);
+      Vector3 dist = other.transform.position - transform.position;
+      if(dist.x > 0)
+        zone2.TransitionTo(m_TransitionIn);
+      else
+        zone1.TransitionTo(m_TransitionIn);
       PlaySFX();
     }
   }

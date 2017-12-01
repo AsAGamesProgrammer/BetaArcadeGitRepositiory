@@ -5170,8 +5170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e6eedfe968fbe49856b84091356880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zone1: {fileID: 245565650223516272, guid: d83786bae1c2d2e4ea2e0371ce7bface, type: 2}
-  zone2: {fileID: 24500006, guid: d83786bae1c2d2e4ea2e0371ce7bface, type: 2}
+  zone1: {fileID: 24500006, guid: d83786bae1c2d2e4ea2e0371ce7bface, type: 2}
+  zone2: {fileID: 245565650223516272, guid: d83786bae1c2d2e4ea2e0371ce7bface, type: 2}
   bpm: 128
   SFX:
   - {fileID: 8300000, guid: d89b5d88b5bb9fe418775aa2a195700b, type: 3}
