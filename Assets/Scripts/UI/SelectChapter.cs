@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class SelectChapter : MonoBehaviour {
@@ -18,13 +19,13 @@ public class SelectChapter : MonoBehaviour {
     private float inputTimer;
 
     //Audio clips for each scene
-    public AudioSource hubMusic;
-    public AudioSource caveMusic;
-    public AudioSource templeMusic;
-    private AudioSource[] audioSources;
+    public AudioMixerSnapshot hubMusic;
+    public AudioMixerSnapshot caveMusic;
+    public AudioMixerSnapshot templeMusic;
+    private AudioMixerSnapshot[] audioSources;
 
-	// Use this for initialization
-	void Start ()
+  // Use this for initialization
+  void Start ()
     {
         setTia(hubTransform);
 
@@ -35,7 +36,7 @@ public class SelectChapter : MonoBehaviour {
         destinations[2] = templeTransform;
 
         //Array of audio clis
-        audioSources = new AudioSource[3];
+        audioSources = new AudioMixerSnapshot[3];
         audioSources[0] = hubMusic;
         audioSources[1] = caveMusic;
         audioSources[2] = templeMusic;
@@ -73,7 +74,7 @@ public class SelectChapter : MonoBehaviour {
             if (inputAxis > 0.2f)
             {
                 //Stop music
-                audioSources[currentLocation-1].Stop();
+                //audioSources[currentLocation-1].T();
 
                 //Check against max and min possible index
                 if (currentLocation < 3)
@@ -87,7 +88,7 @@ public class SelectChapter : MonoBehaviour {
                 var audio = gObject.GetComponent<AudioSource>();
                 audio.Play();
                 //Pla music music
-                audioSources[currentLocation - 1].Play();
+                audioSources[currentLocation - 1].TransitionTo((60/128)*10);
 
             }
 
@@ -95,7 +96,7 @@ public class SelectChapter : MonoBehaviour {
             if (inputAxis < -0.2f)
             {
                 //Stop music
-                audioSources[currentLocation - 1].Stop();
+                //audioSources[currentLocation - 1].Stop();
 
                 //Check against max and min possible index
                 if (currentLocation > 1)
@@ -109,7 +110,7 @@ public class SelectChapter : MonoBehaviour {
                 var audio = gObject.GetComponent<AudioSource>();
                 audio.Play();
                 //Play music
-                audioSources[currentLocation - 1].Play();
+                audioSources[currentLocation - 1].TransitionTo((60 / 128) * 10);
             }
         }
         else
