@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/GameScenes/Hub_final.unity
+=======
+- path: Assets/Scenes/GameScenes/Temple.unity
+>>>>>>> master
   isLoaded: 1
   isActive: 1
