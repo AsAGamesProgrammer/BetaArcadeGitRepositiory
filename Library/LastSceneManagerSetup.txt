@@ -1,4 +1,7 @@
 sceneSetups:
-- path: Assets/Scenes/GameScenes/Hub_final.unity
+- path: Assets/Scenes/GameScenes/Hub.unity
   isLoaded: 1
   isActive: 1
+- path: Assets/Scenes/WIP_TempleIdea.unity
+  isLoaded: 0
+  isActive: 0
