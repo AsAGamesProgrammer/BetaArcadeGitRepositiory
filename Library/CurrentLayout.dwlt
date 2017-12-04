@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 0
+    x: 1920
     y: 43
     width: 1920
     height: 1117
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: 1920
     y: 737
     width: 1529
     height: 401
@@ -324,19 +324,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/ArtAssets/EnvAssets/BasaltCove_Assets/Terrain
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/ArtAssets/EnvAssets/BasaltCove_Assets/Terrain
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Q5051576\Desktop\BetaArcadeGitRepositiory
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 111}
-    m_SelectedIDs: da530000
-    m_LastClickedID: 21466
-    m_ExpandedIDs: 00000000da5300001c540000585400005a5400006e540000d454000002550000065500002e55000064550000e65500001c560000da5600006257000066570000ea57000006580000625800007c580000cc58000094590000aa5a00001e5b0000765b0000465c0000d45c0000585d00005c5d0000da5d0000f05d0000285e00004c5e00006e5e0000b65e0000d08c0000d28c0000d48c0000d68c0000d88c0000da8c0000dc8c0000de8c0000e08c000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 384}
+    m_SelectedIDs: e4280000
+    m_LastClickedID: 10468
+    m_ExpandedIDs: 0000000000260000462600009026000092260000ae260000402700007c27000082270000b82700001a280000e428000042290000542a00002e2b0000342b0000da2b0000102c00008c2c0000c82c00004a2d0000682e00000c300000a0300000363100007e32000048330000023400000c340000cc340000e43400003e3500006a35000092350000ec350000e8660000ea660000ec660000ee660000f0660000f2660000f4660000f6660000f866000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -364,7 +364,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000da5300001c540000585400005a5400006e540000d454000002550000065500002e55000064550000e65500001c560000da5600006257000066570000ea57000006580000625800007c580000cc58000094590000aa5a00001e5b0000765b0000465c0000d45c0000585d00005c5d0000da5d0000f05d0000285e00004c5e00006e5e0000b65e0000d08c0000d28c0000d48c0000d68c0000d88c0000da8c0000dc8c0000de8c0000e08c0000
+    m_ExpandedIDs: 0000000000260000462600009026000092260000ae260000402700007c27000082270000b82700001a280000e428000042290000542a00002e2b0000342b0000da2b0000102c00008c2c0000c82c00004a2d0000682e00000c300000a0300000363100007e32000048330000023400000c340000cc340000e43400003e3500006a35000092350000ec350000e8660000ea660000ec660000ee660000f0660000f2660000f4660000f6660000f8660000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -441,7 +441,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 1533
+    x: 3453
     y: 92
     width: 387
     height: 1046
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: 1920
     y: 92
     width: 377
     height: 624
@@ -482,7 +482,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ece1fdff5e39feff34a4feff96a7feff7cddfefff038ffff4068ffff00000000
+    m_ExpandedIDs: e4fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 381
+    x: 2301
     y: 92
     width: 1148
     height: 624
@@ -537,9 +537,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 17.873789, y: 7.812365, z: 14.639285}
+    m_Target: {x: -46.721188, y: -30.82504, z: -3.955285}
     speed: 2
-    m_Value: {x: 17.873789, y: 7.812365, z: 14.639285}
+    m_Value: {x: -46.721188, y: -30.82504, z: -3.955285}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -562,13 +562,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.04537745, y: -0.8023079, z: 0.06149706, w: -0.5919975}
+    m_Target: {x: -0.13273719, y: 0.72358334, z: 0.1451709, w: 0.66161424}
     speed: 2
-    m_Value: {x: -0.04537745, y: -0.8023079, z: 0.06149706, w: -0.5919975}
+    m_Value: {x: -0.13273719, y: 0.72358334, z: 0.1451709, w: 0.66161424}
   m_Size:
-    m_Target: 12.651081
+    m_Target: 6.0401034
     speed: 2
-    m_Value: 12.651081
+    m_Value: 6.0401034
   m_Ortho:
     m_Target: 0
     speed: 2
