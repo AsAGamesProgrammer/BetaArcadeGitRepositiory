@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/GameScenes/Temple.unity
-=======
-- path: Assets/Scenes/GameScenes/Hub_old.unity
->>>>>>> FadingOut
   isLoaded: 1
   isActive: 1
