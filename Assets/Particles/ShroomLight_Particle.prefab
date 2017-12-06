@@ -35,8 +35,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1807908360683520}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.05, y: 0.449, z: 0}
-  m_LocalScale: {x: 0.023462396, y: 0.024043906, z: 0.0234624}
+  m_LocalPosition: {x: -2.01, y: 6.553, z: -13.891}
+  m_LocalScale: {x: 0.14415771, y: 0.14773066, z: 0.14415775}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1171253463
+  randomSeed: 258380895
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2392,7 +2392,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    maxLights: 20
+    maxLights: 3
   TrailModule:
     enabled: 0
     ratio: 1
