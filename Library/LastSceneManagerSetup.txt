@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/GameScenes/Hub_final.unity
+- path: Assets/Scenes/GameScenes/Temple_Walkway.unity
   isLoaded: 1
   isActive: 1
