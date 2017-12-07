@@ -1,11 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/GameScenes/CaveNew.unity
-=======
-- path: Assets/Scenes/GameScenes/Opening_Cinematic.unity
->>>>>>> opening
   isLoaded: 1
   isActive: 1
-- path: Assets/Scenes/GameScenes/Hub_old.unity
-  isLoaded: 0
-  isActive: 0
