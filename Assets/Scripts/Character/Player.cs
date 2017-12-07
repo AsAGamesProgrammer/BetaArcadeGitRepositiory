@@ -74,6 +74,8 @@ public class Player : Character {
 
     private void LateUpdate()
     {
+        RemoveLateralSlide();
+
         // Updating the animator 'Speed' parameter.
         var finalVelocity = mAccurateVelocity;
         finalVelocity.y = 0.0f;
@@ -189,5 +191,31 @@ public class Player : Character {
         var targetRot = new Vector3(currentRot.x, currentRot.y, targetAngle);
         var newRot = Quaternion.Slerp(Quaternion.Euler(currentRot), Quaternion.Euler(targetRot), Time.deltaTime * VelocityTiltSpeed);
         VelocityTiltTransform.rotation = newRot;
+    }
+
+    private void RemoveLateralSlide()
+    {
+        if(IsGrounded() && Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f && Mathf.Abs(Input.GetAxis("Vertical")) < 0.1f)
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX |
+                                                    RigidbodyConstraints.FreezePositionZ |
+                                                    RigidbodyConstraints.FreezeRotationX |
+                                                    RigidbodyConstraints.FreezeRotationZ;
+
+            //if ()
+            //{
+
+            //    var vel = GetComponent<Rigidbody>().velocity;
+            //    vel.x = 0f;
+            //    vel.z = 0f;
+            //    GetComponent<Rigidbody>().velocity = vel;
+            //    print(GetComponent<Rigidbody>().velocity);
+            //}
+        }
+        else
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |
+                                                    RigidbodyConstraints.FreezeRotationZ;
+        }
     }
 }
