@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4808692504792396}
   - component: {fileID: 33544623493333652}
   - component: {fileID: 23380020620253024}
-  - component: {fileID: 95129620835478238}
   m_Layer: 0
   m_Name: TallCapMushroom
   m_TagString: Untagged
@@ -95,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098908841555188}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 414.901, y: 0.29450226, z: 45.91}
+  m_LocalPosition: {x: 451.1255, y: -5.207691, z: 121.82215}
   m_LocalScale: {x: 3.742534, y: 3.7425365, z: 3.7425365}
   m_Children:
   - {fileID: 4359556599914240}
@@ -142,23 +141,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098908841555188}
   m_Mesh: {fileID: 4300000, guid: ec915f3c67dbdb74395994e6368cf981, type: 3}
---- !u!95 &95129620835478238
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1098908841555188}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ec915f3c67dbdb74395994e6368cf981, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108815436263634796
 Light:
   m_ObjectHideFlags: 1
