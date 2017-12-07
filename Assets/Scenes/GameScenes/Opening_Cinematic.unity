@@ -372,7 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movie: {fileID: 15200000, guid: c0fd32aa0236e754ea33c67180e584b9, type: 3}
   transitionIsDone: 0
-  nextSceneName: Hub_old
+  nextSceneName: Hub_final
 --- !u!82 &1850269527
 AudioSource:
   m_ObjectHideFlags: 0
