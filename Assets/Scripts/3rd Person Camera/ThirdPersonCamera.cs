@@ -44,10 +44,15 @@ public class ThirdPersonCamera : MonoBehaviour {
     [SerializeField]
     private bool InvertY = false;
 
-    private Vector3 mCameraOffsetRot = Vector3.zero;    
+    private Vector3 mCameraOffsetRot = Vector3.zero;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
+
+    private void Start()
+    {
+        mCameraOffsetRot.y = transform.eulerAngles.y;
+    }
 
     private void Update()
     {
