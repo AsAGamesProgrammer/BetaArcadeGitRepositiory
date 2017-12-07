@@ -160,6 +160,7 @@
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushWest.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\pushableBlock.cs" />
     <Compile Include="Assets\Scripts\Temple\BlockPushing\recepticleCheck.cs" />
+    <Compile Include="Assets\Scripts\Temple\MovingPlatforms.cs" />
     <Compile Include="Assets\Scripts\UI\DialogManager.cs" />
     <Compile Include="Assets\Scripts\UI\DisableCameraHub.cs" />
     <Compile Include="Assets\Scripts\UI\DisableMinimap.cs" />
