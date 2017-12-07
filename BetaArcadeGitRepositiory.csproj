@@ -131,6 +131,7 @@
     <Compile Include="Assets\PostProcess\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcess\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\3rd Person Camera\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\Scripts\Block Puzzle\BlockPuzzleManager.cs" />
     <Compile Include="Assets\Scripts\Button\Button.cs" />
     <Compile Include="Assets\Scripts\Button\ButtonDemoScript.cs" />
     <Compile Include="Assets\Scripts\Button\ButtonPuzzleManager.cs" />
