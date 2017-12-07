@@ -131,7 +131,9 @@
     <Compile Include="Assets\PostProcess\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcess\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\3rd Person Camera\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\Scripts\Block Puzzle\Block.cs" />
     <Compile Include="Assets\Scripts\Block Puzzle\BlockPuzzleManager.cs" />
+    <Compile Include="Assets\Scripts\Block Puzzle\BlockPuzzleTrigger.cs" />
     <Compile Include="Assets\Scripts\Button\Button.cs" />
     <Compile Include="Assets\Scripts\Button\ButtonDemoScript.cs" />
     <Compile Include="Assets\Scripts\Button\ButtonPuzzleManager.cs" />
@@ -152,15 +154,6 @@
     <Compile Include="Assets\Scripts\Projectiles\ProjectileLauncher.cs" />
     <Compile Include="Assets\Scripts\Projectiles\StreamCollider.cs" />
     <Compile Include="Assets\Scripts\Projectiles\StreamLauncher.cs" />
-    <Compile Include="Assets\Scripts\Temple\BlockPushing\GrabBlock.cs" />
-    <Compile Include="Assets\Scripts\Temple\BlockPushing\blockPushback.cs" />
-    <Compile Include="Assets\Scripts\Temple\BlockPushing\blockPuzzleWin.cs" />
-    <Compile Include="Assets\Scripts\Temple\BlockPushing\pushEast.cs" />
-    <Compile Include="Assets\Scripts\Temple\BlockPushing\pushNorth.cs" />
-    <Compile Include="Assets\Scripts\Temple\BlockPushing\pushSouth.cs" />
-    <Compile Include="Assets\Scripts\Temple\BlockPushing\pushWest.cs" />
-    <Compile Include="Assets\Scripts\Temple\BlockPushing\pushableBlock.cs" />
-    <Compile Include="Assets\Scripts\Temple\BlockPushing\recepticleCheck.cs" />
     <Compile Include="Assets\Scripts\Temple\MovingPlatforms.cs" />
     <Compile Include="Assets\Scripts\UI\DialogManager.cs" />
     <Compile Include="Assets\Scripts\UI\DisableCameraHub.cs" />

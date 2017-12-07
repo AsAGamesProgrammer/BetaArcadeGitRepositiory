@@ -34,6 +34,7 @@ public class Player : Character {
 
     private float mRotationThisFrame = 0f;
     private bool mIsPulledByButton = false;
+    private bool mRagDoll = false;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
@@ -46,7 +47,7 @@ public class Player : Character {
         mRotationThisFrame = 0f;
 
         // Checking whether to bother getting player input.
-        if (!IgnoreInput)
+        if (!IgnoreInput && !mRagDoll)
         {
             // Checking for user input.
             var playerMovement = new Vector2(Input.GetAxis("Horizontal"),
@@ -104,7 +105,7 @@ public class Player : Character {
     public void AddKnockForce(Vector3 force)
     {
         this.GetComponent<Rigidbody>().AddForce(force);
-        IgnoreInput = true;
+        mRagDoll = true;
         StartCoroutine(DelayPlayerInput());
     }
 
@@ -192,6 +193,7 @@ public class Player : Character {
         while (!IsGrounded())
             yield return new WaitForSeconds(0.1f);
         IgnoreInput = false;
+        mRagDoll = false;
     }
 
     private void ApplyVelocityTilt()
@@ -205,7 +207,7 @@ public class Player : Character {
 
     private void RemoveLateralSlide()
     {
-        if(IsGrounded() && !mIsPulledByButton && ((IgnoreInput) || (Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f && Mathf.Abs(Input.GetAxis("Vertical")) < 0.1f)))
+        if(IsGrounded() && !mRagDoll && !mIsPulledByButton && (IgnoreInput || (Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f && Mathf.Abs(Input.GetAxis("Vertical")) < 0.1f)))
         {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX |
                                                     RigidbodyConstraints.FreezePositionZ |
