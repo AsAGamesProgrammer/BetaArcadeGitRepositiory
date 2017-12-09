@@ -33,6 +33,8 @@ public class Player : Character {
     private bool IgnoreInput = false;
 
     private float mRotationThisFrame = 0f;
+    private bool mIsPulledByButton = false;
+    private bool mRagDoll = false;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
@@ -45,7 +47,7 @@ public class Player : Character {
         mRotationThisFrame = 0f;
 
         // Checking whether to bother getting player input.
-        if (!IgnoreInput)
+        if (!IgnoreInput && !mRagDoll)
         {
             // Checking for user input.
             var playerMovement = new Vector2(Input.GetAxis("Horizontal"),
@@ -81,6 +83,8 @@ public class Player : Character {
         finalVelocity.y = 0.0f;
         PlayerAnimator.SetFloat("AbsSpeed", finalVelocity.magnitude);
         PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude);
+
+        mIsPulledByButton = false;
     }
 
 
@@ -101,7 +105,7 @@ public class Player : Character {
     public void AddKnockForce(Vector3 force)
     {
         this.GetComponent<Rigidbody>().AddForce(force);
-        IgnoreInput = true;
+        mRagDoll = true;
         StartCoroutine(DelayPlayerInput());
     }
 
@@ -125,6 +129,13 @@ public class Player : Character {
     {
         PlayerAnimator.SetBool("PushPullActive", true);
         PlayerAnimator.SetFloat("PushPullSpeed", speed);
+    }
+
+    public void PullToButtonCentre(Vector3 force)
+    {
+        force.y = 0f;
+        GetComponent<Rigidbody>().AddForce(force * Time.deltaTime);
+        mIsPulledByButton = true;
     }
 
 
@@ -182,6 +193,7 @@ public class Player : Character {
         while (!IsGrounded())
             yield return new WaitForSeconds(0.1f);
         IgnoreInput = false;
+        mRagDoll = false;
     }
 
     private void ApplyVelocityTilt()
@@ -195,22 +207,12 @@ public class Player : Character {
 
     private void RemoveLateralSlide()
     {
-        if(IsGrounded() && Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f && Mathf.Abs(Input.GetAxis("Vertical")) < 0.1f)
+        if(IsGrounded() && !mRagDoll && !mIsPulledByButton && (IgnoreInput || (Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f && Mathf.Abs(Input.GetAxis("Vertical")) < 0.1f)))
         {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX |
                                                     RigidbodyConstraints.FreezePositionZ |
                                                     RigidbodyConstraints.FreezeRotationX |
                                                     RigidbodyConstraints.FreezeRotationZ;
-
-            //if ()
-            //{
-
-            //    var vel = GetComponent<Rigidbody>().velocity;
-            //    vel.x = 0f;
-            //    vel.z = 0f;
-            //    GetComponent<Rigidbody>().velocity = vel;
-            //    print(GetComponent<Rigidbody>().velocity);
-            //}
         }
         else
         {

@@ -79,12 +79,15 @@ public class Button : MonoBehaviour {
             // Checking for edge cases before applying the force.
             if (!IsBeingStoodOn() || ((Mathf.Abs(Input.GetAxis("Horizontal")) < 0.01f && Mathf.Abs(Input.GetAxis("Vertical")) < 0.01f)))
             {
-                // Calculating and applying the gravity force.
-                var playerRB = FindObjectOfType<Player>().GetComponent<Rigidbody>();
-                var movementVector = this.transform.position - playerRB.transform.position;
-                var forceVector = movementVector.normalized * 1.0f / Mathf.Max(0.01f, movementVector.magnitude);
-                forceVector.y = 0.0f;
-                playerRB.AddForce(forceVector * Time.deltaTime * GravityMultiplier);
+                // Calculating and applying the gravity force.                
+                var player =FindObjectOfType<Player>();
+                if(player != null)
+                {
+                    var movementVector = this.transform.position - player.transform.position;
+                    var forceVector = movementVector.normalized * 1.0f / Mathf.Max(0.01f, movementVector.magnitude);
+                    forceVector.y = 0.0f;
+                    player.PullToButtonCentre(forceVector * GravityMultiplier);
+                }
             }
         }
 

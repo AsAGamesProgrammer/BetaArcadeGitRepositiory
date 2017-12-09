@@ -13,6 +13,7 @@ TagManager:
   - PauseMenu
   - UIManager
   - Click
+  - Block Puzzle Tile
   layers:
   - Default
   - TransparentFX
