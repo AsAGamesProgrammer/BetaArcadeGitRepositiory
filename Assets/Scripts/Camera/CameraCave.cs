@@ -28,6 +28,13 @@ public class CameraCave : MonoBehaviour {
     private bool lerpCamera = false;
     int lerpFrames = 0;
 
+    //New
+    public bool TiaIsFalling = false;
+    private bool fallTransformSet = false;
+    private Vector3 fallPosition;
+    private Vector3 fallRotation;
+    private float fallingCameraSpeed = 10f;
+
 
     // Use this for initialization
     void Start ()
@@ -39,10 +46,50 @@ public class CameraCave : MonoBehaviour {
 
         //Rotattion
         initialRotation = transform.localEulerAngles;
+
+        //Fall transform rotation
+        fallPosition = new Vector3();
+        fallRotation = new Vector3(90, transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
 	
 	// Update is called once per frame
-	void LateUpdate ()
+	void Update ()
+    {
+
+        if (TiaIsFalling)
+        {
+            //Falling camera
+            fallingCamera();
+        }
+        else
+        {
+            moveNormally();
+        }
+    }
+
+    //-----------------------
+    //   FALLING CAMERA
+    //-----------------------
+
+    void fallingCamera()
+    {
+        //Set new camera transform
+        if (!fallTransformSet)
+        {
+            fallPosition = new Vector3(transform.position.x + 10, transform.position.y + 3, transform.position.z);
+            fallTransformSet = true;
+        }
+
+        transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, fallRotation, fallingCameraSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, fallPosition, fallingCameraSpeed * Time.deltaTime);
+        //transform.Rotate(Vector3.right * fallingCameraSpeed * Time.deltaTime);
+    }
+
+    //-----------------------
+    //   NORMAL MOVEMENT
+    //-----------------------
+
+    void moveNormally()
     {
         cameraCanMove();
 
@@ -64,7 +111,7 @@ public class CameraCave : MonoBehaviour {
         }
         else
         {
-            if (Vector3.Distance(transform.position, lerpPosition)>0.6)
+            if (Vector3.Distance(transform.position, lerpPosition) > 0.6)
             {
                 Debug.Log("I called reset position, CameraCave");
                 resetPosition();
@@ -115,6 +162,26 @@ public class CameraCave : MonoBehaviour {
         if (distanceB < cameraToTopWall)
             closeToBot = true;
     }
+
+    //-----------------------
+    //   CAMERA RESETS
+    //-----------------------
+    //Resets both a player and a camera without any animation
+    public void hardReset(Transform resetLocation)
+    {
+        //Tia is no longer falling
+        TiaIsFalling = false;
+        fallTransformSet = false; 
+
+        //Reset player
+        player.transform.position = resetLocation.position;
+        player.transform.rotation = resetLocation.rotation;
+
+        //Reset camera
+        transform.position = offset;
+        transform.localEulerAngles = initialRotation;
+    }
+
 
     public void shiftCamera()
     {
