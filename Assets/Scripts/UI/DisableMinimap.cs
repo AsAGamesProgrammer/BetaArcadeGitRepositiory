@@ -5,7 +5,7 @@ using UnityEngine;
 public class DisableMinimap : MonoBehaviour {
 
     public GameObject minimap;
-    private bool mapShown = false;
+    public bool mapShown;
 
     //This script should move a camera for a mini map
 	
