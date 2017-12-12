@@ -64,7 +64,7 @@ public class pauseGame : MonoBehaviour {
             Time.timeScale = 1f;
 
         //Disable player's input
-        playerScript.SetIgnoreInput(isPaused);
+        //playerScript.SetIgnoreInput(isPaused);
     }
 
     /// <summary>
