@@ -46,6 +46,7 @@ public class CameraCave : MonoBehaviour {
     private Vector3 templeCameraRotation = new Vector3(40, 90, 0);
     private float templeCameraSpeed = 0.9f;
     public BlockPuzzleManager blockScript;
+    bool camerBackToNomral=true;
 
     // Use this for initialization
     void Start ()
@@ -56,7 +57,6 @@ public class CameraCave : MonoBehaviour {
         //Offsets
         offset = transform.position - player.transform.position;
         templeCameraPosition = new Vector3 (offset.x * 1.3f, offset.y * 1.3f, offset.z);
-        //templeCameraPosition = new Vector3()
 
         //Rotattion
         initialRotation = transform.localEulerAngles;
@@ -74,19 +74,27 @@ public class CameraCave : MonoBehaviour {
             performTempleCamera();
         }
         else
-        if (TiaIsFalling)
         {
-            //Falling camera
-            fallingCamera();
-        }
-        else 
-        if (isFixedAngleCamera)
-        {
-            performFixedCameraAngle();
-        }
-        else
-        {
-            moveNormally();
+            if (!camerBackToNomral)
+            {
+                resetCameraToNormal();
+                camerBackToNomral = true;
+            }
+
+            if (TiaIsFalling)
+            {
+                //Falling camera
+                fallingCamera();
+            }
+            else
+            if (isFixedAngleCamera)
+            {
+                performFixedCameraAngle();
+            }
+            else
+            {
+                moveNormally();
+            }
         }
     }
 
@@ -241,7 +249,8 @@ public class CameraCave : MonoBehaviour {
     {
         transform.position = Vector3.Lerp(transform.position, templeCameraPosition + player.transform.position, templeCameraSpeed * Time.deltaTime);
         transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, templeCameraRotation, templeCameraSpeed * Time.deltaTime);
-        //transform.eulerAngles = new Vector3(rotation.x, rotation.y, rotation.z);
+
+        camerBackToNomral = false;
     }
 
     public void shiftCamera()
