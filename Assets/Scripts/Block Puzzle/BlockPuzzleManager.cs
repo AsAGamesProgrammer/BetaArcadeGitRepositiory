@@ -35,6 +35,8 @@ public class BlockPuzzleManager : MonoBehaviour {
     private List<Block> mBlocks = new List<Block>();
     private bool mPuzzleActive = false;
 
+    //-------------------------------------------Kristina was here-------------------------------------------
+    public bool isPuzzleActive() { return mPuzzleActive; }
 
     //-------------------------------------------Unity Functions-------------------------------------------
 
