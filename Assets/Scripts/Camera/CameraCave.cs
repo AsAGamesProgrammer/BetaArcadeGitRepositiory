@@ -28,13 +28,19 @@ public class CameraCave : MonoBehaviour {
     private bool lerpCamera = false;
     int lerpFrames = 0;
 
-    //New
+    //Falling camera
     public bool TiaIsFalling = false;
     private bool fallTransformSet = false;
     private Vector3 fallPosition;
     private Vector3 fallRotation;
-    private float fallingCameraSpeed = 10f;
+    public float fallingCameraSpeed = 10f;
 
+    //Fixed angle camera
+    public float fixedAngleCameraSpeed = 3f;
+    private Vector3 fixedCameraDestinationPosition;
+    private Quaternion fixedCameraDestinationRotation;
+    bool isFixedAngleCamera = false;
+    float lerpStage = 0.01f;
 
     // Use this for initialization
     void Start ()
@@ -55,11 +61,14 @@ public class CameraCave : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
         if (TiaIsFalling)
         {
             //Falling camera
             fallingCamera();
+        }
+        else if (isFixedAngleCamera)
+        {
+            performFixedCameraAngle();
         }
         else
         {
@@ -82,7 +91,34 @@ public class CameraCave : MonoBehaviour {
 
         transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, fallRotation, fallingCameraSpeed * Time.deltaTime);
         transform.position = Vector3.Lerp(transform.position, fallPosition, fallingCameraSpeed * Time.deltaTime);
-        //transform.Rotate(Vector3.right * fallingCameraSpeed * Time.deltaTime);
+    }
+
+    //-----------------------
+    //     FIXED ANGLE
+    //-----------------------
+    //Moves a camera from the offset position to a fixed object
+    //USED: by triggers coverig the area
+    public void startFixedAngleCamera(Transform fixedLocation)
+    {
+        Debug.Log("Start was called");
+        fixedCameraDestinationPosition = fixedLocation.position;
+        fixedCameraDestinationRotation = fixedLocation.rotation;
+
+        isFixedAngleCamera = true;
+    }
+
+    void performFixedCameraAngle()
+    {
+        //lerpStage += 0.01f;
+        //transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, fallRotation, fallingCameraSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, fixedCameraDestinationPosition, fixedAngleCameraSpeed * Time.deltaTime);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, fixedCameraDestinationRotation, fixedAngleCameraSpeed * Time.deltaTime);
+
+        //Quaternion
+
+       // transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, fixedCameraDestinationRotation, fixedAngleCameraSpeed * Time.deltaTime);
+       
     }
 
     //-----------------------
@@ -166,7 +202,8 @@ public class CameraCave : MonoBehaviour {
     //-----------------------
     //   CAMERA RESETS
     //-----------------------
-    //Resets both a player and a camera without any animation
+    //Resets both a player and a camera without any animation, disable falls
+    //USED: by triggers on the falling platforms
     public void hardReset(Transform resetLocation)
     {
         //Tia is no longer falling
@@ -181,7 +218,6 @@ public class CameraCave : MonoBehaviour {
         transform.position = offset;
         transform.localEulerAngles = initialRotation;
     }
-
 
     public void shiftCamera()
     {
