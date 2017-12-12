@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 711, y: 471}
   m_MaxSize: {x: 18006, y: 14021}
   vertical: 0
-  controlID: 2440
+  controlID: 2734
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 421}
   m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 2375
+  controlID: 2735
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,8 +143,8 @@ MonoBehaviour:
     y: 0
     width: 908
     height: 486
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
@@ -182,9 +182,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 110.189224, y: -20.239433, z: 40.59909}
+    m_Target: {x: 81.16151, y: -4.196623, z: 1.2743219}
     speed: 2
-    m_Value: {x: 110.189224, y: -20.239433, z: 40.59909}
+    m_Value: {x: 81.16151, y: -4.196623, z: 1.2743219}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -207,13 +207,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.19222187, y: 0.26982686, z: -0.055065088, w: 0.9419193}
+    m_Target: {x: -0.23744409, y: -0.6353039, z: 0.21463826, w: -0.7028084}
     speed: 2
-    m_Value: {x: 0.19222187, y: 0.26982686, z: -0.055065088, w: 0.9419193}
+    m_Value: {x: -0.23744409, y: -0.6353039, z: 0.21463826, w: -0.7028084}
   m_Size:
-    m_Target: 71.94969
+    m_Target: 28.441532
     speed: 2
-    m_Value: 71.94969
+    m_Value: 28.441532
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 471}
   m_MaxSize: {x: 10004, y: 14021}
   vertical: 1
-  controlID: 2441
+  controlID: 2617
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -326,10 +326,10 @@ MonoBehaviour:
     width: 605
     height: 577
   m_TreeViewState:
-    scrollPos: {x: 0, y: 596}
-    m_SelectedIDs: 88880000
-    m_LastClickedID: 34952
-    m_ExpandedIDs: 548ffffffed6ffff0000000008710000d6770000e47d000088880000
+    scrollPos: {x: 0, y: 2224}
+    m_SelectedIDs: a2561b00
+    m_LastClickedID: 0
+    m_ExpandedIDs: 548ffffffed6ffff0000000008710000d6770000e47d00002486000088880000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -439,18 +439,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/Block Puzzle
+    - Assets/Scripts/Camera/BlockPuzzleCamera
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Block Puzzle
+  - Assets/Scripts/Camera/BlockPuzzleCamera
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\BetaArcadeRepository\BetaArcadeGitRepositiory
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 125}
-    m_SelectedIDs: 04370000
-    m_LastClickedID: 14084
+    m_SelectedIDs: a2561b00
+    m_LastClickedID: 1791650
     m_ExpandedIDs: 000000003236000070360000723600008e36000096360000c2360000dc360000703700007e370000aa370000b0370000e6370000343800005e38000066380000a0380000d2380000f238000094390000fa390000503a0000603a00007e3a0000e83a0000403b0000463b0000d43b0000063c0000963c0000c43c0000d43c00003c3d0000683d0000903e0000ca3e0000d23e0000ee3e0000703f0000803f0000843f0000a03f0000d03f0000e23f000024400000404000004c400000d64000001e4100002241000086410000dc4100000c420000b8420000144300001c43000092430000144400002e44000054440000084500001a450000324500008c450000ba450000e2450000ec45000038460000026c0000046c0000066c0000086c00000a6c00000c6c00000e6c0000106c0000126c0000146c0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -504,8 +504,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 88880000
-    m_LastClickedInstanceID: 34952
+    m_SelectedInstanceIDs: a2561b00
+    m_LastClickedInstanceID: 1791650
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:

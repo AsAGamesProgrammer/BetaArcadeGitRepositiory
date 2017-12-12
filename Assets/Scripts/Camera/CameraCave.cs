@@ -40,7 +40,12 @@ public class CameraCave : MonoBehaviour {
     private Vector3 fixedCameraDestinationPosition;
     private Quaternion fixedCameraDestinationRotation;
     bool isFixedAngleCamera = false;
-    float lerpStage = 0.01f;
+
+    //Temple camera
+    private Vector3 templeCameraPosition = new Vector3 ();
+    private Vector3 templeCameraRotation = new Vector3(40, 90, 0);
+    private float templeCameraSpeed = 0.9f;
+    public BlockPuzzleManager blockScript;
 
     // Use this for initialization
     void Start ()
@@ -48,7 +53,10 @@ public class CameraCave : MonoBehaviour {
         //Player game object
         player = GameObject.FindWithTag("Player");
 
+        //Offsets
         offset = transform.position - player.transform.position;
+        templeCameraPosition = new Vector3 (offset.x * 1.3f, offset.y * 1.3f, offset.z);
+        //templeCameraPosition = new Vector3()
 
         //Rotattion
         initialRotation = transform.localEulerAngles;
@@ -61,12 +69,18 @@ public class CameraCave : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (blockScript.isPuzzleActive())
+        {
+            performTempleCamera();
+        }
+        else
         if (TiaIsFalling)
         {
             //Falling camera
             fallingCamera();
         }
-        else if (isFixedAngleCamera)
+        else 
+        if (isFixedAngleCamera)
         {
             performFixedCameraAngle();
         }
@@ -218,6 +232,16 @@ public class CameraCave : MonoBehaviour {
 
         transform.position = offset;
         transform.localEulerAngles = initialRotation;
+    }
+
+    //-----------------------
+    //   TEMPLE CAMERA
+    //-----------------------
+    public void performTempleCamera()
+    {
+        transform.position = Vector3.Lerp(transform.position, templeCameraPosition + player.transform.position, templeCameraSpeed * Time.deltaTime);
+        transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, templeCameraRotation, templeCameraSpeed * Time.deltaTime);
+        //transform.eulerAngles = new Vector3(rotation.x, rotation.y, rotation.z);
     }
 
     public void shiftCamera()
