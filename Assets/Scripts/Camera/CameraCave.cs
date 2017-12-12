@@ -107,18 +107,11 @@ public class CameraCave : MonoBehaviour {
         isFixedAngleCamera = true;
     }
 
+    //Is called on update if isFixedAngleCamera is equal to true
     void performFixedCameraAngle()
     {
-        //lerpStage += 0.01f;
-        //transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, fallRotation, fallingCameraSpeed * Time.deltaTime);
         transform.position = Vector3.Lerp(transform.position, fixedCameraDestinationPosition, fixedAngleCameraSpeed * Time.deltaTime);
-
         transform.rotation = Quaternion.Slerp(transform.rotation, fixedCameraDestinationRotation, fixedAngleCameraSpeed * Time.deltaTime);
-
-        //Quaternion
-
-       // transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, fixedCameraDestinationRotation, fixedAngleCameraSpeed * Time.deltaTime);
-       
     }
 
     //-----------------------
@@ -215,6 +208,14 @@ public class CameraCave : MonoBehaviour {
         player.transform.rotation = resetLocation.rotation;
 
         //Reset camera
+        transform.position = offset + player.transform.position;
+        transform.localEulerAngles = initialRotation;
+    }
+
+    public void resetCameraToNormal()
+    {
+        isFixedAngleCamera = false;
+
         transform.position = offset;
         transform.localEulerAngles = initialRotation;
     }

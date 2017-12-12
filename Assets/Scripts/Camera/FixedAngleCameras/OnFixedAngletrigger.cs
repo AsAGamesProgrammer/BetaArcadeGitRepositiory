@@ -20,4 +20,12 @@ public class OnFixedAngletrigger : MonoBehaviour {
             mainCameraScript.startFixedAngleCamera(newCameraPosition);
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            mainCameraScript.resetCameraToNormal();
+        }
+    }
 }
