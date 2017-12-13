@@ -20140,7 +20140,7 @@ MonoBehaviour:
     - RARR RAGH GHH
   - dialogueLine:
     - Tiare's inner voice
-    - I think something magical will happen if I press B
+    - I think something magical will happen if I press Y
   playMinimapDialogue: 0
   minimapScript: {fileID: 368746414}
 --- !u!4 &1573732252
