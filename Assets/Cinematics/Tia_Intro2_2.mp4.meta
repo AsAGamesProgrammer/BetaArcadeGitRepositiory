@@ -4,7 +4,7 @@ timeCreated: 1512579147
 licenseType: Free
 VideoClipImporter:
   serializedVersion: 2
-  useLegacyImporter: 1
+  useLegacyImporter: 0
   quality: 0.5
   isColorLinear: 0
   originalWidth: 1920
@@ -26,7 +26,7 @@ VideoClipImporter:
   sourceAudioSampleRate: 80bb0000
   targetSettings:
     0:
-      enableTranscoding: 0
+      enableTranscoding: 1
       codec: 0
       resizeFormat: 0
       aspectRatio: 0
@@ -37,7 +37,7 @@ VideoClipImporter:
   output:
     format: 1
     settings:
-      enableTranscoding: 0
+      enableTranscoding: 1
       codec: 0
       resizeFormat: 0
       aspectRatio: 0
@@ -50,9 +50,9 @@ VideoClipImporter:
     encodedStartFrame: 0
     encodedEndFrame: 1494
     streamedResource:
-      source: 
+      source: library/metadata/c0/c0fd32aa0236e754ea33c67180e584b9.resource
       offset: 0
-      size: 101586260
+      size: 42627423
   userData: 
   assetBundleName: 
   assetBundleVariant: 
