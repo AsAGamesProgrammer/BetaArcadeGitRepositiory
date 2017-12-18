@@ -14,6 +14,7 @@ public class Block : MonoBehaviour {
     private Vector3 mTargetPos = Vector3.zero;
     private bool mPlayerAttached = false;
     private BlockDirection mPlayerDirection = BlockDirection.Null;
+    private BlockDirection mDir = BlockDirection.Null;
     private Vector3 mCurrentVelocity = Vector3.zero;
     private bool mQueueDettach = false;
     private bool mQueueDestroy = false;
@@ -31,7 +32,9 @@ public class Block : MonoBehaviour {
 
     private void Update()
     {
-        if(Input.GetButtonDown("Interact"))
+        mDir = BlockDirection.Null;
+
+        if (Input.GetButtonDown("Interact"))
         {
             var player = FindObjectOfType<Player>();
             if (player == null) return;
@@ -42,44 +45,40 @@ public class Block : MonoBehaviour {
             }
             else
             { 
-                var playerDir = GetPlayerDirection();
-                if ((playerDir == BlockDirection.Left || playerDir == BlockDirection.Right) && Mathf.Abs(transform.position.z - player.transform.position.z) <= InteractDistance)
+                mPlayerDirection = GetPlayerDirection();
+                if ((mPlayerDirection == BlockDirection.Left || mPlayerDirection == BlockDirection.Right) && Mathf.Abs(transform.position.x - player.transform.position.x) <= InteractDistance)
                     mPlayerAttached = true;
-                if ((playerDir == BlockDirection.Backward || playerDir == BlockDirection.Forward) && Mathf.Abs(transform.position.x - player.transform.position.x) <= InteractDistance)
+                if ((mPlayerDirection == BlockDirection.Backward || mPlayerDirection == BlockDirection.Forward) && Mathf.Abs(transform.position.z - player.transform.position.z) <= InteractDistance)
                     mPlayerAttached = true;
 
                 if (mPlayerAttached)
                 {
-                    player.transform.parent = transform;
-                    var tiaLookPos = transform.position;
-                    tiaLookPos.y = player.transform.position.y;
-                    player.transform.LookAt(tiaLookPos);
                     player.SetIgnoreInput(true);
-                    mPlayerDirection = GetPlayerDirection();
                 }
             }            
         }
 
-
         if(mPlayerAttached && !mQueueDettach)
         {
-            var dir = BlockDirection.Null;
+            var xInput = Input.GetAxis("Horizontal");
+            var yInput = Input.GetAxis("Vertical");
+
             if(mPlayerDirection == BlockDirection.Left || mPlayerDirection == BlockDirection.Right)
             {
-                if (Input.GetKeyDown(KeyCode.A)) dir = BlockDirection.Forward;
-                if (Input.GetKeyDown(KeyCode.D)) dir = BlockDirection.Backward;
+                if (yInput > 0.1f) mDir = BlockDirection.Right;
+                if (yInput < -0.1f) mDir = BlockDirection.Left;
             }
 
-            if (mPlayerDirection == BlockDirection.Backward || mPlayerDirection == BlockDirection.Forward)
+            else if (mPlayerDirection == BlockDirection.Backward || mPlayerDirection == BlockDirection.Forward)
             {
-                if (Input.GetKeyDown(KeyCode.W)) dir = BlockDirection.Right;
-                if (Input.GetKeyDown(KeyCode.S)) dir = BlockDirection.Left;
+                if (xInput < -0.1f) mDir = BlockDirection.Forward;
+                if (xInput > 0.1f) mDir = BlockDirection.Backward;
             }            
 
-            if (dir != BlockDirection.Null)
+            if (mDir != BlockDirection.Null)
             {
                 BlockPuzzleTileInfo tile;
-                if (FindObjectOfType<BlockPuzzleManager>().BlockMoveIsValid(transform.position, dir, out tile))
+                if (FindObjectOfType<BlockPuzzleManager>().BlockMoveIsValid(transform.position, mDir, out tile))
                 {
                     tile.Pos.y = transform.position.y;
                     mTargetPos = tile.Pos;
@@ -95,9 +94,21 @@ public class Block : MonoBehaviour {
             var player = FindObjectOfType<Player>();
             float animSpeed = mCurrentVelocity.magnitude * Mathf.Sign(Vector3.Dot(transform.position - player.transform.position, mCurrentVelocity));
             player.SetPushPullSpeed(animSpeed);
+            
+            // Update the player position.
+            var tiaPushPos = transform.position;
+            tiaPushPos.y = player.transform.position.y;
+            tiaPushPos += BlockPuzzleManager.DirectionToVector(mPlayerDirection) * 2f;
+            player.transform.position = Vector3.Slerp(player.transform.position, tiaPushPos, Time.deltaTime * 5f);
+
+            // Updating the player rotation.
+            player.transform.parent = transform;
+            var tiaLookPos = transform.position;
+            tiaLookPos.y = player.transform.position.y;
+            player.transform.LookAt(tiaLookPos);
 
             // Dettaching the player if required.
-            if(mCurrentVelocity.magnitude <= 0f)
+            if (mCurrentVelocity.magnitude <= 0f)
             {
                 if(mQueueDettach)
                 {
@@ -111,6 +122,14 @@ public class Block : MonoBehaviour {
 
         if(mCurrentVelocity.magnitude <= 0f && mQueueDestroy)
             Destroy(this);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        var pos = transform.position;
+        pos += BlockPuzzleManager.DirectionToVector(mPlayerDirection) * 2f;
+        Gizmos.DrawSphere(pos, .5f);
     }
 
 
@@ -151,20 +170,20 @@ public class Block : MonoBehaviour {
         if (player == null) return dir;
 
         // Left / Right
-        if(Mathf.Abs(player.transform.position.x - transform.position.x) < Mathf.Abs(player.transform.position.z - transform.position.z))
-        {
-            if (player.transform.position.x < transform.position.x)
-                dir = BlockDirection.Left;
-            else
-                dir = BlockDirection.Right;
-        }
-        // Backward / Forward
-        else
+        if (Mathf.Abs(player.transform.position.x - transform.position.x) < Mathf.Abs(player.transform.position.z - transform.position.z))
         {
             if (player.transform.position.z < transform.position.z)
                 dir = BlockDirection.Backward;
             else
                 dir = BlockDirection.Forward;
+        }
+        // Backward / Forward
+        else
+        {
+            if (player.transform.position.x < transform.position.x)
+                dir = BlockDirection.Left;
+            else
+                dir = BlockDirection.Right;
         }
 
         return dir;

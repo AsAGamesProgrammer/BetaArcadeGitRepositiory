@@ -21,7 +21,7 @@ public class OnresetTrigger : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Colliding");
+            //Debug.Log("Colliding");
             mainCameraScript.hardReset(resetTarget.transform);
         }
     }
