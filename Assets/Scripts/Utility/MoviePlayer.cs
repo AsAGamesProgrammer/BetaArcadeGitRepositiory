@@ -9,9 +9,9 @@ using UnityEngine.Video;
 
 public class MoviePlayer : MonoBehaviour {
   public VideoPlayer movie;
-
   public bool transitionIsDone;
   public string nextSceneName;
+  public Image guiTexture;
   AsyncOperation async;
   bool isFading;
   bool isPaused;
@@ -57,7 +57,7 @@ public class MoviePlayer : MonoBehaviour {
       yield return new WaitForEndOfFrame();
       if (!isPaused)
         alpha = Mathf.Clamp01(alpha + Time.deltaTime / duration);
-      DrawQuad(Color.black, alpha);
+      guiTexture.color = Color.Lerp(guiTexture.color, Color.black, alpha);
     }
     isFading = false;
   }
@@ -77,24 +77,21 @@ public class MoviePlayer : MonoBehaviour {
       yield return new WaitForEndOfFrame();
       if (!isPaused)
         alpha = Mathf.Clamp01(alpha - Time.deltaTime / duration);
-      DrawQuad(Color.black, alpha);
+      guiTexture.color = Color.Lerp(guiTexture.color, Color.black, alpha);
     }
     isFading = false;
   }
-  private static void DrawQuad(Color color, float alpha)
-  {
-    color.a = alpha;
-    Texture2D fadeTexture = new Texture2D(Screen.width, Screen.height);
-    int drawDepth = -1000;
-    GUI.color = color;
-    GUI.depth = drawDepth;
-    GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeTexture);
-  }
-
+  
   // Update is called once per frame
   void Update () {
 		if(!movie.isPlaying && !transitionIsDone)
     {
+      StartCoroutine(ChangeSceneHelper(nextSceneName));
+      transitionIsDone = true;
+    }
+    if(Input.anyKey&& !transitionIsDone)
+    {
+      movie.Stop();
       StartCoroutine(ChangeSceneHelper(nextSceneName));
       transitionIsDone = true;
     }
