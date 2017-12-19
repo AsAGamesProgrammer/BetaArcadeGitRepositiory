@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/GameScenes/Opening_Cinematic.unity
+- path: Assets/Scenes/GameScenes/Cave.unity
   isLoaded: 1
   isActive: 1
