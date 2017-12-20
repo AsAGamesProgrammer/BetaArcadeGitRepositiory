@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +9,8 @@ public class BreakablePlatform : MonoBehaviour {
     [SerializeField]
     [Tooltip("The amount of time in seconds from when the player lands on the platform to when it falls")]
     private float LifeTime = 1.0f;
+    [SerializeField]
+    private Vector3 MaxAngularVelOnBreak = Vector3.one;
 
     private Rigidbody mRigidBody;
 
@@ -47,5 +48,9 @@ public class BreakablePlatform : MonoBehaviour {
     {
         mRigidBody.isKinematic = false;
         mRigidBody.useGravity = true;
+        mRigidBody.angularVelocity = new Vector3(Random.Range(-MaxAngularVelOnBreak.x, MaxAngularVelOnBreak.x),
+                                                 Random.Range(-MaxAngularVelOnBreak.y, MaxAngularVelOnBreak.y), 
+                                                 Random.Range(-MaxAngularVelOnBreak.z, MaxAngularVelOnBreak.z));
+        GetComponent<Collider>().enabled = false;
     }
 }
