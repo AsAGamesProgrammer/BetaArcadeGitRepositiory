@@ -11,8 +11,13 @@ public class BreakablePlatform : MonoBehaviour {
     private float LifeTime = 1.0f;
     [SerializeField]
     private Vector3 MaxAngularVelOnBreak = Vector3.one;
+    [SerializeField]
+    private List<Mesh> BrokenMeshes = new List<Mesh>();
+    [SerializeField]
+    private List<Material> BrokenMaterials = new List<Material>();
 
     private Rigidbody mRigidBody;
+    private bool mHasBeenBroken = false;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
@@ -21,12 +26,25 @@ public class BreakablePlatform : MonoBehaviour {
     {
         mRigidBody = this.GetComponent<Rigidbody>();
         mRigidBody.isKinematic = true;
+        //transform.Rotate(Vector3.up, 90f, Space.Self);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.GetComponent<Player>())
+        if (collision.collider.GetComponent<Player>() && !mHasBeenBroken)
+        {
             StartSelfDestructTimer();
+
+            int minListCount = Mathf.Min(BrokenMaterials.Count, BrokenMeshes.Count);
+            if (minListCount > 0)
+            {
+                int index = Random.Range(0, minListCount);
+                GetComponent<MeshFilter>().mesh = BrokenMeshes[index];
+                GetComponent<MeshRenderer>().material = BrokenMaterials[index];
+            }
+
+            mHasBeenBroken = true;
+        }
     }
 
 
