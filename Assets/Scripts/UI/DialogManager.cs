@@ -168,7 +168,7 @@ public class DialogManager : MonoBehaviour {
     //Btn NEXT click
     public void nextClick()
     {
-        Debug.Log("Click");
+        //Debug.Log("Click");
         currentLine++;
     }
 }

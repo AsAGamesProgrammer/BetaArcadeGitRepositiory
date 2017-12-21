@@ -2,35 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 public class Block : MonoBehaviour {
+
+    [HideInInspector]
+    public BlockGrid BlockGrid;
 
     [SerializeField]
     private float PushSpeed = 1f;
     [SerializeField]
     private float InteractDistance = 3f;
-    [SerializeField]
-    private Transform targetTrans;
+
+    protected bool mQueueDettach = false;
+    protected bool mQueueDestroy = false;
 
     private Vector3 mTargetPos = Vector3.zero;
     private bool mPlayerAttached = false;
     private BlockDirection mPlayerDirection = BlockDirection.Null;
     private BlockDirection mDir = BlockDirection.Null;
     private Vector3 mCurrentVelocity = Vector3.zero;
-    private bool mQueueDettach = false;
-    private bool mQueueDestroy = false;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
 
     private void Start()
     {
-        var pos = FindObjectOfType<BlockPuzzleManager>().GetNearestTilePos(transform.position);
+        var pos = BlockGrid.GetNearestTilePos(transform.position);
         pos.y = transform.position.y;
         transform.position = pos;
         mTargetPos = transform.position;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         mDir = BlockDirection.Null;
 
@@ -44,7 +47,7 @@ public class Block : MonoBehaviour {
                 mQueueDettach = true;
             }
             else
-            { 
+            {
                 mPlayerDirection = GetPlayerDirection();
                 if ((mPlayerDirection == BlockDirection.Left || mPlayerDirection == BlockDirection.Right) && Mathf.Abs(transform.position.x - player.transform.position.x) <= InteractDistance)
                     mPlayerAttached = true;
@@ -55,15 +58,15 @@ public class Block : MonoBehaviour {
                 {
                     player.SetIgnoreInput(true);
                 }
-            }            
+            }
         }
 
-        if(mPlayerAttached && !mQueueDettach)
+        if (mPlayerAttached && !mQueueDettach)
         {
             var xInput = Input.GetAxis("Horizontal");
             var yInput = Input.GetAxis("Vertical");
 
-            if(mPlayerDirection == BlockDirection.Left || mPlayerDirection == BlockDirection.Right)
+            if (mPlayerDirection == BlockDirection.Left || mPlayerDirection == BlockDirection.Right)
             {
                 if (yInput > 0.1f) mDir = BlockDirection.Right;
                 if (yInput < -0.1f) mDir = BlockDirection.Left;
@@ -73,28 +76,36 @@ public class Block : MonoBehaviour {
             {
                 if (xInput < -0.1f) mDir = BlockDirection.Forward;
                 if (xInput > 0.1f) mDir = BlockDirection.Backward;
-            }            
+            }
 
             if (mDir != BlockDirection.Null)
             {
                 BlockPuzzleTileInfo tile;
-                if (FindObjectOfType<BlockPuzzleManager>().BlockMoveIsValid(transform.position, mDir, out tile))
+                if (BlockGrid.BlockMoveIsValid(transform.position, mDir, out tile))
                 {
                     tile.Pos.y = transform.position.y;
                     mTargetPos = tile.Pos;
                 }
-            }            
+            }
         }
-        
+
         MoveToTargetPos();
 
-        if(mPlayerAttached && FindObjectOfType<Player>())
+        if (mPlayerAttached && FindObjectOfType<Player>())
         {
-            // Update player anim.
             var player = FindObjectOfType<Player>();
+
+            // Dettaching tia if either Tia or the block start to fall away from the other.
+            if(GetComponent<Rigidbody>())
+                if(Mathf.Abs(GetComponent<Rigidbody>().velocity.y) > 0.25f)
+                    mQueueDettach = true;
+            if(Mathf.Abs(player.GetComponent<Rigidbody>().velocity.y) > 0.25f)
+                mQueueDettach = true;
+
+            // Update player anim.
             float animSpeed = mCurrentVelocity.magnitude * Mathf.Sign(Vector3.Dot(transform.position - player.transform.position, mCurrentVelocity));
             player.SetPushPullSpeed(animSpeed);
-            
+
             // Update the player position.
             var tiaPushPos = transform.position;
             tiaPushPos.y = player.transform.position.y;
@@ -110,7 +121,7 @@ public class Block : MonoBehaviour {
             // Dettaching the player if required.
             if (mCurrentVelocity.magnitude <= 0f)
             {
-                if(mQueueDettach)
+                if (mQueueDettach)
                 {
                     mPlayerAttached = false;
                     player.transform.parent = null;
@@ -120,7 +131,7 @@ public class Block : MonoBehaviour {
             }
         }
 
-        if(mCurrentVelocity.magnitude <= 0f && mQueueDestroy)
+        if (mCurrentVelocity.magnitude <= 0f && mQueueDestroy)
             Destroy(this);
     }
 
@@ -133,29 +144,12 @@ public class Block : MonoBehaviour {
     }
 
 
-    //-------------------------------------------Public Functions------------------------------------------
-
-    public bool IsOnTarget()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit))
-            if (hit.transform == targetTrans)
-                return true;
-        return false;
-    }
-
-    public void OnPuzzleComplete()
-    {
-        mQueueDettach = true;
-        mQueueDestroy = true;
-    }
-
-
     //------------------------------------------Private Functions------------------------------------------
 
     private void MoveToTargetPos()
     {
         var toTargetVector = mTargetPos - transform.position;
+        toTargetVector.y = 0f;
         var translation = toTargetVector.normalized * PushSpeed * Time.deltaTime;
         if (translation.magnitude > toTargetVector.magnitude)
             translation = toTargetVector;
