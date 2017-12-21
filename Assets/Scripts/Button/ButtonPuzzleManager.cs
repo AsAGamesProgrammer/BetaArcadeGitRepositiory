@@ -45,7 +45,10 @@ public class ButtonPuzzleManager : MonoBehaviour {
             // Reseting the puzzle if the buttons were pressed in the wrong order.
             else if(ResetOnLoose)
                 ResetPuzzle();
+
+            print(PuzzleComplete);
         }
+
     }
 
 
@@ -75,7 +78,11 @@ public class ButtonPuzzleManager : MonoBehaviour {
             // Recording the button as pressed if it has not already been done.
             var button = ButtonsInPuzzle[i];
             if (button != null && button.IsBottomedOut() && !PressOrderIndexes.Contains(i))
+            {
                 PressOrderIndexes.Add(i);
+                if (!OrderIsCorrect())
+                    ResetPuzzle();
+            }
         }
     }
 
@@ -90,16 +97,9 @@ public class ButtonPuzzleManager : MonoBehaviour {
 
     private bool OrderIsCorrect()
     {
-        int lastIndex = -1;
-        // Looping through the order that the buttons were pressed in.
-        foreach(var index in PressOrderIndexes)
-        {
-            // If the current button has a lower index than the previous then the order was wrong.
-            if (index < lastIndex)
+        for(int i = 0; i < PressOrderIndexes.Count; i++)
+            if (i != PressOrderIndexes[i])
                 return false;
-            // Else the order (up to this point) is correct and the loop moves on.
-            lastIndex = index;
-        }
         return true;
     }
 }

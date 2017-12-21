@@ -147,6 +147,7 @@
     <Compile Include="Assets\Scripts\Camera\cameraSwapTopDown.cs" />
     <Compile Include="Assets\Scripts\Camera\mapCamera.cs" />
     <Compile Include="Assets\Scripts\Camera\playerSwapCamera.cs" />
+    <Compile Include="Assets\Scripts\Cave\CaveExit.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Character\DeathAnimHandler.cs" />
     <Compile Include="Assets\Scripts\Character\Player.cs" />

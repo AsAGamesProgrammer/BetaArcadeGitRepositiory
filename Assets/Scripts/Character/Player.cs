@@ -148,7 +148,8 @@ public class Player : Character {
             AlignToCamera();
 
         // Setting the move direction.
-        velocityYAngle = (UseCameraDir) ? this.transform.eulerAngles.y : Camera.main.transform.eulerAngles.y;
+        if(Camera.main != null)
+            velocityYAngle = (UseCameraDir) ? this.transform.eulerAngles.y : Camera.main.transform.eulerAngles.y;
 
         // Calling the base version of the 'Move' function.
         base.Move(moveDir, velocityYAngle);
