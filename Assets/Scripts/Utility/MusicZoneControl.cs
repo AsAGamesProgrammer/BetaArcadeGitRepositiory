@@ -22,16 +22,6 @@ public class MusicZoneControl : MonoBehaviour
     m_TransitionOut = m_QuarterNote * 10;
   }
 
-
-  //void OnTriggerEnter(Collider other)
-  //{
-  //  if (other.CompareTag("Player"))
-  //  {
-  //    //zone1.TransitionTo(m_TransitionIn);
-  //    //PlaySFX();
-  //  }
-  //}
-
   void OnTriggerExit(Collider other)
   {
     if (other.CompareTag("Player"))

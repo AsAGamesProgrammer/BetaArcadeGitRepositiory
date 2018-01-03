@@ -63,7 +63,7 @@ AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: StartOfLevel
+  m_Name: CaveOpening
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: a3d34178d414f6c468314bc411200704
   m_FloatValues:
