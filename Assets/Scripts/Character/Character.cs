@@ -73,7 +73,8 @@ public abstract class Character : MonoBehaviour {
 
         // Calculating the new velocity of the character.
         var currentVelocity = mRigidbody.velocity;
-        var newVelocity = (new Vector3(moveDir.x, 0.0f, moveDir.y)).normalized * MoveSpeed * Time.deltaTime;
+        moveDir = Vector2.ClampMagnitude(moveDir, 1.0f);
+        var newVelocity = new Vector3(moveDir.x, 0.0f, moveDir.y) * MoveSpeed * Time.deltaTime;
         newVelocity = Quaternion.AngleAxis(velocityYAngle, Vector3.up) * newVelocity;
         newVelocity.y = currentVelocity.y;
 

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 168f8e7db192f1d48b66491c3eea13d3
-timeCreated: 1510134316
-licenseType: Pro
+guid: 50a7f5c6be140824198e9c05083cb433
+timeCreated: 1515246374
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -212,7 +212,7 @@ ModelImporter:
       name: idle
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 81
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
