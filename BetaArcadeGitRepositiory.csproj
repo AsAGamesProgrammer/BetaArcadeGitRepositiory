@@ -178,6 +178,7 @@
     <Compile Include="Assets\Scripts\Utility\MoviePlayer.cs" />
     <Compile Include="Assets\Scripts\Utility\MusicZoneControl.cs" />
     <Compile Include="Assets\Scripts\Utility\RestartLevel.cs" />
+    <Compile Include="Assets\Scripts\Utility\SetPhysMats.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ArtAssets\Temple Assets\LowWalls\NoRails\Note.txt" />
