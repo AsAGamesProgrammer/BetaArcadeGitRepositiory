@@ -822,6 +822,7 @@ GameObject:
   - component: {fileID: 136688282596937176}
   - component: {fileID: 54394787423621950}
   - component: {fileID: 114114883222814738}
+  - component: {fileID: 82928540878445276}
   m_Layer: 9
   m_Name: TiaPrefab
   m_TagString: Player
@@ -2823,6 +2824,86 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
+--- !u!82 &82928540878445276
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574087213433960}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95170174519985396
 Animator:
   serializedVersion: 3
@@ -2879,6 +2960,13 @@ MonoBehaviour:
   MaxVelocityTiltAngle: 20
   VelocityTiltSpeed: 2
   IgnoreInput: 0
+  JumpSFX: {fileID: 8300000, guid: c7539194f0154f746b1ee229e95665c6, type: 3}
+  IdleSFX: {fileID: 8300000, guid: 14066fbf7c69de44aae6341a41d14df0, type: 3}
+  StepSFX:
+  - {fileID: 8300000, guid: a74c64a0c385a1341a0b4e747264463f, type: 3}
+  - {fileID: 8300000, guid: 65d9851b08cf12f40b3aef49cef648e9, type: 3}
+  - {fileID: 8300000, guid: 52808eed84936a24c9bc22e80bc44cc5, type: 3}
+  - {fileID: 8300000, guid: e14d1b77541a462438f13a81027a634f, type: 3}
 --- !u!114 &114857993993706446
 MonoBehaviour:
   m_ObjectHideFlags: 1

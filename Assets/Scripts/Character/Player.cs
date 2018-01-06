@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [SelectionBase]
+[RequireComponent(typeof(AudioSource))]
 public class Player : Character {
 
     [HideInInspector]
@@ -32,12 +32,28 @@ public class Player : Character {
     [SerializeField]
     private bool IgnoreInput = false;
 
+    [SerializeField]
+    private AudioClip JumpSFX;
+
+    [SerializeField]
+    private AudioClip IdleSFX;
+
+    [SerializeField]
+    private List<AudioClip> StepSFX;
+
     private float mRotationThisFrame = 0f;
     private bool mIsPulledByButton = false;
     private bool mRagDoll = false;
+    private AudioSource mAudioSource;
+    private bool mHummingQueued = false;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
+
+    private void Awake()
+    {
+        mAudioSource = GetComponent<AudioSource>();
+    }
 
     protected override void Update()
     {
@@ -83,6 +99,9 @@ public class Player : Character {
         finalVelocity.y = 0.0f;
         PlayerAnimator.SetFloat("AbsSpeed", finalVelocity.magnitude);
         PlayerAnimator.SetFloat("Speed", finalVelocity.magnitude);
+
+        if (!mAudioSource.isPlaying && mAccurateVelocity.magnitude < 0.1f && !mHummingQueued)
+            StartCoroutine(QueueHumming(Random.Range(5.0f, 10.0f)));
 
         mIsPulledByButton = false;
     }
@@ -138,6 +157,11 @@ public class Player : Character {
         mIsPulledByButton = true;
     }
 
+    public void Step()
+    {
+        PlaySFX(StepSFX[Random.Range(0, StepSFX.Count)], Random.Range(0.8f, 1.0f));
+    }
+
 
     //-----------------------------------------Protected Functions-----------------------------------------
 
@@ -157,6 +181,17 @@ public class Player : Character {
         // Aligning the player to its velocity if necessary.
         if(!UseCameraDir)
             AlignToVelocity();
+    }
+
+    protected sealed override void Jump()
+    {
+        if (IsGrounded())
+        {
+            mAudioSource.Stop();
+            PlaySFX(JumpSFX);
+        }
+
+        base.Jump();
     }
 
 
@@ -220,5 +255,20 @@ public class Player : Character {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX |
                                                     RigidbodyConstraints.FreezeRotationZ;
         }
+    }
+
+    private void PlaySFX(AudioClip clip, float volume = 1.0f)
+    {
+        mAudioSource.PlayOneShot(clip, volume);
+        mAudioSource.time = Random.value;
+    }
+
+    private IEnumerator QueueHumming(float queueDuration)
+    {
+        mHummingQueued = true;
+        yield return new WaitForSeconds(queueDuration);
+        if (mAccurateVelocity.magnitude < 0.1f)
+            PlaySFX(IdleSFX, 1.0f);
+        mHummingQueued = false;
     }
 }

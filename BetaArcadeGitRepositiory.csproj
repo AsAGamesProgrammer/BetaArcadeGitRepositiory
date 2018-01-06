@@ -151,8 +151,10 @@
     <Compile Include="Assets\Scripts\Camera\playerSwapCamera.cs" />
     <Compile Include="Assets\Scripts\Cave\CaveExit.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
-    <Compile Include="Assets\Scripts\Character\DeathAnimHandler.cs" />
+    <Compile Include="Assets\Scripts\Character\Lion.cs" />
+    <Compile Include="Assets\Scripts\Character\Panda.cs" />
     <Compile Include="Assets\Scripts\Character\Player.cs" />
+    <Compile Include="Assets\Scripts\Character\TiaAnimHandler.cs" />
     <Compile Include="Assets\Scripts\LightObjectScripts\LightCollide.cs" />
     <Compile Include="Assets\Scripts\LightObjectScripts\LightObject.cs" />
     <Compile Include="Assets\Scripts\Platforms\BreakablePlatform.cs" />
