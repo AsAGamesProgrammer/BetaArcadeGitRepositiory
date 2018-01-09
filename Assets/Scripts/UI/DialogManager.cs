@@ -44,6 +44,9 @@ public class DialogManager : MonoBehaviour {
     //UI hints
     public ShowHint hints;
 
+    //Hub door
+    public OpenHubDoor hubDoor;
+
     void Start ()
     {
         Tia = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -166,6 +169,7 @@ public class DialogManager : MonoBehaviour {
                         minimapFound = true;
 
                         hints.setMinimapVisible(false);
+                        hubDoor.liftDoor = true;
                     }
                 }
                 else
