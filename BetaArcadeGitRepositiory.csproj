@@ -139,6 +139,7 @@
     <Compile Include="Assets\Scripts\Button\Button.cs" />
     <Compile Include="Assets\Scripts\Button\ButtonDemoScript.cs" />
     <Compile Include="Assets\Scripts\Button\ButtonPuzzleManager.cs" />
+    <Compile Include="Assets\Scripts\Camera\BillboardCamera.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraCave.cs" />
     <Compile Include="Assets\Scripts\Camera\FixedAngleCameras\OnFixedAngletrigger.cs" />
     <Compile Include="Assets\Scripts\Camera\Obsolete\KeepObjectOnScreen.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Assets\Scripts\UI\LoadLevel.cs" />
     <Compile Include="Assets\Scripts\UI\MinimapDialogue.cs" />
     <Compile Include="Assets\Scripts\UI\SelectChapter.cs" />
+    <Compile Include="Assets\Scripts\UI\UIBtnSelect.cs" />
     <Compile Include="Assets\Scripts\UI\miniMapFollow.cs" />
     <Compile Include="Assets\Scripts\UI\pauseGame.cs" />
     <Compile Include="Assets\Scripts\Utility\ChangeScene.cs" />

@@ -19,7 +19,8 @@ public class miniMapFollow : MonoBehaviour {
 	void Update ()
     {
         transform.position = Tia.transform.position + offset;
-	}
+
+    }
 
     public void InitialPosition()
     {
