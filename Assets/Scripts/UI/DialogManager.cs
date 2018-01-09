@@ -41,6 +41,9 @@ public class DialogManager : MonoBehaviour {
     public DisableMinimap minimapScript;
     private bool minimapFound = false;
 
+    //UI hints
+    public ShowHint hints;
+
     void Start ()
     {
         Tia = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -100,6 +103,9 @@ public class DialogManager : MonoBehaviour {
 
     void dialogueIsPlaying(bool isPlaying)
     {
+        //Show or Hide a hint
+        hints.setJumpVisible(isPlaying);
+
         //Show/Hide dialogue UI
         dialogueCanvas.SetActive(isPlaying);
 
@@ -148,12 +154,15 @@ public class DialogManager : MonoBehaviour {
                 //Play a dialogue
                 if (currentLine + 1 >= dialogueMinimap.Length)
                 {
+                    hints.setMinimapVisible(true);
+
                     //Make a player press B
                     if (Input.GetButtonDown("Minimap"))
                     {
                         dialogueIsPlaying(false);
                         playMinimapDialogue = false;
                         minimapFound = true;
+                        hints.setMinimapVisible(false);
                     }
                 }
                 else
