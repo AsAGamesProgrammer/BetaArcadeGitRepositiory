@@ -6,6 +6,7 @@ public class BillboardCamera : MonoBehaviour {
 
     public GameObject paintingCamera;
     public GameObject mainCamera;
+    public ShowHint showHint;
 
     GameObject player;
 
@@ -48,6 +49,7 @@ public class BillboardCamera : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             canSeePainting = true;
+            showHint.setInteractVisible(true);
         }
 
         
@@ -58,6 +60,7 @@ public class BillboardCamera : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             canSeePainting = false;
+            showHint.setInteractVisible(false);
         }
     }
 }

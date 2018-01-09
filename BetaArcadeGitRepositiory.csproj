@@ -176,6 +176,7 @@
     <Compile Include="Assets\Scripts\UI\LoadLevel.cs" />
     <Compile Include="Assets\Scripts\UI\MinimapDialogue.cs" />
     <Compile Include="Assets\Scripts\UI\SelectChapter.cs" />
+    <Compile Include="Assets\Scripts\UI\ShowHint.cs" />
     <Compile Include="Assets\Scripts\UI\UIBtnSelect.cs" />
     <Compile Include="Assets\Scripts\UI\UISelectableFix.cs" />
     <Compile Include="Assets\Scripts\UI\miniMapFollow.cs" />
