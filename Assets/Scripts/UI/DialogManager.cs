@@ -154,6 +154,8 @@ public class DialogManager : MonoBehaviour {
                 //Play a dialogue
                 if (currentLine + 1 >= dialogueMinimap.Length)
                 {
+                    //Hints
+                    hints.setJumpVisible(false);
                     hints.setMinimapVisible(true);
 
                     //Make a player press B
@@ -162,6 +164,7 @@ public class DialogManager : MonoBehaviour {
                         dialogueIsPlaying(false);
                         playMinimapDialogue = false;
                         minimapFound = true;
+
                         hints.setMinimapVisible(false);
                     }
                 }
