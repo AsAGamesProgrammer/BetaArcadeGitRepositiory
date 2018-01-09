@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+//Fixes Unity bug with highlighting buttons with keyboard and mouse simultaneously 
+
+[RequireComponent(typeof(Selectable))]
+public class UISelectableFix : MonoBehaviour, IPointerEnterHandler, IDeselectHandler
+{
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!EventSystem.current.alreadySelecting)
+            EventSystem.current.SetSelectedGameObject(this.gameObject);
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        this.GetComponent<Selectable>().OnPointerExit(null);
+    }
+}
