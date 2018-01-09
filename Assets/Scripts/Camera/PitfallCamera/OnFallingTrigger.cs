@@ -7,19 +7,29 @@ using UnityEngine;
 
 public class OnFallingTrigger : MonoBehaviour {
 
+    public bool usesThirdPersonCamera = false;
+
     CameraCave mainCameraScript;
+    public ThirdPersonCamera thirdPerson;
 
 	// Use this for initialization
 	void Start ()
     {
-        mainCameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraCave>();
+        if (!usesThirdPersonCamera)
+            mainCameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraCave>();
+
 	}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            mainCameraScript.TiaIsFalling = true;
+            if (!usesThirdPersonCamera)
+                mainCameraScript.TiaIsFalling = true;
+            else
+            {
+                thirdPerson.enabled = false;
+            }
         }
     }
 }

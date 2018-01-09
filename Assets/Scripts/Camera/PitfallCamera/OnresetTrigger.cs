@@ -8,12 +8,17 @@ using UnityEngine;
 public class OnresetTrigger : MonoBehaviour {
 
     public GameObject resetTarget;
+    public GameObject Tia;
     CameraCave mainCameraScript;
+
+    public bool usesThirdPersonCamera = false;
+    public ThirdPersonCamera thirdPerson;
 
     // Use this for initialization
     void Start ()
     {
-        mainCameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraCave>();
+        if (!usesThirdPersonCamera)
+            mainCameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraCave>();
     }
 	
 
@@ -21,8 +26,15 @@ public class OnresetTrigger : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            //Debug.Log("Colliding");
-            mainCameraScript.hardReset(resetTarget.transform);
+            if (!usesThirdPersonCamera)
+                mainCameraScript.hardReset(resetTarget.transform);
+            else
+            {
+                Tia.transform.position = resetTarget.transform.position;
+                Tia.transform.rotation = resetTarget.transform.rotation;
+                thirdPerson.enabled = true;
+
+            }
         }
     }
 

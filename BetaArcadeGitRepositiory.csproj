@@ -143,6 +143,7 @@
     <Compile Include="Assets\Scripts\Camera\FixedAngleCameras\OnFixedAngletrigger.cs" />
     <Compile Include="Assets\Scripts\Camera\Obsolete\KeepObjectOnScreen.cs" />
     <Compile Include="Assets\Scripts\Camera\Obsolete\cameraOnrails.cs" />
+    <Compile Include="Assets\Scripts\Camera\PitfallCamera\CaveSpecials\FallingCameraHelper.cs" />
     <Compile Include="Assets\Scripts\Camera\PitfallCamera\OnFallingTrigger.cs" />
     <Compile Include="Assets\Scripts\Camera\PitfallCamera\OnTriggerRestart.cs" />
     <Compile Include="Assets\Scripts\Camera\PitfallCamera\OnresetTrigger.cs" />
