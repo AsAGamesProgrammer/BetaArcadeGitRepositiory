@@ -7,18 +7,29 @@ using UnityEngine;
 
 public class OnresetTrigger : MonoBehaviour {
 
-    public GameObject resetTarget;
-    public GameObject Tia;
-    CameraCave mainCameraScript;
-
+    //Flag to see what camera is used in the level
     public bool usesThirdPersonCamera = false;
-    public ThirdPersonCamera thirdPerson;
+
+    //Reset position
+    public GameObject resetTarget;
+
+    //Third person camera as default
+    GameObject Tia;
+    ThirdPersonCamera thirdPerson;
+
+    //Camera cave as default
+    CameraCave mainCameraScript;
 
     // Use this for initialization
     void Start ()
     {
         if (!usesThirdPersonCamera)
             mainCameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraCave>();
+        else
+        {
+            Tia = GameObject.FindGameObjectWithTag("Player");
+            thirdPerson = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ThirdPersonCamera>();
+        }
     }
 	
 

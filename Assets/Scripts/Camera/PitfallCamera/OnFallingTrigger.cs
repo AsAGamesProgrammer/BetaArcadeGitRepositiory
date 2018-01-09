@@ -10,15 +10,17 @@ public class OnFallingTrigger : MonoBehaviour {
     public bool usesThirdPersonCamera = false;
 
     CameraCave mainCameraScript;
-    public ThirdPersonCamera thirdPerson;
+    ThirdPersonCamera thirdPerson;
 
 	// Use this for initialization
 	void Start ()
     {
         if (!usesThirdPersonCamera)
             mainCameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraCave>();
+        else
+            thirdPerson = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ThirdPersonCamera>();
 
-	}
+    }
 
     private void OnTriggerEnter(Collider other)
     {
