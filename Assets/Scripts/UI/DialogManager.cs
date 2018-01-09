@@ -144,6 +144,7 @@ public class DialogManager : MonoBehaviour {
             if (playMinimapDialogue)
             {
                 minimapScript.enabled = true;
+                
                 //Play a dialogue
                 if (currentLine + 1 >= dialogueMinimap.Length)
                 {
