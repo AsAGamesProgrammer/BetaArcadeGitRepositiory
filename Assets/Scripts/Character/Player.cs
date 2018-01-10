@@ -42,6 +42,9 @@ public class Player : Character {
     private List<AudioClip> StepSFX;
 
     [SerializeField]
+    private List<GameObject> TempleHintUI;
+
+    [SerializeField]
     private AudioClip DeathSFX;
 
     private float mRotationThisFrame = 0f;
@@ -91,6 +94,24 @@ public class Player : Character {
 
         // Applying/reseting the players velocity tilt.
         ApplyVelocityTilt();
+
+
+        // SUCH HACKS...
+        if(TempleHintUI.Count > 0)
+        {
+            foreach (var block in FindObjectsOfType<Block>())
+            {
+                if (Vector3.Distance(transform.position, block.transform.position) < 2.5f)
+                {
+                    foreach (var obj in TempleHintUI)
+                        obj.SetActive(true);
+                    return;
+                }
+            }
+            foreach (var obj in TempleHintUI)
+                obj.SetActive(false);
+        }
+        
     }
 
     private void LateUpdate()

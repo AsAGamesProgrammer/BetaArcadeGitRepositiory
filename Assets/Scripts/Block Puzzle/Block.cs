@@ -35,6 +35,8 @@ public class Block : MonoBehaviour {
 
     protected virtual void Update()
     {
+        
+
         mDir = BlockDirection.Null;
 
         if (Input.GetButtonDown("Interact"))
