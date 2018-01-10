@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(AudioSource))]
 public class BreakablePlatform : MonoBehaviour {
 
     [SerializeField]
@@ -15,6 +16,8 @@ public class BreakablePlatform : MonoBehaviour {
     private List<Mesh> BrokenMeshes = new List<Mesh>();
     [SerializeField]
     private List<Material> BrokenMaterials = new List<Material>();
+    [SerializeField]
+    private AudioClip SFX;
 
     private Rigidbody mRigidBody;
     private bool mHasBeenBroken = false;
@@ -53,6 +56,8 @@ public class BreakablePlatform : MonoBehaviour {
     private void StartSelfDestructTimer()
     {
         StartCoroutine(SelfDestructTimer());
+        if(SFX != null)
+            GetComponent<AudioSource>().PlayOneShot(SFX);
     }
 
     private IEnumerator SelfDestructTimer()

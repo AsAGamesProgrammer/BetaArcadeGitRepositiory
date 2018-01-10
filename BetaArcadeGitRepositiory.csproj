@@ -158,6 +158,7 @@
     <Compile Include="Assets\Scripts\Character\Lion.cs" />
     <Compile Include="Assets\Scripts\Character\Panda.cs" />
     <Compile Include="Assets\Scripts\Character\Player.cs" />
+    <Compile Include="Assets\Scripts\Character\ReloadLevelOnDeath.cs" />
     <Compile Include="Assets\Scripts\Character\TiaAnimHandler.cs" />
     <Compile Include="Assets\Scripts\Hub\OpenHubDoor.cs" />
     <Compile Include="Assets\Scripts\LightObjectScripts\LightCollide.cs" />

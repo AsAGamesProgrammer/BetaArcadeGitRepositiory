@@ -41,6 +41,9 @@ public class Player : Character {
     [SerializeField]
     private List<AudioClip> StepSFX;
 
+    [SerializeField]
+    private AudioClip DeathSFX;
+
     private float mRotationThisFrame = 0f;
     private bool mIsPulledByButton = false;
     private bool mRagDoll = false;
@@ -131,9 +134,10 @@ public class Player : Character {
     public void Die()
     {
         PlayerAnimator.SetBool("IsDead", true);
-        this.GetComponent<Collider>().enabled = false;
-        mRigidbody.isKinematic = true;
+        //this.GetComponent<Collider>().enabled = false;
+        //mRigidbody.isKinematic = true;
         IgnoreInput = true;
+        PlaySFX(DeathSFX, 1.0f);
     }   
 
     public void Respawn()
