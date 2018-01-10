@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 sceneSetups:
-- path: Assets/Scenes/GameScenes/Cave.unity
+- path: Assets/Scenes/GameScenes/Temple.unity
   isLoaded: 1
   isActive: 1
-=======
-sceneSetups: []
->>>>>>> master
