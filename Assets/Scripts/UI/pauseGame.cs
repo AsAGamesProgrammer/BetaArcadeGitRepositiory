@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// TARGET: any empty game object
@@ -100,7 +100,7 @@ public class pauseGame : MonoBehaviour {
         {
             isPaused = false;
             PauseGame();
-            EditorSceneManager.LoadScene(0);
+            SceneManager.LoadScene(0);
         }
     }
 
