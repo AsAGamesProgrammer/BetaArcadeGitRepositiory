@@ -46,10 +46,14 @@ public class Button : MonoBehaviour {
     [Tooltip("The magnitude of the force applied to the player when they are in the gravity radius")]
     private float GravityMultiplier = 2.0f;
 
+    [SerializeField]
+    private AudioClip SFX;
+
     private float mInitialYPos = 0.0f;
     private bool mIsPosLocked = false;
     private bool mIgnorePlayerWhenExtending = false;
     private bool mApplyGravity = true;
+    private bool mCanSound = true;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
@@ -64,10 +68,23 @@ public class Button : MonoBehaviour {
     {
         // Moving the button down if it is being stood on.
         if (IsBeingStoodOn())
+        {
             Move(Dir.Down, PushSpeed);
+            if (mCanSound && !IsBottomedOut())
+            {
+                GetComponent<AudioSource>().PlayOneShot(SFX);
+                mCanSound = false;
+            }
+        }
 
         // Extending the button up if it is not being stood on.
-        else Move(Dir.Up, ExtendSpeed);
+        else
+        {
+            Move(Dir.Up, ExtendSpeed);
+            if(!mIgnorePlayerWhenExtending)
+                GetComponent<AudioSource>().Stop();
+            mCanSound = true;
+        }
 
         // Locking the button in posiiton if it is bottomed out.
         if (IsBottomedOut() && LockPositionOnBottomOut)
@@ -132,7 +149,13 @@ public class Button : MonoBehaviour {
         mIsPosLocked = lockPos;
 
         // Ignoring the player so the button can reset without the player stopping it.
-        if (!lockPos) mIgnorePlayerWhenExtending = true;
+        if (!lockPos)
+        {
+            print("Hello World");
+            mIgnorePlayerWhenExtending = true;
+            GetComponent<AudioSource>().Stop();
+            GetComponent<AudioSource>().PlayOneShot(SFX);
+        }
     }
 
     public bool IsBottomedOutAndLocked()

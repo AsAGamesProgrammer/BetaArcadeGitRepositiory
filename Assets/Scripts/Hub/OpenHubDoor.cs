@@ -7,6 +7,10 @@ public class OpenHubDoor : MonoBehaviour {
     public float liftSpeed = 3.0f;
     public bool liftDoor = false;
 
+    public AudioClip SFX;
+
+    bool mCanSound = true;
+
     //private Vector3 doorHighestPoint;
 
 	// Use this for initialization
@@ -22,7 +26,14 @@ public class OpenHubDoor : MonoBehaviour {
         {
             //Debug.Log(transform.localPosition.y);
             if (transform.localPosition.y < 0)
+            {
                 transform.Translate(Vector3.forward * Time.deltaTime * liftSpeed);
+                if(mCanSound)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(SFX);
+                    mCanSound = false;
+                }
+            }
         }
 
     }
