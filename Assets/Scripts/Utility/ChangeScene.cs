@@ -22,24 +22,28 @@ public class ChangeScene : MonoBehaviour {
 
   public IEnumerator ChangeSceneHelper(string sceneName)
   {
-    Scene oldScene = SceneManager.GetActiveScene();
-    Camera oldMainCamera = Camera.main;
-    Camera.main.tag = "Untagged";
-    yield return Resources.UnloadUnusedAssets();
-    AsyncOperation AO = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-    AO.allowSceneActivation = false;
-    while (AO.progress < 0.9f)
-    {
-      yield return null;
-    }
-    BeginFadeIn(0.5f);
-    while (isFading)
-      yield return new WaitForEndOfFrame();
-    AO.allowSceneActivation = true;
-    BeginFadeOut(0.5f);
-    while (isFading)
-      yield return new WaitForEndOfFrame();
-    yield return null;
+        SceneManager.LoadScene(sceneName);
+        yield return null;
+
+    //Scene oldScene = SceneManager.GetActiveScene();
+    //Camera oldMainCamera = Camera.main;
+    ////if(Camera.main != null)
+    ////    Camera.main.tag = "Untagged";
+    //yield return Resources.UnloadUnusedAssets();
+    //AsyncOperation AO = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+    //AO.allowSceneActivation = false;
+    //while (AO.progress < 0.9f)
+    //{
+    //  yield return null;
+    //}
+    //BeginFadeIn(0.5f);
+    //while (isFading)
+    //  yield return new WaitForEndOfFrame();
+    //AO.allowSceneActivation = true;
+    //BeginFadeOut(0.5f);
+    //while (isFading)
+    //  yield return new WaitForEndOfFrame();
+    //yield return null;
   }
 
   public void BeginFadeIn(float duration)
