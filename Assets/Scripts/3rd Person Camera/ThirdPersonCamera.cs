@@ -97,8 +97,8 @@ public class ThirdPersonCamera : MonoBehaviour {
     private void UpdatePosition()
     {
         // Getting player input for the cameras position.
-        mCameraOffsetRot.y += Input.GetAxis("Alt Horizontal") * MouseXSensitivity * Time.deltaTime;
-        mCameraOffsetRot.x -= Input.GetAxis("Alt Vertical") * MouseYSensitivity * (InvertY ? -1.0f : 1.0f) * Time.deltaTime;
+        mCameraOffsetRot.y += Input.GetAxis("Alt Horizontal") * MouseXSensitivity * Time.fixedDeltaTime;
+        mCameraOffsetRot.x -= Input.GetAxis("Alt Vertical") * MouseYSensitivity * (InvertY ? -1.0f : 1.0f) * Time.fixedDeltaTime;
         mCameraOffsetRot.x = Mathf.Clamp(mCameraOffsetRot.x, MinVerticalAngle, MaxVerticalAngle);
 
         // Updating the camera position, and following the player.

@@ -169,7 +169,7 @@ public class DialogManager : MonoBehaviour {
                         minimapFound = true;
 
                         hints.setMinimapVisible(false);
-                        hubDoor.liftDoor = true;
+                        //hubDoor.liftDoor = true;
                     }
                 }
                 else
