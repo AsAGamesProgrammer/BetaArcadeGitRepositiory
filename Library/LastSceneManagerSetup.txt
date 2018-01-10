@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/GameScenes/Temple.unity
+=======
+- path: Assets/Particles/Particle Scene.unity
+>>>>>>> CameronCaveChanges
   isLoaded: 1
   isActive: 1
