@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/UIScenes/credits.unity
-=======
 - path: Assets/Scenes/GameScenes/Temple.unity
->>>>>>> AligatorJets
   isLoaded: 1
   isActive: 1
