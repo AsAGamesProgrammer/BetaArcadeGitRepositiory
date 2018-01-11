@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 136
+  controlID: 2408
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 137
+  controlID: 2409
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 138
+  controlID: 2410
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -341,19 +341,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/UiAssets/Hints
+    - Assets/Scripts/UI
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/UiAssets/Hints
+  - Assets/Scripts/UI
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\p4014518\Desktop\BetaArcadeGitRepositiory
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 190}
-    m_SelectedIDs: 9a320000
-    m_LastClickedID: 12954
-    m_ExpandedIDs: 000000002e2600002a280000c4280000c8290000362b00001c2c00009e320000f0320000283300005a330000963700006e380000643e0000663e0000683e00006a3e00006c3e00006e3e0000703e0000723e0000743e0000763e0000783e00007a3e00007c3e000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 274}
+    m_SelectedIDs: ec300000
+    m_LastClickedID: 12524
+    m_ExpandedIDs: 000000002e2600002a280000c42800004c290000c8290000362b00001c2c00009e320000f0320000283300005a330000963700006e380000643e0000663e0000683e00006a3e00006c3e00006e3e0000703e0000723e0000743e0000763e0000783e00007a3e00007c3e000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -381,7 +381,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002e2600006e260000702600008a26000094260000c0260000c22600000a270000ae270000bc270000ea270000f02700002a28000084280000ba280000c4280000082900004c2900006e290000c82900000e2a00002c2a00009c2a0000a82a0000042b0000362b0000722b0000b62b0000ba2b00001c2c0000222c0000d22c0000122d0000162d0000b22d0000e22d0000f82d0000702e00007a2e00009e2e0000a42f0000ce2f0000d82f0000243000002c3000002e30000048300000ee3000000e3100001431000030310000603100008a310000d8310000fc31000008320000643200009e320000ec320000f03200005a330000be330000f03300001c3400005e3400007c340000d2340000423500004e350000ca3500005c3600007836000090360000aa360000f2360000323700006c3700007e37000096370000fe370000463800006e3800007a380000ee380000643e0000663e0000683e00006a3e00006c3e00006e3e0000703e0000723e0000743e0000763e0000783e00007a3e00007c3e0000
+    m_ExpandedIDs: 000000002e2600002a280000c4280000c8290000362b00001c2c00009e320000f0320000283300005a330000963700006e380000643e0000663e0000683e00006a3e00006c3e00006e3e0000703e0000723e0000743e0000763e0000783e00007a3e00007c3e000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -425,7 +425,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 9}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0

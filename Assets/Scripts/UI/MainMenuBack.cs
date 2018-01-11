@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Credits : MonoBehaviour {
+public class MainMenuBack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
