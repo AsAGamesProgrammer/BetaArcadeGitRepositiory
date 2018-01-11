@@ -8287,7 +8287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 399, y: -180}
+  m_AnchoredPosition: {x: 323.7, y: -180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &501779644
@@ -18691,9 +18691,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1096013192}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.000000049077812, y: 1.8099976, z: 0.000000094323084}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: 0.000000009586546, w: 0.70710677}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 0.700001, y: 0.7000008, z: 0.7000005}
   m_Children: []
   m_Father: {fileID: 667756120}
   m_RootOrder: 1
@@ -24951,7 +24951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 400, y: -181}
+  m_AnchoredPosition: {x: 324.7, y: -181}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1489623348
@@ -26689,60 +26689,58 @@ MonoBehaviour:
   dialogueLeo:
   - dialogueLine:
     - Ginleon
-    - Bah! Where did you come from, little one?!
+    - Bah! Where did you come from little one?
   - dialogueLine:
     - Ginleon
     - "No matter\u2026 Pick up some tools and get smelting!"
   - dialogueLine:
     - Tia
-    - '...'
+    - "\u2026"
   - dialogueLine:
     - Ginleon
-    - "What do you mean you\u2019ve never smelted something?"
+    - "What do you mean you\u2019ve never smelted before?"
   - dialogueLine:
     - Ginleon
-    - "Well go stand over there! On that\u2026 Thing, and ol\u2019 Ginleon will teach
-      you everything you need to know! Bahahaha!"
+    - Smelting used to be some much easier before we lost the cave entrance
   dialogueCat:
   - dialogueLine:
     - Scotchy
     - A new arrival, hmmm?
   - dialogueLine:
     - Scotchy
-    - "These are some tricky waters\u2026 We\u2019ve been stuck rebuilding our ship
-      for a few months now. "
+    - "Those are some tricky waters indeed\u2026 We\u2019ve been stuck rebuilding
+      our ship for a few months now"
   - dialogueLine:
     - Scotchy
-    - "Oh, don\u2019t look so down, it\u2019s really not so bad. It would almost be
-      a vacation if we weren\u2019t stuck on this little beach."
+    - "Oh, don\u2019t look so blue, it\u2019s really not that bad here\u2026 I suppose
+      it would be better if we weren\u2019t stuck in the village though\u2026"
   - dialogueLine:
     - Scotchy
-    - "There must be a way further into the island, but we haven\u2019t found it yet\u2026
-      *sigh*"
+    - "We used to be able to go further into the island, but no longer\u2026 *sigh*"
   dialoguePanda:
   - dialogueLine:
     - Shao
-    - "Zzzzzz\u2026"
+    - "Zzzzzzzzzzz\u2026"
   - dialogueLine:
     - Shao
-    - "Zzzzzzzzzzzz\u2026"
+    - "Zzzzzz\u2026Five more minutes!"
   - dialogueLine:
     - Shao
-    - "Zzzzzz\u2026 Button\u2026."
+    - "Zzzzzz\u2026Cave\u2026"
   - dialogueLine:
     - Shao
-    - "Finally\u2026 Figured out\u2026"
+    - "Zzzzzz\u2026Temple\u2026Danger!"
   - dialogueLine:
     - Shao
-    - "Silly button\u2026 Zzzz"
+    - "Zzz\u2026Where's my coconut?"
   dialogueMinimap:
   - dialogueLine:
     - Scotchy
     - Wow! You did that?
   - dialogueLine:
     - Scotchy
-    - "If you\u2019re going in there, this might be useful, I found it buried when
-      we first got here."
+    - "If you\u2019re going in there, this might be useful (y/q)\u2026 I found it
+      in Ginleons hut"
   playMinimapDialogue: 0
   minimapScript: {fileID: 368746414}
   hints: {fileID: 722590170}
