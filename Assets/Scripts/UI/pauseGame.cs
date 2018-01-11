@@ -11,6 +11,8 @@ using UnityEngine.SceneManagement;
 
 public class pauseGame : MonoBehaviour {
 
+	public UnityEngine.UI.Button startButton;
+
     public bool canBePaused = true;
 
     public Player playerScript;
@@ -41,12 +43,13 @@ public class pauseGame : MonoBehaviour {
             //Get input for a pause
             if (Input.GetButtonDown("Pause"))
             {
+				startButton.Select ();
                 isPaused = !isPaused;
                 Debug.Log("Game paused " + isPaused);
             }
 
             //Handle a pause
-            PauseGame();
+			PauseGame();
         }
     }
 
@@ -78,6 +81,7 @@ public class pauseGame : MonoBehaviour {
         {
             pauseMenu.transform.position = pauseMenuInitialPos;
             menuIsVisible = true;
+
         }
         else
         {
