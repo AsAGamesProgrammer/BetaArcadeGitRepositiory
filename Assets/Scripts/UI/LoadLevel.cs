@@ -13,10 +13,12 @@ public class LoadLevel : MonoBehaviour {
     if (nextScene < 0)
       Application.Quit();
         
-    SceneManager.LoadScene(nextScene);
-    var gObject = GameObject.FindGameObjectWithTag("Click");
-    var audio = gObject.GetComponent<AudioSource>();
-    audio.Play();
+	if (nextScene != null) {
+		SceneManager.LoadScene (nextScene);
+		var gObject = GameObject.FindGameObjectWithTag ("Click");
+		var audio = gObject.GetComponent<AudioSource> ();
+		audio.Play ();
+	}
   }
 
 }
