@@ -52,6 +52,7 @@ public class Player : Character {
     private bool mRagDoll = false;
     private AudioSource mAudioSource;
     private bool mHummingQueued = false;
+	private bool mIsDead = false;
 
 
     //-------------------------------------------Unity Functions-------------------------------------------
@@ -64,6 +65,8 @@ public class Player : Character {
     protected override void Update()
     {
         base.Update();
+
+		IgnoreInput = (Time.timeScale < 0.1f);
 
         // Reseting the 'mRotationThisFrame' variable.
         mRotationThisFrame = 0f;
@@ -154,11 +157,14 @@ public class Player : Character {
 
     public void Die()
     {
+		if (mIsDead)
+			return;
         PlayerAnimator.SetBool("IsDead", true);
         //this.GetComponent<Collider>().enabled = false;
         //mRigidbody.isKinematic = true;
         IgnoreInput = true;
         PlaySFX(DeathSFX, 1.0f);
+		mIsDead = true;
     }   
 
     public void Respawn()
@@ -167,6 +173,7 @@ public class Player : Character {
         PlayerAnimator.SetBool("IsDead", false);
         this.GetComponent<Collider>().enabled = true;
         mRigidbody.isKinematic = false;
+		mIsDead = false;
     }
 
     public void SetPushPullSpeed(float speed)
@@ -184,7 +191,7 @@ public class Player : Character {
 
     public void Step()
     {
-        PlaySFX(StepSFX[Random.Range(0, StepSFX.Count)], Random.Range(0.8f, 1.0f));
+        PlaySFX(StepSFX[Random.Range(0, StepSFX.Count)], Random.Range(0.1f, 0.2f));
     }
 
 
