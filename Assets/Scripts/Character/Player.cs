@@ -66,13 +66,11 @@ public class Player : Character {
     {
         base.Update();
 
-		IgnoreInput = (Time.timeScale < 0.1f);
-
         // Reseting the 'mRotationThisFrame' variable.
         mRotationThisFrame = 0f;
 
         // Checking whether to bother getting player input.
-        if (!IgnoreInput && !mRagDoll)
+		if (!IgnoreInput && !mRagDoll && Time.timeScale > 0.1f)
         {
             // Checking for user input.
             var playerMovement = new Vector2(Input.GetAxis("Horizontal"),
@@ -114,7 +112,6 @@ public class Player : Character {
             foreach (var obj in TempleHintUI)
                 obj.SetActive(false);
         }
-        
     }
 
     private void LateUpdate()
