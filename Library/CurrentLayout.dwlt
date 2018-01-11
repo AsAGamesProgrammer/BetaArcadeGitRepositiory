@@ -64,8 +64,8 @@ MonoBehaviour:
     y: 0
     width: 389
     height: 1067
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -314,7 +314,11 @@ MonoBehaviour:
     width: 1529
     height: 401
   m_SearchFilter:
+<<<<<<< HEAD
     m_NameFilter: dust
+=======
+    m_NameFilter: 
+>>>>>>> hubupdate
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -330,13 +334,19 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Q5051576\Desktop\BetaArcadeGitRepositiory
+  m_LastProjectPath: C:\Users\p4053032\Desktop\BetaArcadeGitRepositiory
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: 000000002e26000034280000d02800005c290000e02900004e2b0000342c0000c4320000163300004e33000080330000ca370000a2380000206c0000226c0000246c0000266c0000286c00002a6c00002c6c00002e6c0000306c0000326c0000346c0000366c0000386c000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: 963a0000
+    m_LastClickedID: 14998
+    m_ExpandedIDs: 00000000963a00008e3c0000263d0000aa3d0000263e00008e3f000064400000da4600002c4700006247000094470000ba4b00008e4c0000ae5f0000b05f0000b25f0000b45f0000b65f0000b85f0000ba5f0000bc5f0000be5f0000c05f0000c25f0000c45f0000c65f000000ca9a3bffffff7f
+>>>>>>> hubupdate
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -364,7 +374,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 000000002e26000034280000d02800005c290000e02900004e2b0000342c0000c4320000163300004e33000080330000ca370000a2380000206c0000226c0000246c0000266c0000286c00002a6c00002c6c00002e6c0000306c0000326c0000346c0000366c0000386c0000
+=======
+    m_ExpandedIDs: 00000000963a00008e3c0000263d0000aa3d0000263e00008e3f000064400000da4600002c4700006247000094470000ba4b00008e4c0000ae5f0000b05f0000b25f0000b45f0000b65f0000b85f0000ba5f0000bc5f0000be5f0000c05f0000c25f0000c45f0000c65f0000
+>>>>>>> hubupdate
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -479,10 +493,17 @@ MonoBehaviour:
     width: 377
     height: 624
   m_TreeViewState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: d83b0000
     m_LastClickedID: 15320
     m_ExpandedIDs: e4fbffff00000000
+=======
+    scrollPos: {x: 0, y: 2113}
+    m_SelectedIDs: 0c4e0000
+    m_LastClickedID: 19980
+    m_ExpandedIDs: aeeeffffd2f1ffff00000000c2510000da5100006a530000da5300004a5400004a55000090550000
+>>>>>>> hubupdate
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -493,15 +514,19 @@ MonoBehaviour:
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 21308
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 4}
     m_SearchString: 
   m_ExpandedScenes:
+<<<<<<< HEAD
   - Cave
+=======
+  - Hub_final
+>>>>>>> hubupdate
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -532,14 +557,24 @@ MonoBehaviour:
     width: 1148
     height: 624
   m_SceneLighting: 1
+<<<<<<< HEAD
   lastFramingTime: 607.7391475197159
+=======
+  lastFramingTime: 56.78398267014539
+>>>>>>> hubupdate
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 500.58176, y: 310.6815, z: -0.97740185}
     speed: 2
     m_Value: {x: 500.58176, y: 310.6815, z: -0.97740185}
+=======
+    m_Target: {x: 854.74036, y: 92.37773, z: 679.90625}
+    speed: 2
+    m_Value: {x: 854.74036, y: 92.37773, z: 679.90625}
+>>>>>>> hubupdate
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -562,6 +597,7 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.41927528, y: 0.029950444, z: -0.013841113, w: -0.9072594}
     speed: 2
     m_Value: {x: -0.41927525, y: 0.029950442, z: -0.013841113, w: -0.9072594}
@@ -569,6 +605,15 @@ MonoBehaviour:
     m_Target: 222.80705
     speed: 2
     m_Value: 222.80705
+=======
+    m_Target: {x: 0.14009577, y: -0.17459716, z: 0.025106175, w: 0.9742991}
+    speed: 2
+    m_Value: {x: 0.14009577, y: -0.17459716, z: 0.025106175, w: 0.9742991}
+  m_Size:
+    m_Target: 55.0525
+    speed: 2
+    m_Value: 55.0525
+>>>>>>> hubupdate
   m_Ortho:
     m_Target: 0
     speed: 2
