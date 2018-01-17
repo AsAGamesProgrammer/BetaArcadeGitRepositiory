@@ -12,18 +12,29 @@ public class ChangeScene : MonoBehaviour {
   bool isFading;
   bool isPaused;
 
+  public void Start()
+  {
+    BeginFadeOut(1.5f);
+  }
+
   private void OnCollisionEnter(Collision collision)
   {
     if(collision.gameObject.tag == "Player")
     {
+      
       StartCoroutine(ChangeSceneHelper(nextSceneName));
     }    
   }
 
   public IEnumerator ChangeSceneHelper(string sceneName)
   {
-        SceneManager.LoadScene(sceneName);
-        yield return null;
+    BeginFadeIn(1.5f);
+    while (isFading)
+    {
+      yield return new WaitForEndOfFrame();
+    }
+    SceneManager.LoadScene(sceneName);
+    yield return null;
 
     //Scene oldScene = SceneManager.GetActiveScene();
     //Camera oldMainCamera = Camera.main;
@@ -32,10 +43,7 @@ public class ChangeScene : MonoBehaviour {
     //yield return Resources.UnloadUnusedAssets();
     //AsyncOperation AO = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
     //AO.allowSceneActivation = false;
-    //while (AO.progress < 0.9f)
-    //{
-    //  yield return null;
-    //}
+    
     //BeginFadeIn(0.5f);
     //while (isFading)
     //  yield return new WaitForEndOfFrame();

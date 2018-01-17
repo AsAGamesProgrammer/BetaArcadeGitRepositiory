@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/GameScenes/Cave.unity
-=======
 - path: Assets/Scenes/GameScenes/Hub_final.unity
->>>>>>> hubupdate
   isLoaded: 1
   isActive: 1
