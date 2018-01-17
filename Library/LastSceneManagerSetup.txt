@@ -1,1 +1,4 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/Scenes/UIScenes/mainMenu.unity
+  isLoaded: 1
+  isActive: 1
