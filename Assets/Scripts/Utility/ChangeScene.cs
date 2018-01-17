@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChangeScene : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class ChangeScene : MonoBehaviour {
   AsyncOperation async;
   bool isFading;
   bool isPaused;
+  public new Image guiTexture;
 
   public void Start()
   {
@@ -31,7 +33,7 @@ public class ChangeScene : MonoBehaviour {
     BeginFadeIn(1.5f);
     while (isFading)
     {
-      yield return new WaitForEndOfFrame();
+      yield return null;
     }
     SceneManager.LoadScene(sceneName);
     yield return null;
@@ -66,10 +68,9 @@ public class ChangeScene : MonoBehaviour {
     var alpha = 0.0f;
     while (alpha < 1.0f)
     {
+      alpha = Mathf.Clamp01(alpha + Time.deltaTime / duration);
+      guiTexture.color = Color.Lerp(guiTexture.color, Color.black, alpha);
       yield return new WaitForEndOfFrame();
-      if (!isPaused)
-        alpha = Mathf.Clamp01(alpha + Time.deltaTime / duration);
-      DrawQuad(Color.black, alpha);
     }
     isFading = false;
   }
@@ -86,20 +87,19 @@ public class ChangeScene : MonoBehaviour {
     var alpha = 1.0f;
     while (alpha > 0.0f)
     {
+      alpha = Mathf.Clamp01(alpha - Time.deltaTime / duration);
+      guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, alpha);
       yield return new WaitForEndOfFrame();
-      if (!isPaused)
-        alpha = Mathf.Clamp01(alpha - Time.deltaTime / duration);
-      DrawQuad(Color.black, alpha);
     }
     isFading = false;
   }
-  private static void DrawQuad(Color color, float alpha)
-  {
-    color.a = alpha;
-    Texture2D fadeTexture = new Texture2D(Screen.width, Screen.height);
-    int drawDepth = -1000;
-    GUI.color = color;
-    GUI.depth = drawDepth;
-    GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeTexture);
-  }
+  //private static void DrawQuad(Color color, float alpha)
+  //{
+  //  color.a = alpha;
+  //  Texture2D fadeTexture = new Texture2D(Screen.width, Screen.height);
+  //  int drawDepth = -1000;
+  //  GUI.color = color;
+  //  GUI.depth = drawDepth;
+  //  GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeTexture);
+  //}
 }
