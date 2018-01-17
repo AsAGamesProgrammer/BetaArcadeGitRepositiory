@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -42,8 +42,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 1067
-  m_MinSize: {x: 683, y: 342}
-  m_MaxSize: {x: 12008, y: 8042}
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
   controlID: 9
 --- !u!114 &3
@@ -114,15 +114,15 @@ MonoBehaviour:
     y: 724
     width: 1531
     height: 343
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 12}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
   - {fileID: 19}
   - {fileID: 12}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -207,8 +207,8 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 1067
-  m_MinSize: {x: 406, y: 342}
-  m_MaxSize: {x: 8006, y: 8042}
+  m_MinSize: {x: 406, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
   controlID: 10
 --- !u!114 &10
@@ -255,13 +255,13 @@ MonoBehaviour:
     height: 724
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 17}
   - {fileID: 18}
   - {fileID: 13}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -362,7 +362,7 @@ MonoBehaviour:
       splitSize: 6
       xOffset: 0
     m_HorizontalSplitter:
-      ID: 67
+      ID: 55
       splitterInitialOffset: 0
       currentActiveSplitter: -1
       realSizes: cb0100002f040000
@@ -443,19 +443,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes/GameScenes
+    - Assets/Scripts/Utility
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes/GameScenes
+  - Assets/Scripts/Utility
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\p4053032\Desktop\BetaArcadeGitRepositiory
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 347}
-    m_SelectedIDs: 00680000
-    m_LastClickedID: 26624
-    m_ExpandedIDs: 000000002e26000036280000d2280000e02900005c2b0000402c0000d4320000243300005c3300008e330000d0360000dc370000b6380000b0440000b2440000b4440000b6440000b8440000ba440000bc440000be440000c0440000c2440000c4440000c6440000c8440000
+    scrollPos: {x: 0, y: 467}
+    m_SelectedIDs: 862f0000
+    m_LastClickedID: 12166
+    m_ExpandedIDs: 000000002e26000036280000d22800005c290000e02900005c2b0000402c0000d4320000243300008e330000d0360000dc370000b6380000f84c0000fa4c0000fc4c0000fe4c0000004d0000024d0000044d0000064d0000084d00000a4d00000c4d00000e4d0000104d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -483,7 +483,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002e26000036280000d2280000e02900005c2b0000402c0000d4320000243300005c3300008e330000d0360000dc370000b6380000b0440000b2440000b4440000b6440000b8440000ba440000bc440000be440000c0440000c2440000c4440000c6440000c8440000
+    m_ExpandedIDs: 000000002e26000036280000d2280000e02900005c2b0000402c0000d4320000243300005c3300008e330000d0360000dc370000b6380000f84c0000fa4c0000fc4c0000fe4c0000004d0000024d0000044d0000064d0000084d00000a4d00000c4d00000e4d0000104d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -508,8 +508,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b8dbfdff
-    m_LastClickedInstanceID: -140360
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000824a0000
     m_RenameOverlay:
@@ -598,29 +598,29 @@ MonoBehaviour:
     width: 377
     height: 703
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    scrollPos: {x: 0, y: 130}
+    m_SelectedIDs: 7e070000
     m_LastClickedID: 0
-    m_ExpandedIDs: e4fbffff000000001a3a00006c3a0000
+    m_ExpandedIDs: e4fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Water4SimpleReflectionMain Camera
-      m_OriginalName: Water4SimpleReflectionMain Camera
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 15284
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 4}
     m_SearchString: 
   m_ExpandedScenes:
-  - chapterSelect
+  - Hub_final
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -651,14 +651,14 @@ MonoBehaviour:
     width: 1148
     height: 703
   m_SceneLighting: 1
-  lastFramingTime: 17.032078208319355
+  lastFramingTime: 23.570280627505813
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -12.73765, y: 1.6191365, z: 15.831206}
+    m_Target: {x: 836.335, y: 91.26854, z: 588.586}
     speed: 2
-    m_Value: {x: -12.73765, y: 1.6191365, z: 15.831206}
+    m_Value: {x: 836.335, y: 91.26854, z: 588.586}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -685,9 +685,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.03638577, y: 0.95927244, z: -0.14372912, w: -0.24044631}
   m_Size:
-    m_Target: 7.064566
+    m_Target: 13.230222
     speed: 2
-    m_Value: 7.064566
+    m_Value: 13.230222
   m_Ortho:
     m_Target: 0
     speed: 2

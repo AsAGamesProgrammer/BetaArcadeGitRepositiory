@@ -14,9 +14,9 @@ public class ChangeScene : MonoBehaviour {
   bool isPaused;
   public new Image guiTexture;
 
-  public void Start()
+  void Start()
   {
-    BeginFadeOut(1.5f);
+    BeginFadeOut(3.5f);
   }
 
   private void OnCollisionEnter(Collision collision)
@@ -88,7 +88,7 @@ public class ChangeScene : MonoBehaviour {
     while (alpha > 0.0f)
     {
       alpha = Mathf.Clamp01(alpha - Time.deltaTime / duration);
-      guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, alpha);
+      guiTexture.color = Color.Lerp(Color.clear, guiTexture.color, alpha);
       yield return new WaitForEndOfFrame();
     }
     isFading = false;
