@@ -27,9 +27,10 @@ AudioMixerController:
     - 8dd68c907f249d845959a416c2859e60
     - 7c6901e0d9cb76045ae956585c6a1781
     - 4d073f9233aaf7f41be1fb68fa7731d9
+    - f938e62030157a34db5754894c112763
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 245271801982083672}
+  m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -44,6 +45,7 @@ AudioMixerGroupController:
   - {fileID: 243588658201661230}
   - {fileID: 243858065694269440}
   - {fileID: 243015602185841332}
+  - {fileID: 243928719059857360}
   m_Volume: 5784fef92f21e6a4fb0cdc19bac02155
   m_Pitch: c7689afae47b4ec4ba6981d968b1009f
   m_Effects:
@@ -75,8 +77,15 @@ AudioMixerSnapshotController:
   m_SnapshotID: 982652bb5bc557645b62d5b7bf2664ad
   m_FloatValues:
     1e51ca60fe17ae94999cf6b5319725a1: -3.2641225
+    5b92f4a0145f4144bbfddd734a066f40: 0.449
     0bc711b13784a73429a1ccb8b9dcd7cd: -3.5090396
+    6f022042ff807ce40b88a491ea89ae18: 1
     8e67c55290ced79449701c888d7a4886: -80
+    28ee7782b0fadc34aa15e6700a2fb873: 0.56700003
+    b7c3f294f945dc0498f5820ba39e1426: 20
+    2a9896c47de2eae409dc861c61e9afd5: 174
+    ac755cc5cfb838f46801c52e9d6fe593: 8.8
+    d1018bd637adbc644b4986f5a8bf515a: 0.147
     342aa67a416af3f42a0ad111027c9f91: -80
   m_TransitionOverrides: {}
 --- !u!243 &243015602185841332
@@ -164,6 +173,24 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &243928719059857360
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Tia
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: f938e62030157a34db5754894c112763
+  m_Children: []
+  m_Volume: ac755cc5cfb838f46801c52e9d6fe593
+  m_Pitch: 6f022042ff807ce40b88a491ea89ae18
+  m_Effects:
+  - {fileID: 244134916708141898}
+  - {fileID: 244966227142710834}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &244023302550722030
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -173,6 +200,19 @@ AudioMixerEffectController:
   m_EffectID: f3dac0c0e3a077044a0cf097705615b8
   m_EffectName: Attenuation
   m_MixLevel: 1c82b9cbd50068d49a7189e5f50d648a
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &244134916708141898
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 993cc097748564448adfc5bd711107c2
+  m_EffectName: Attenuation
+  m_MixLevel: ff7d24d2acdb0ae45aa83b9a9311474b
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
@@ -229,6 +269,29 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &244966227142710834
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 18cce67fb0a5e7946aeb809171ff33a1
+  m_EffectName: Echo
+  m_MixLevel: 41b0e78a0cb49e348a9c490416365a75
+  m_Parameters:
+  - m_ParameterName: Delay
+    m_GUID: 2a9896c47de2eae409dc861c61e9afd5
+  - m_ParameterName: Decay
+    m_GUID: 5b92f4a0145f4144bbfddd734a066f40
+  - m_ParameterName: Max channels
+    m_GUID: c669f8e9ff6d7ad48a192bb11a6cbf49
+  - m_ParameterName: Drymix
+    m_GUID: d1018bd637adbc644b4986f5a8bf515a
+  - m_ParameterName: Wetmix
+    m_GUID: 28ee7782b0fadc34aa15e6700a2fb873
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!245 &245123739146100730
 AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
@@ -239,7 +302,15 @@ AudioMixerSnapshotController:
   m_SnapshotID: c45c1c281175a044e853f9ef155b4a67
   m_FloatValues:
     1e51ca60fe17ae94999cf6b5319725a1: -80
+    5b92f4a0145f4144bbfddd734a066f40: 0.449
+    6f022042ff807ce40b88a491ea89ae18: 1
     8e67c55290ced79449701c888d7a4886: -80
+    28ee7782b0fadc34aa15e6700a2fb873: 0.56700003
+    b7c3f294f945dc0498f5820ba39e1426: 20
+    2a9896c47de2eae409dc861c61e9afd5: 174
+    ac755cc5cfb838f46801c52e9d6fe593: 8.8
+    d1018bd637adbc644b4986f5a8bf515a: 0.147
+    c669f8e9ff6d7ad48a192bb11a6cbf49: 3.7
     342aa67a416af3f42a0ad111027c9f91: -8.010123
   m_TransitionOverrides: {}
 --- !u!245 &245271801982083672
@@ -252,7 +323,14 @@ AudioMixerSnapshotController:
   m_SnapshotID: e312dde4d3fb4bb4ea26417e3ea2d3a4
   m_FloatValues:
     1e51ca60fe17ae94999cf6b5319725a1: -80
+    5b92f4a0145f4144bbfddd734a066f40: 0.449
+    6f022042ff807ce40b88a491ea89ae18: 1
     8e67c55290ced79449701c888d7a4886: -7.5501633
+    28ee7782b0fadc34aa15e6700a2fb873: 0.56700003
+    b7c3f294f945dc0498f5820ba39e1426: 20
+    2a9896c47de2eae409dc861c61e9afd5: 174
+    ac755cc5cfb838f46801c52e9d6fe593: 8.8
+    d1018bd637adbc644b4986f5a8bf515a: 0.147
     342aa67a416af3f42a0ad111027c9f91: -3.9333012
   m_TransitionOverrides: {}
 --- !u!245 &245569629996471366
@@ -265,7 +343,14 @@ AudioMixerSnapshotController:
   m_SnapshotID: 8f377c63e09093d40b847cc4a73569d3
   m_FloatValues:
     1e51ca60fe17ae94999cf6b5319725a1: -8.0101185
+    5b92f4a0145f4144bbfddd734a066f40: 0.449
+    6f022042ff807ce40b88a491ea89ae18: 1
     8e67c55290ced79449701c888d7a4886: -7.5501633
+    28ee7782b0fadc34aa15e6700a2fb873: 0.56700003
+    b7c3f294f945dc0498f5820ba39e1426: 20
+    2a9896c47de2eae409dc861c61e9afd5: 174
+    ac755cc5cfb838f46801c52e9d6fe593: 8.8
+    d1018bd637adbc644b4986f5a8bf515a: 0.147
     342aa67a416af3f42a0ad111027c9f91: -80
   m_TransitionOverrides: {}
 --- !u!245 &245643097046242394
@@ -278,6 +363,13 @@ AudioMixerSnapshotController:
   m_SnapshotID: add73a83de7406649b597bf7361e166c
   m_FloatValues:
     1e51ca60fe17ae94999cf6b5319725a1: -8.0101185
+    5b92f4a0145f4144bbfddd734a066f40: 0.449
+    6f022042ff807ce40b88a491ea89ae18: 1
     8e67c55290ced79449701c888d7a4886: -80
+    28ee7782b0fadc34aa15e6700a2fb873: 0.56700003
+    b7c3f294f945dc0498f5820ba39e1426: 20
+    2a9896c47de2eae409dc861c61e9afd5: 174
+    ac755cc5cfb838f46801c52e9d6fe593: 8.8
+    d1018bd637adbc644b4986f5a8bf515a: 0.147
     342aa67a416af3f42a0ad111027c9f91: -80
   m_TransitionOverrides: {}
